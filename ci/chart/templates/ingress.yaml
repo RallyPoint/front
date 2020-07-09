@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - rallypoint.tech
+        - beta.rallypoint.tech
       secretName: front-tls
   rules:
-    - host: rallypoint.tech
+    - host: beta.rallypoint.tech
       http:
         paths:
           - path: /
