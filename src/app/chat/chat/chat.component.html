@@ -1,1 +1,15 @@
 <p>chat works!</p>
+<ul>
+  <li *ngFor="let message of messages">
+    {{message.txt}}
+    <span (click)="vote(false,message.uuid)">-</span>
+    {{message.voteCount}}
+    <span (click)="vote(true,message.uuid)">+</span>
+    {{message.gist}}
+  </li>
+</ul>
+<button (click)="connection()">connexion</button>
+<form (ngSubmit)="send()">
+<input type="text" [(ngModel)]="message" name="message">
+</form>
+<button (click)="openCodeEditor()">toto</button>

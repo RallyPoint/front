@@ -1,0 +1,90 @@
+<div *ngIf="!completSSO && !resetPassword">
+  <mat-tab-group>
+    <mat-tab label="Connexion">
+      <form [formGroup]="logInForm" (ngSubmit)="logInSubmit()">
+        <p>
+          <mat-form-field appearance="legacy">
+            <mat-label>Identifiant</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="logInForm.get('email') && logInForm.get('email').invalid && logInForm.get('email').touched">Invalid</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="standard">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" required>
+            <mat-error *ngIf="logInForm.get('password') && logInForm.get('password').invalid && logInForm.get('password').touched">Invalid</mat-error>
+          </mat-form-field>
+        </p>
+        <button mat-raised-button>Connexion</button>
+      </form>
+    </mat-tab>
+    <mat-tab label="Inscription">
+      <form [formGroup]="signInForm" (ngSubmit)="signInSubmit()">
+        <p>
+          <mat-form-field appearance="standard">
+            <mat-label>Identifiant</mat-label>
+            <input matInput formControlName="pseudo" required>
+            <mat-error *ngIf="signInForm.get('pseudo') && signInForm.get('pseudo').invalid && signInForm.get('pseudo').touched">Invalid</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="standard">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" required>
+            <mat-error *ngIf="signInForm.get('password') && signInForm.get('password').invalid && signInForm.get('password').touched">Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="standard">
+            <mat-label>Confirmer le mot de passe</mat-label>
+            <input matInput type="password" formControlName="passwordConfirm" required>
+            <mat-error *ngIf="signInForm.get('passwordConfirm') && signInForm.get('passwordConfirm').invalid && signInForm.get('passwordConfirm').touched">Invalid</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="legacy">
+            <mat-label>Adresse e-mail</mat-label>
+            <input matInput type="email" formControlName="email" required>
+            <mat-error *ngIf="signInForm.get('email') && signInForm.get('email').invalid && signInForm.get('email').touched">Invalid</mat-error>
+          </mat-form-field>
+        </p>
+        <mat-error *ngIf="signInForm.errors && signInForm.errors.samePassword && signInForm.get('passwordConfirm').touched && signInForm.get('password').touched">Les mots de passes ne sont pas identiques</mat-error>
+        <button mat-raised-button [disabled]="!signInForm.valid">Inscription</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+  <button mat-raised-button (click)="loginGitHub()">Avec Github</button><span (click)="resetPassword = true">mots de passe oublier</span>
+</div>
+<div *ngIf="completSSO">
+  <form (ngSubmit)="completSSOSubmit()">
+    <p *ngIf="completSSOMiss.indexOf('email') != -1">
+      <mat-form-field appearance="standard">
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="completSSOForm.email" type="email" name="email" required>
+      </mat-form-field>
+    </p>
+    <button mat-raised-button>Inscription</button>
+  </form>
+</div>
+<div *ngIf="resetPassword">
+  <span (click)="resetPassword = false">close</span>
+  <form (ngSubmit)="resetPasswordSubmit()" *ngIf="!resetPasswordSended && !resetPasswordError && !resetPasswordNotFound">
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="resetPasswordForm.email" type="email" name="email" required>
+      </mat-form-field>
+    </p>
+    <button mat-raised-button>Mot de passe oublier</button>
+  </form>
+  <div *ngIf="resetPasswordSended">
+    Vous avez reçut un mail pour changer votre mots de passe
+  </div>
+  <div *ngIf="resetPasswordNotFound">
+    Aucun compte n'existe avec cette email
+  </div>
+  <div *ngIf="resetPasswordError">
+    Une erreur technique est survenue veuilleir tenter plustard
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<script>
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  if(localStorage.getItem('github_state') === urlParams.get('state')){
+    alert("Valide state");
+  }else{
+    alert("Invalide state");
+  }
+  opener.cbSSO(urlParams);
+  window.close();
+</script>

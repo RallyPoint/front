@@ -1,0 +1,14 @@
+<p>Poster votre code</p>
+<mat-form-field>
+  <mat-label>Language</mat-label>
+  <mat-select [(value)]="mode">
+    <mat-option *ngFor="let i of languages | keyvalue" [value]="i.key">{{i.key}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <mat-label>Message</mat-label>
+  <input matInput placeholder="" [(ngModel)]="message">
+</mat-form-field>
+<ace id="codeEditor" [mode]="mode" [theme]="'github'" [(value)]="value"></ace>
+<button type="button" class="btn btn-outline-dark" (click)="sendAndClose()">Save</button>
+

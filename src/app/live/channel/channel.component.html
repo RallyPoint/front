@@ -1,1 +1,8 @@
 <p>channel works!</p>
+<app-chat></app-chat>
+{{followed}}
+<button (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
+<button (click)="follow()" *ngIf="!followed">Suivre</button>
+<button (click)="subscribe()">S'abonner</button>
+<button (click)="connexion()">Connexion</button>
+<span *ngIf="isAuth">IS LOGGED</span>
