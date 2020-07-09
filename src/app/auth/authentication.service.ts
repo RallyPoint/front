@@ -6,9 +6,7 @@ import {ApiService} from "../share/api.service";
 import {AxiosError} from "axios";
 import {AuthenticationConstant} from "./authentication.constant";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService {
 
   public user : any;
@@ -22,25 +20,6 @@ export class AuthenticationService {
     this.loadAuth();
   }
 
-  public signIn(): Promise<boolean>{
-    this.openAuthModal(false);
-    return ;
-  }
-
-  public logIn(): Promise<boolean>{
-    console.log("azeeaz")
-    this.openAuthModal(true);
-    return ;
-  }
-
-  public openAuthModal(mode:boolean): void{
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.id = "modal-login";
-    dialogConfig.data = {
-      mode
-    };
-    const modalDialog = this.matDialog.open(LoginComponent, dialogConfig);
-  }
 
   isLogged(): boolean{
     return !!this.token;
@@ -59,7 +38,7 @@ export class AuthenticationService {
         window['cbSSO'] = (urlParams: URLSearchParams)=>{
           this.apiService.axios.post("auth/github-login",{
             code : urlParams.get('code'),
-              ...data
+            ...data
           }).then((res)=>{
             resolve(res.data);
           },(e: AxiosError)=>{

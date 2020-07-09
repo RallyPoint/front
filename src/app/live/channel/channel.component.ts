@@ -3,6 +3,7 @@ import {AuthenticationService} from "../../auth/authentication.service";
 import {ApiService} from "../../share/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FollowService} from "../../follow/follow.service";
+import {LoginService} from "../../auth/login.service";
 
 @Component({
   selector: 'app-channel',
@@ -17,6 +18,7 @@ export class ChannelComponent implements OnInit {
   public followed: boolean;
 
   constructor(private readonly authService: AuthenticationService,
+              private readonly loginService: LoginService,
               private readonly apiService: ApiService,
               private readonly followService: FollowService,
               private readonly route: ActivatedRoute) { }
@@ -33,7 +35,7 @@ export class ChannelComponent implements OnInit {
   }
 
   connexion(){
-    this.authService.logIn();
+    this.loginService.logIn();
   }
 
   follow(){

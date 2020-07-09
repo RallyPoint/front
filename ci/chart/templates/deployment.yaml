@@ -23,18 +23,3 @@ spec:
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - cp /etc/secret-volume/{{ .Values.ENV_CONFIG }}.json /usr/app/config/{{ .Values.ENV_CONFIG }}.json
-          volumeMounts:
-            - name: secret-volume
-              mountPath: /etc/secret-volume
-              readOnly: true
-      volumes:
-          - name: secret-volume
-            secret:
-              secretName: back-config

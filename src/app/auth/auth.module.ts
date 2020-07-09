@@ -7,6 +7,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTabsModule} from "@angular/material/tabs";
 import {ShareModule} from "../share/share.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginService} from "./login.service";
+import {AuthenticationService} from "./authentication.service";
 
 
 
@@ -24,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ShareModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [AuthenticationService,LoginService]
 })
 export class AuthModule { }
