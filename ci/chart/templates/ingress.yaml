@@ -10,9 +10,17 @@ spec:
   tls:
     - hosts:
         - beta.rallypoint.tech
+        - rallypoint.tech
       secretName: front-tls
   rules:
     - host: beta.rallypoint.tech
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ template "fullname" . }}-clusteip
+              servicePort: 80
+    - host: rallypoint.tech
       http:
         paths:
           - path: /
