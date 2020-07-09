@@ -7,7 +7,7 @@ env:
   global:
     - DOCKER_IMAGE="front"
     - DOCKER_USERNAME=rallypointtech
-    - KUBE_NAMESPACE="front"
+    - KUBE_NAMESPACE="prod"
     - CI_ENVIRONMENT_SLUG="front"
 
 jobs:
