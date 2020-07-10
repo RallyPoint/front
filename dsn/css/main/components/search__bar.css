@@ -1,0 +1,143 @@
+/************************** 
+* Import style
+***************************/
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Main Background
+***************************/
+/************************** 
+* Border Color
+***************************/
+/************************** 
+* Main Fonts
+***************************/
+/************************** 
+* Float fixing
+***************************/
+/************************** 
+* Text Align
+***************************/
+/************************** 
+* font-weight
+***************************/
+/************************** 
+* Transition
+***************************/
+.transition {
+  -webkit-transition: all .4s ease-in-out !important;
+  -o-transition: all .4s ease-in-out !important;
+  transition: all .4s ease-in-out !important; }
+
+/************************** 
+* Box Shadow
+***************************/
+.box-shadownone {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/************************** 
+* Box Sizing
+***************************/
+.box-sizing {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/************************** 
+* Transition Transforme
+***************************/
+.transTransforme {
+  -webkit-transition: transform 330ms ease-out;
+  -moz-transition: transform 330ms ease-out;
+  -o-transition: transform 330ms ease-out;
+  transition: transform 330ms ease-out; }
+
+/************************** 
+* Media Queries
+***************************/
+/************************** 
+* Main Style
+***************************/
+#search__bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 27px; }
+  @media (max-width: 991px) {
+    #search__bar {
+      display: inline-block; } }
+  #search__bar .title__section {
+    width: 50%;
+    float: left; }
+    @media (max-width: 991px) {
+      #search__bar .title__section {
+        width: 100%; } }
+    #search__bar .title__section h2 {
+      font-size: 60px;
+      font-family: "Montserrat";
+      line-height: 60px;
+      margin-bottom: 0;
+      font-weight: 900; }
+      @media (max-width: 991px) {
+        #search__bar .title__section h2 {
+          margin-bottom: 20px; } }
+  #search__bar .serach__form {
+    width: 50%;
+    float: left; }
+    @media (max-width: 991px) {
+      #search__bar .serach__form {
+        width: 100%; } }
+    #search__bar .serach__form .form-search {
+      width: 500px;
+      position: relative;
+      float: right; }
+      @media (max-width: 991px) {
+        #search__bar .serach__form .form-search {
+          display: initial !important;
+          width: 100%; } }
+      #search__bar .serach__form .form-search .form-control {
+        height: 45px;
+        border-radius: 100px;
+        width: 100%;
+        font-size: 16px;
+        color: #BEBEBE;
+        border: 1px solid #F7F7F7;
+        background: #F7F7F7;
+        padding: 0;
+        padding-left: 40px;
+        padding-right: 10px; }
+        #search__bar .serach__form .form-search .form-control:focus {
+          box-shadow: none; }
+        #search__bar .serach__form .form-search .form-control::placeholder {
+          color: #BEBEBE; }
+          @media (min-width: 992px) and (max-width: 1199px) {
+            #search__bar .serach__form .form-search .form-control::placeholder {
+              font-size: 12px; } }
+        #search__bar .serach__form .form-search .form-control:-ms-input-placeholder {
+          color: #BEBEBE; }
+          @media (min-width: 992px) and (max-width: 1199px) {
+            #search__bar .serach__form .form-search .form-control:-ms-input-placeholder {
+              font-size: 12px; } }
+        #search__bar .serach__form .form-search .form-control::-ms-input-placeholder {
+          color: #BEBEBE; }
+          @media (min-width: 992px) and (max-width: 1199px) {
+            #search__bar .serach__form .form-search .form-control::-ms-input-placeholder {
+              font-size: 12px; } }
+      #search__bar .serach__form .form-search .btn-outline-success {
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        color: transparent;
+        position: absolute;
+        left: 14px; }
+        #search__bar .serach__form .form-search .btn-outline-success img {
+          height: 16px; }
+      @media (max-width: 991px) {
+        #search__bar .serach__form .form-search {
+          display: none; } }
+
+/*# sourceMappingURL=search__bar.css.map */

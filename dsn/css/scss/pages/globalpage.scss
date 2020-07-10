@@ -1,0 +1,117 @@
+/************************** 
+* Import style
+***************************/
+
+@import '../helpers/variabls';
+
+/************************** 
+* General style
+***************************/
+
+body {
+    font: {
+        size: 14px;
+    }
+    color: #ffffff;
+    line-height: 1.2;
+    position: relative;
+    @extend .box-sizing;
+    /*     background: #212C3E; */
+    background: #062249;
+    /*    min-height: 4000px; */
+}
+
+html {
+    overflow-x: hidden;
+}
+
+* {
+    outline: 0;
+}
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+
+/* End Col lg */
+
+.form-control {
+    @extend .transition;
+    &:focus {}
+}
+
+
+/* clears the 'X' from Internet Explorer */
+
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+
+/* clears the 'X' from Chrome */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@media (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {}
+}
+
+@media (min-width: 1280px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {}
+}
+
+@media (min-width: 1366px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {}
+}
+
+
+/* Button */
+
+@media (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        /*     max-width: 1562px; */
+        max-width: 1920px;
+    }
+}

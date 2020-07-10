@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthModule} from "./auth/auth.module";
 import {ShareModule} from "./share/share.module";
 import { FollowModule } from './follow/follow.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FollowModule } from './follow/follow.module';
     BrowserAnimationsModule,
     AuthModule,
     ShareModule,
-    FollowModule
+    FollowModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

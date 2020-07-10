@@ -1,0 +1,172 @@
+/************************** 
+* Import style
+***************************/
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Main Background
+***************************/
+/************************** 
+* Border Color
+***************************/
+/************************** 
+* Main Fonts
+***************************/
+/************************** 
+* Float fixing
+***************************/
+/************************** 
+* Text Align
+***************************/
+/************************** 
+* font-weight
+***************************/
+/************************** 
+* Transition
+***************************/
+.transition, #headr__one .main__Content-global .bookmark a, #headr__one .main__Content-global .bookmark a:hover {
+  -webkit-transition: all .4s ease-in-out !important;
+  -o-transition: all .4s ease-in-out !important;
+  transition: all .4s ease-in-out !important; }
+
+/************************** 
+* Box Shadow
+***************************/
+.box-shadownone {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/************************** 
+* Box Sizing
+***************************/
+.box-sizing {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/************************** 
+* Transition Transforme
+***************************/
+.transTransforme {
+  -webkit-transition: transform 330ms ease-out;
+  -moz-transition: transform 330ms ease-out;
+  -o-transition: transform 330ms ease-out;
+  transition: transform 330ms ease-out; }
+
+/************************** 
+* Media Queries
+***************************/
+/************************** 
+* Main Style
+***************************/
+#headr__one {
+  margin-top: 138px;
+  margin-bottom: 70px; }
+  #headr__one .main__Content-global {
+    display: flex;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px; }
+    @media (max-width: 320px) {
+      #headr__one .main__Content-global {
+        display: inline-block;
+        padding-left: 0;
+        padding-right: 0; } }
+    #headr__one .main__Content-global .main__video .img_videos {
+      position: relative; }
+      #headr__one .main__Content-global .main__video .img_videos img {
+        width: 100%;
+        border-radius: 20px; }
+      #headr__one .main__Content-global .main__video .img_videos .live {
+        position: absolute;
+        left: 5%;
+        top: 7%;
+        background: #E02020;
+        padding: 5px 13px;
+        border-radius: 10px;
+        font-family: "Montserrat";
+        font-size: 10px;
+        text-transform: uppercase; }
+    #headr__one .main__Content-global .main__content {
+      padding-top: 40px; }
+      #headr__one .main__Content-global .main__content h1 {
+        font-family: "Montserrat-Black";
+        font-size: 60px;
+        font-weight: bold;
+        color: #28CCE8;
+        margin-bottom: 30px; }
+        @media (max-width: 320px) {
+          #headr__one .main__Content-global .main__content h1 {
+            font-size: 30px; } }
+      #headr__one .main__Content-global .main__content .main__information {
+        border-top: 1px solid #4c4c4c;
+        border-bottom: 1px solid #4c4c4c;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px; }
+        #headr__one .main__Content-global .main__content .main__information .left__information {
+          display: inline-block;
+          width: auto;
+          height: 51px;
+          line-height: 51px; }
+          #headr__one .main__Content-global .main__content .main__information .left__information h4 {
+            font-family: "Montserrat-Regular";
+            font-size: 16px;
+            color: #28CCE8;
+            font-weight: 400;
+            margin-bottom: 0;
+            line-height: 51px; }
+            #headr__one .main__Content-global .main__content .main__information .left__information h4 span {
+              color: #C4C4C4;
+              margin-left: 5px; }
+        #headr__one .main__Content-global .main__content .main__information .right__information {
+          width: auto;
+          float: right;
+          padding-top: 5px;
+          padding-bottom: 5px; }
+          #headr__one .main__Content-global .main__content .main__information .right__information h4 {
+            font-family: "Montserrat-Regular";
+            font-size: 16px;
+            color: #C4C4C4;
+            font-weight: 400;
+            margin-bottom: 0; }
+            #headr__one .main__Content-global .main__content .main__information .right__information h4 span {
+              color: #C4C4C4;
+              margin-left: 5px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              display: inline-block;
+              border: 1px solid #4c4c4c;
+              border-radius: 10px;
+              padding-left: 7px;
+              padding-right: 7px;
+              font-family: "Montserrat";
+              font-size: 8px;
+              color: #28CCE8;
+              font-weight: 400;
+              text-transform: uppercase; }
+    #headr__one .main__Content-global p {
+      color: #919191;
+      line-height: 28px;
+      font-family: "Montserrat-Regular";
+      margin-bottom: 20px;
+      font-size: 16px; }
+    #headr__one .main__Content-global .bookmark {
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+      font-family: "Montserrat";
+      font-size: 16px;
+      font-weight: 400;
+      color: #919191; }
+      #headr__one .main__Content-global .bookmark a {
+        color: #919191; }
+        #headr__one .main__Content-global .bookmark a:hover {
+          color: #28CCE8; }
+      #headr__one .main__Content-global .bookmark span {
+        margin-right: 10px; }
+
+/*# sourceMappingURL=headr__one.css.map */

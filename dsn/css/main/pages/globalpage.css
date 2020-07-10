@@ -1,0 +1,122 @@
+/************************** 
+* Import style
+***************************/
+/************************** 
+* Main Color
+***************************/
+/************************** 
+* Main Background
+***************************/
+/************************** 
+* Border Color
+***************************/
+/************************** 
+* Main Fonts
+***************************/
+/************************** 
+* Float fixing
+***************************/
+/************************** 
+* Text Align
+***************************/
+/************************** 
+* font-weight
+***************************/
+/************************** 
+* Transition
+***************************/
+.transition, .form-control {
+  -webkit-transition: all .4s ease-in-out !important;
+  -o-transition: all .4s ease-in-out !important;
+  transition: all .4s ease-in-out !important; }
+
+/************************** 
+* Box Shadow
+***************************/
+.box-shadownone {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/************************** 
+* Box Sizing
+***************************/
+.box-sizing, body {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/************************** 
+* Transition Transforme
+***************************/
+.transTransforme {
+  -webkit-transition: transform 330ms ease-out;
+  -moz-transition: transform 330ms ease-out;
+  -o-transition: transform 330ms ease-out;
+  transition: transform 330ms ease-out; }
+
+/************************** 
+* Media Queries
+***************************/
+/************************** 
+* General style
+***************************/
+body {
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.2;
+  position: relative;
+  /*     background: #212C3E; */
+  background: #062249;
+  /*    min-height: 4000px; */ }
+
+html {
+  overflow-x: hidden; }
+
+* {
+  outline: 0; }
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none; }
+
+/* End Col lg */
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0; }
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; }
+
+span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+a {
+  text-decoration: none !important; }
+
+/* Button */
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    /*     max-width: 1562px; */
+    max-width: 1920px; } }
+
+/*# sourceMappingURL=globalpage.css.map */
