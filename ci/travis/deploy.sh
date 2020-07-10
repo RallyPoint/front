@@ -29,6 +29,7 @@ helm upgrade --install \
   --set env.NODE_ENV="$KUBE_NAMESPACE" \
   --set ENV_CONFIG="$KUBE_NAMESPACE" \
   --namespace="$KUBE_NAMESPACE" \
+  --create-namespace \
   "$name" \
   ci/chart/
 
