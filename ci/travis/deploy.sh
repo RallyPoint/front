@@ -22,7 +22,6 @@ echo "KUBE_NAMESPACE: $KUBE_NAMESPACE";
 
 pwd
 
-kubectl create namespace $KUBE_NAMESPACE
 
 helm upgrade --install \
   --wait \
