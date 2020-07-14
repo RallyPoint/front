@@ -1,4 +1,7 @@
 :host{
-  flex: 1;
-  padding-top: 20px;
+  .item{
+    flex: 1 0 auto;
+    max-width: 50%;
+    width: 20rem;
+  }
 }

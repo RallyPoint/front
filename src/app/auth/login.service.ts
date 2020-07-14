@@ -9,13 +9,12 @@ export class LoginService {
   }
 
   public signIn(): Promise<boolean>{
-    this.openAuthModal(false);
+    this.openAuthModal(true);
     return ;
   }
 
   public logIn(): Promise<boolean>{
-    console.log("azeeaz")
-    this.openAuthModal(true);
+    this.openAuthModal(false);
     return ;
   }
 
@@ -23,7 +22,7 @@ export class LoginService {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.id = "modal-login";
     dialogConfig.data = {
-      mode
+      mode,
     };
     const modalDialog = this.matDialog.open(LoginComponent, dialogConfig);
   }

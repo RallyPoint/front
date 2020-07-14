@@ -157,31 +157,22 @@
       margin-left: 0px;
     }
     .btn {
-      font-family: "Montserrat";
-      color: #ffffff;
+      color: #062249;
       font-size: 15px;
       font-weight: 500;
       text-transform: uppercase;
-      border: 2px solid #062249;
       border-radius: 30px;
       margin-left: 11px;
-      background: #062249;
+      background: transparent;
       height: 35px;
-      padding-left: 14px;
-      padding-right: 14px;
-      line-height: 35px;
-      padding-top: 0;
-      padding-bottom: 0;
+      line-height: 32px;
+      padding: 0 14px;
+      border: 2px solid #062249;
       @extend .transition;
       &:hover {
+        color: #ffffff;
         background: #062249;
-        border: 2px solid #062249;
         @extend .transition
-      }
-      &.login {
-        border: 2px solid #062249;
-        background: transparent;
-        color: #062249;
       }
       &:first-child {
         margin-left: 0;

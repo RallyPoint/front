@@ -4,6 +4,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
 import { MiniLiveComponent } from './mini-live/mini-live.component';
+import {AuthModule} from "../auth/auth.module";
 
 
 
@@ -14,7 +15,8 @@ import { MiniLiveComponent } from './mini-live/mini-live.component';
     SideBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AuthModule
   ]
 })
 export class LayoutModule { }

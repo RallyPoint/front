@@ -1,0 +1,42 @@
+<div class="row pb-4 pt-4">
+  <form [formGroup]="changeInformationdForm" (ngSubmit)="changePasswordSubmit()" class="col-12">
+    <h5>Information</h5>
+
+    <div class="pl-3">
+      <mat-label>Avatar</mat-label>
+      <div class="pt-4 pb-4">
+        <img class="avatar" src="../../../assets/images/recommandees/3.png">
+        <button mat-raised-button type="button">choisir un fichier</button>
+      </div>
+    </div>
+    <p>
+      <mat-form-field appearance="standard" class="col-12">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" required>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard" class="col-12">
+        <mat-label>Pseudo</mat-label>
+        <input matInput type="text" formControlName="pseudo" required>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="standard" class="col-12">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard" class="col-12">
+        <mat-label>Confirmation</mat-label>
+        <input matInput type="password" formControlName="passwordConf" required>
+      </mat-form-field>
+    </p>
+    <div class="col-12">
+      <button mat-raised-button color="primary" class="col-12 mb-4">Changer</button>
+    </div>
+  </form>
+
+</div>

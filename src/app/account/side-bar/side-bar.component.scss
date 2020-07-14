@@ -1,0 +1,25 @@
+:host{
+  height: 100%;
+  max-width: 200px;
+  ul{
+    list-style: none;
+    border-right: 1px solid #062249;
+    padding: 0 20px 0 0;
+    margin: 20px 20px 0;
+    li{
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px 0;
+      border-bottom: 1px solid #043869;
+      &:hover{
+        border-bottom: 1px solid #FFF;
+      }
+      &.active-route{
+        border-bottom: 1px solid #e3aa26;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}

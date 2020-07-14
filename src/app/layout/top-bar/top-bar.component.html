@@ -19,24 +19,12 @@
         <a class="nav-link" href="#">Browse</a>
       </li>
     </ul>
-    <ul class="list-unstyled socialmedia">
-
-      <li>
-        <a href="#"><img src="../../../assets/images/social/Instagram.png" alt=""></a>
-      </li>
-      <li>
-        <a href="#"><img src="../../../assets/images/social/Facebook.png" alt=""></a>
-      </li>
-      <li>
-        <a href="#"><img src="../../../assets/images/social/Twitter.png" alt=""></a>
-      </li>
-      <li>
-        <a href="#"><img src="../../../assets/images/social/dribble.png" alt=""></a>
-      </li>
-    </ul>
-    <div class="buttons__contact">
-      <a href="#" class="btn btn-dfeault signup">signup</a>
-      <a href="#" class="btn btn-dfeault login">login</a>
+    <div class="buttons__contact" *ngIf="!isLogin">
+      <button class="btn btn-dfeault signup" (click)="login()">signup</button>
+      <button class="btn btn-dfeault login" (click)="singIn()">login</button>
+    </div>
+    <div class="buttons__contact" *ngIf="isLogin">
+      <button class="btn btn-dfeault login" (click)="singIn()">mon compte</button>
     </div>
   </div>
 </nav>

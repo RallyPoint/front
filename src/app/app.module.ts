@@ -9,6 +9,7 @@ import {AuthModule} from "./auth/auth.module";
 import {ShareModule} from "./share/share.module";
 import { FollowModule } from './follow/follow.module';
 import { LayoutModule } from './layout/layout.module';
+import { AccountModule } from './account/account.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LayoutModule } from './layout/layout.module';
     AuthModule,
     ShareModule,
     FollowModule,
-    LayoutModule
+    LayoutModule,
+    AccountModule
   ],
   providers: [],
   bootstrap: [AppComponent]

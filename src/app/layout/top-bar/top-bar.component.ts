@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from "../../auth/login.service";
+import {AuthenticationService} from "../../auth/authentication.service";
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  public isLogin: boolean;
+
+  constructor(private readonly loginService: LoginService,authentificationService: AuthenticationService) {
+    this.isLogin = authentificationService.isLogged();
+  }
 
   ngOnInit(): void {
+  }
+
+  singIn(){
+    this.loginService.signIn();
+  }
+
+  login(): void{
+    this.loginService.logIn();
   }
 
 }

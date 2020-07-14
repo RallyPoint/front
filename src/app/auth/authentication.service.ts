@@ -21,15 +21,15 @@ export class AuthenticationService {
   }
 
 
-  isLogged(): boolean{
+  public isLogged(): boolean{
     return !!this.token;
   }
-
 
   private getGithubAuthorizeUrl(state: string): string{
     return "https://github.com/login/oauth/authorize?client_id=4b64a6e73596ba9eac5f&scope=user,user:email&state="+state;
   }
-  githubLogin(data?:any){
+
+  public githubLogin(data?:any){
     return new Promise((resolve, reject) => {
       const state : string = Math.random().toString(36).substring(24);
       localStorage.setItem(AuthenticationService.STORAGE_KEY_STATE,state);

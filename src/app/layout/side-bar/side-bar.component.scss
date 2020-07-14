@@ -7,7 +7,11 @@
 /**************************
 * Main Style
 ***************************/
-
+:host{
+  background-color: #062249;
+  height: 100%;
+  display: block;
+}
 .sidebar__left {
   max-width: 250px;
 

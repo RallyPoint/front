@@ -3,9 +3,10 @@
 <div id="list__one" class="list__one">
   <div class="container-fluid">
     <div class="row d-flex flex-row">
-        <app-side-bar></app-side-bar>
-          <router-outlet></router-outlet>
+      <app-side-bar></app-side-bar>
+      <div class="content pl-2 pr-2 pt-2">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
-<app-follow-list></app-follow-list>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthenticationService} from "../authentication.service";
 import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,13 @@ export class LoginComponent implements OnInit {
   public resetPasswordSended: boolean = false;
   public resetPasswordError: boolean = false;
   public resetPasswordNotFound: boolean = false;
+  public defaultSelectedTab = 0;
 
   public logInForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('',[Validators.required])
   });
+
   public signInForm = new FormGroup({
     pseudo: new FormControl('',[Validators.required]),
     password: new FormControl('',[
@@ -39,7 +42,10 @@ export class LoginComponent implements OnInit {
   },[(control: FormGroup): ValidationErrors | null => {
     return control.get('password').value != control.get('passwordConfirm').value ? { 'samePassword': true } : null;
   }]);
-  constructor(protected readonly authenticationService: AuthenticationService) { }
+
+  constructor(protected readonly authenticationService: AuthenticationService,@Inject(MAT_DIALOG_DATA) public data: {mode:boolean},public dialogRef: MatDialogRef<LoginComponent>) {
+    this.defaultSelectedTab = data.mode?0:1;
+  }
 
   ngOnInit(): void {
     this.ssoLoading = true;
@@ -48,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   loginGitHub(){
     this.authenticationService.githubLogin().then(()=>{
-
+      this.dialogRef.close();
     },(e)=>{
       if(e.miss){
         this.completSSO = true;
