@@ -27,6 +27,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.axios.get('user/'+this.authenticationService.user.id).then((res)=>{
+      this.previewImage = "/media/avatar/"+res.data.avatar;
       this.changeInformationdForm.patchValue({
         email: res.data.email,
         pseudo: res.data.pseudo
