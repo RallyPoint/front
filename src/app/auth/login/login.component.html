@@ -3,14 +3,14 @@
     <mat-tab label="Connexion">
       <form [formGroup]="logInForm" (ngSubmit)="logInSubmit()" class="pt-4 pb-4">
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Identifiant</mat-label>
             <input matInput formControlName="email" required>
             <mat-error *ngIf="logInForm.get('email') && logInForm.get('email').invalid && logInForm.get('email').touched">Invalid</mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Mot de passe</mat-label>
             <input matInput type="password" formControlName="password" required>
             <mat-error *ngIf="logInForm.get('password') && logInForm.get('password').invalid && logInForm.get('password').touched">Invalid</mat-error>
@@ -26,28 +26,28 @@
     <mat-tab label="Inscription">
       <form [formGroup]="signInForm" (ngSubmit)="signInSubmit()" class="pt-4 pb-4">
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Identifiant</mat-label>
             <input matInput formControlName="pseudo" required>
             <mat-error *ngIf="signInForm.get('pseudo') && signInForm.get('pseudo').invalid && signInForm.get('pseudo').touched">Invalid</mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Mot de passe</mat-label>
             <input matInput type="password" formControlName="password" required>
             <mat-error *ngIf="signInForm.get('password') && signInForm.get('password').invalid && signInForm.get('password').touched">Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Confirmer le mot de passe</mat-label>
             <input matInput type="password" formControlName="passwordConfirm" required>
             <mat-error *ngIf="signInForm.get('passwordConfirm') && signInForm.get('passwordConfirm').invalid && signInForm.get('passwordConfirm').touched">Invalid</mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>Adresse e-mail</mat-label>
             <input matInput type="email" formControlName="email" required>
             <mat-error *ngIf="signInForm.get('email') && signInForm.get('email').invalid && signInForm.get('email').touched">Invalid</mat-error>
@@ -67,7 +67,7 @@
     <mat-tab label="Inscription">
       <form (ngSubmit)="completSSOSubmit()" class="pt-4 pb-4">
         <p *ngIf="completSSOMiss.indexOf('email') != -1">
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>email</mat-label>
             <input matInput [(ngModel)]="completSSOForm.email" type="email" name="email" required>
           </mat-form-field>
@@ -84,7 +84,7 @@
     <mat-tab label="Mot de passe oublier">
       <form (ngSubmit)="resetPasswordSubmit()" *ngIf="!resetPasswordSended && !resetPasswordError && !resetPasswordNotFound"  class="pt-4 pb-4">
         <p>
-          <mat-form-field appearance="standard" class="col-12">
+          <mat-form-field appearance="fill" class="col-12">
             <mat-label>email</mat-label>
             <input matInput [(ngModel)]="resetPasswordForm.email" color="primary" type="email" name="email" required>
           </mat-form-field>

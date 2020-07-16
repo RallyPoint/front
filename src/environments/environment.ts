@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.rallypoint.tech'
+  apiUrl: 'http://127.0.0.1:9090'
 };
 
 /*

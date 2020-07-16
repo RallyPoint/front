@@ -68,6 +68,11 @@ export class AuthenticationService {
     localStorage.setItem(AuthenticationConstant.STORAGE_KEY.TOKEN,token);
   }
 
+  logOut(){
+    localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.USER);
+    localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.TOKEN)
+  }
+
   login(email: string, password: string): Promise<boolean>{
     return this.apiService.axios.post('auth/login',{
       email,

@@ -5,7 +5,10 @@
   <li routerLink="/account/stream" routerLinkActive="active-route">
     Stream
   </li>
-  <li>
+  <li class="disabled">
     Stats
+  </li>
+  <li (click)="logOut()">
+    Deconnexion
   </li>
 </ul>

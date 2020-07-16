@@ -7,8 +7,9 @@ import { MainComponent } from './main/main.component';
 import {RouterModule} from "@angular/router";
 import {UserRoutingModule} from "./account-routing.module";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
 
 
 
@@ -20,7 +21,10 @@ import {MatButtonModule} from "@angular/material/button";
     UserRoutingModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    FormsModule,
+    MatButtonModule,
+    MatSelectModule
   ]
 })
 export class AccountModule { }
+

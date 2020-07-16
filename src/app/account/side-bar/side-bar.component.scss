@@ -11,6 +11,7 @@
       margin: 5px 0;
       padding: 5px 0;
       border-bottom: 1px solid #043869;
+      cursor: pointer;
       &:hover{
         border-bottom: 1px solid #FFF;
       }
@@ -19,6 +20,13 @@
       }
       &:focus {
         outline: 0;
+      }
+      &.disabled {
+        &:hover{
+          border-bottom: 1px solid #043869;
+        }
+        cursor: default;
+        color: #6c757d;
       }
     }
   }
