@@ -5,7 +5,7 @@ FROM node:12.3-alpine AS build-satge
 
 WORKDIR /usr/src/app
 COPY . .
-RUN npm install && npm run build
+RUN npm install && npm run build --prod=true
 
 ################################################
 # Stage 1: Serve Angular app from NGINX Srver  #
