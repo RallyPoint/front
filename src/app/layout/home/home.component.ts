@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../../share/api.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public userLives: any[]= [];
+
+  constructor(private readonly apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.axios.get('lives').then((res)=>{
+      this.userLives = res.data;
+      console.log(this.userLives);
+    });
   }
 
 }
