@@ -2,7 +2,7 @@ import {ElementRef, Component, OnInit, ViewChild} from '@angular/core';
 import * as p2pml from 'p2p-media-loader-shaka';
 import * as shaka from 'shaka-player';
 import * as muxJs from 'mux.js';
-import {EventEmitter} from "events";
+import {EventEmitter} from 'events';
 
 @Component({
   selector: 'app-player',
