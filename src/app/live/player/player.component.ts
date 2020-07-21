@@ -34,11 +34,11 @@ export class PlayerComponent implements OnInit {
   }
 
 }
-interface tata {
+interface Tata {
   on(eventName: string, listener: (...params: any[]) => void): this;
 }
-class toto extends EventEmitter implements tata{
+class Toto extends EventEmitter implements Tata{
   lol(){
-    console.log("aze");
+    console.log('aze');
   }
 }
