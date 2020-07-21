@@ -6,11 +6,12 @@ import {AuthModule} from "../auth/auth.module";
 import {ShareModule} from "../share/share.module";
 import {LiveRoutingModule} from "./live-routing.module";
 import {FollowModule} from "../follow/follow.module";
+import { PlayerComponent } from './player/player.component';
 
 
 
 @NgModule({
-  declarations: [ChannelComponent],
+  declarations: [ChannelComponent, PlayerComponent],
   exports: [
     ChannelComponent
   ],
