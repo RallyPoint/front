@@ -10,24 +10,27 @@
   }
   .title{
     .avatar{
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
       img{
-        width: 80px;
+        width: 60px;
       }
     }
     .info{
       flex: 1;
       h2{
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 0;
       }
       h1{
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.8;
         margin-bottom: 0;
         font-weight: normal;
       }
       .categories{
-        font-size: 12px;
+        font-size: 10px;
         text-transform: uppercase;
         span{
           font-weight: bold;

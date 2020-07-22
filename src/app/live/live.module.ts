@@ -9,6 +9,7 @@ import {FollowModule} from "../follow/follow.module";
 import { PlayerComponent } from './player/player.component';
 import {MatButtonModule} from "@angular/material/button";
 import {NgScrollbarModule} from "ngx-scrollbar";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 
@@ -25,7 +26,8 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     ShareModule,
     AuthModule,
     MatButtonModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    MatTabsModule
   ]
 })
 export class LiveModule { }

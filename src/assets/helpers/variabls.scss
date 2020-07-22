@@ -118,3 +118,12 @@ $maxTablette: "(max-width: 992px)"; //
 $min_maxTablette: "(min-width: 992px) and (max-width: 1199px)"; //
 $DesktopFix: "(max-width: 1365px)"; //
 $notebook: "(max-width: 1366px)"; //
+
+// Dark bg
+$dark-background:     #062249;
+$dark-bg-lighter-5:   lighten($dark-background, 5%);
+$dark-bg-lighter-10:  lighten($dark-background, 10%);
+$dark-bg-lighter-20:  lighten($dark-background, 20%);
+$dark-bg-lighter-30:  lighten($dark-background, 30%);
+$light-bg-alpha-4:    rgba(#fafafa, 0.04);
+$light-bg-alpha-12:   rgba(#fafafa, 0.12);

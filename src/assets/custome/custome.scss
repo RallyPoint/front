@@ -3,6 +3,7 @@
 * https://materialtheme.arcsine.dev
 */
 
+@import '../helpers/variabls';
 @import '~@angular/material/theming';
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -113,14 +114,6 @@ $mat-light-theme-background: (
   disabled-list-option:     $light-bg-darker-10,
 );
 
-// Dark bg
-$dark-background:     #062249;
-$dark-bg-lighter-5:   lighten($dark-background, 5%);
-$dark-bg-lighter-10:  lighten($dark-background, 10%);
-$dark-bg-lighter-20:  lighten($dark-background, 20%);
-$dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#fafafa, 0.04);
-$light-bg-alpha-12:   rgba(#fafafa, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (

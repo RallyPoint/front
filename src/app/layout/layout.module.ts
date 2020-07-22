@@ -7,6 +7,7 @@ import { MiniLiveComponent } from './mini-live/mini-live.component';
 import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {NgScrollbarModule} from "ngx-scrollbar";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -20,7 +21,8 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     CommonModule,
     AuthModule,
     RouterModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    MatButtonModule
   ]
 })
 export class LayoutModule { }
