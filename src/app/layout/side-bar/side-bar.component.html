@@ -1,14 +1,17 @@
-<div id="sidebar__left" class="sidebar__left col-2">
+<div id="sidebar__left" class="sidebar__left col-2" [ngClass]="{'min' : !full}">
   <div class="recommandees row">
-    <div><h2 class="col-12"><img src="../../../assets/images/left.png" class="left__img" alt=""> CHAÎNES RECOMMANDÉES</h2></div>
+    <div class="title d-flex justify-content-between">
+      <h2 class="col-10"><img src="../../../assets/images/left.png" class="left__img" alt=""> CHAÎNES RECOMMANDÉES</h2>
+      <span class="col-2" (click)="full = !full"><</span>
+    </div>
+      <div class="row text-center action" (click)="full = !full">></div>
     <div class="item__recomandees">
       <ng-scrollbar #scrollbarRef>
-
         <div class="media col-12">
           <img class="mr-3" src="../../../assets/images/recommandees/1.png" alt="recommandees">
           <div class="media-body">
             <h5 class="mt-0">Rdamatim10</h5>
-            <h4 class="followers">1200 Followers</h4>
+            <h4 class="followers">1200 viwer</h4>
           </div>
         </div>
         <div class="media col-12">
