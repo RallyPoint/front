@@ -9,7 +9,7 @@
             <h1 class="mr-auto">Formation kubernets Partie 3 | !Formation </h1>
             <button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>
             <button mat-raised-button color="primary" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-            <button class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
+            <button mat-raised-button color="second" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>
           <div class="categories">
             Language : <span>Nodejs</span> | Langue : <span>Français</span>
