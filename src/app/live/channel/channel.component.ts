@@ -30,7 +30,7 @@ export class ChannelComponent implements OnInit {
       this.apiService.axios.get('lives/'+params['liveName']).then((res)=>{
         this.userChannel = res.data;
         this.followed = this.followService.isFollowed(this.userChannel.id);
-      })
+      });
     });
   }
 

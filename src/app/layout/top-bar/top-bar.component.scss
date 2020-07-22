@@ -14,14 +14,6 @@
   background: #1e4c78;
   border-radius: 0;
   border-bottom: 1px solid $dark-background;
-  @media #{$min_maxTablette} {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  @media #{$maxSmall} {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
   .navbar-brand {
     max-width: 250px;
     margin-right: 18px;
@@ -38,12 +30,6 @@
       width: 100%;
       height: 100%;
     }
-    @media #{$iphone6} {
-      margin-right: 0px;
-    }
-  }
-  @media #{$iphone6} {
-    padding: 26px 15px 26px 15px;
   }
 }
 
@@ -94,21 +80,12 @@
       height: 16px;
     }
   }
-  @media #{$maxSmall} {
-    display: none;
-  }
 }
 
 .navbar-collapse {
   .navbar-nav {
-    @media #{$maxSmall} {
-      margin-bottom: 15px;
-    }
     .nav-item {
       margin-right: 30px;
-      @media #{$min_maxTablette} {
-        margin-right: 10px;
-      }
       &:last-child {
         margin-right: 0;
       }
@@ -129,17 +106,9 @@
   .socialmedia {
     margin-bottom: 0;
     margin-left: 44px;
-    @media #{$maxSmall} {
-      display: inline-block;
-      margin-left: 0;
-      margin-bottom: 15px;
-    }
     li {
       float: left;
       margin-right: 16px;
-      @media #{$min_maxTablette} {
-        margin-right: 11px;
-      }
       &:last-child {
         margin-right: 0;
       }
@@ -156,9 +125,6 @@
   }
   .buttons__contact {
     margin-left: 16px;
-    @media #{$maxSmall} {
-      margin-left: 0px;
-    }
     .btn {
       color: #FFF;
       font-size: 15px;

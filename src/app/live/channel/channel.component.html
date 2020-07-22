@@ -2,21 +2,25 @@
   <div class="live">
     <ng-scrollbar>
       <div class="title d-flex">
+        <!--userChannel.avatar-->
         <div class="avatar m-3"><img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4"></div>
         <div class="info m-2">
           <h2>Maxence</h2>
           <div class="top d-flex">
-            <h1 class="mr-auto">Formation kubernets Partie 3 | !Formation </h1>
+            <h1 class="mr-auto">{{userChannel.live.title}}</h1>
             <button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>
             <button mat-raised-button color="primary" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
             <button mat-raised-button color="second" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>
           <div class="categories">
-            Language : <span>Nodejs</span> | Langue : <span>Français</span>
+            Language : <span>{{userChannel.live.catLevel.name}}</span> | Langue : <span>{{userChannel.live.catLanguage.name}}</span>
           </div>
         </div>
       </div>
-      <app-player></app-player>
+      <div *ngIf="!userChannel.live.status" class="offline">
+        Chaine hors ligne pour le moment.
+      </div>
+      <app-player *ngIf="userChannel.live.status"></app-player>
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
           {{followed}}
