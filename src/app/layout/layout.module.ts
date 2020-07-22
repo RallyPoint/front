@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { MiniLiveComponent } from './mini-live/mini-live.component';
 import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 
 
@@ -18,7 +19,8 @@ import {RouterModule} from "@angular/router";
   imports: [
     CommonModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    NgScrollbarModule
   ]
 })
 export class LayoutModule { }

@@ -1,11 +1,30 @@
-<p>channel works!</p>
-<app-player></app-player>
+<div class="d-flex h-100">
+  <div class="live">
+    <ng-scrollbar>
+      <app-player></app-player>
+      <div class="title d-flex">
+        <div class="avatar">
+          <img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4">
+        </div>
+        <div class="info m-2">
+          <h2>Maxence</h2>
+          <div class="top d-flex">
+            <h1 class="mr-auto">Formation kubernets Partie 3 | !Formation </h1>
+            <button mat-raised-button color="primary" (click)="subscribe()">S'abonner</button>
+            <button mat-raised-button color="primary" class="ml-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
+            <button mat-raised-button color="second" class="ml-2" (click)="follow()" *ngIf="!followed">Suivre</button>
+          </div>
+          <div class="categories">
+            Language : <span>Nodejs</span> | Langue : <span>Français</span>
+          </div>
+        </div>
+      </div>
+      {{followed}}
+      <span *ngIf="isAuth">IS LOGGED</span>
+    </ng-scrollbar>
+  </div>
+  <div class="chat">
+    <app-chat></app-chat>
+  </div>
+</div>
 
-
-<app-chat></app-chat>
-{{followed}}
-<button (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-<button (click)="follow()" *ngIf="!followed">Suivre</button>
-<button (click)="subscribe()">S'abonner</button>
-<button (click)="connexion()">Connexion</button>
-<span *ngIf="isAuth">IS LOGGED</span>

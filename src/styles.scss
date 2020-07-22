@@ -23,6 +23,9 @@
     margin-bottom: 0px;
   }
 }
+html,body{
+  height: 100%;
+}
 body{
   font-family: "Montserrat";
   background-color: #043869;
@@ -32,4 +35,7 @@ a,a:hover{
   text-decoration: inherit;
   color: inherit;
   font-weight: inherit;
+}
+*:focus{
+  outline: 0;
 }

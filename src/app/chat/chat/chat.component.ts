@@ -12,7 +12,12 @@ import {EditorComponent} from "../editor/editor.component";
 export class ChatComponent implements OnInit {
 
   public io: Socket;
-  public messages: {uuid:string,txt:string,voteCount:number,votes:{[index:string]:number},voted:number, gist?:string}[] = [{uuid:"azeaze",txt:"a",voteCount:0,votes:{},voted:0}];
+  public messages: {uuid:string,txt:string,voteCount:number,votes:{[index:string]:number},voted:number, gist?:string}[] = [
+    {uuid:"azeaze",txt:"@lesang2tmort parcequ'il fais sont metier de streamer a perfection comme",voteCount:0,votes:{},voted:0},
+    {uuid:"azeaze",txt:"@lesang2tmort parcequ'il fais sont metier de streamer a perfection comme",voteCount:0,votes:{},voted:0},
+    {uuid:"azeaze",txt:"Je le vois de partout sur Twitter @Demenoss ^^",voteCount:0,votes:{},voted:0},
+    {uuid:"azeaze",txt:"@lesang2tmort parcequ'il fais sont metier de streamer a perfection comme",voteCount:0,votes:{},voted:0}
+    ];
   public message: string;
   private token: string = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyNCIsImlhdCI6MTU5MTY5NjkyNH0.jU6m2PdRnWP64yeXsJBO94u-MAFgaOXc01cQLKSNrKaq_0hD3xBw0ddREXunPrdmLI9lLP1Qm7mL1lhu-acuQEU8r6LkfoW1JrWImnCX4UjYXyGBsvuhunSC-najNNwQRjXOJLZGcNdoCO4BcxLYZTMur6irhilKRKpUvoOOH3F8ymGr4Ts70epeY866cwujj61fUWbVwZdNzgtcblqjCndeKF5i1xlLGzjfnbeXr4kn2aioTFNcfrGhlRtWNIYaMSdUp06bzu1EHNSCRL7oGGkbj7AUqvP6EPvyAMKpmw3tBVwqtZ33p7iUrCboOqYcKspjKtuF15re9vNE1ko_2M3dhb_VvBwCFcgaAZz1vqfceGFV7G-HQXT5hxZEpMqg4oLDxhamp9f3pni_yYdnP1vi8BgqPxDOg0qrhprZzFKfrkeZl9wyz2zCUMaILhvJmI_WyoxQW6_Ywy7_C9tptunq6VJDPWmtPKM0zIb_SsuU6mNNhzsT6GmvStu3HxiRTHQXXM1YJO6HqcmWNdkfmtgZC3jgs7G9Korg5AWOMG3-sD7Qd8EbpcSvgXSCb4BBUvoINoYydXtDcTaoI03ZLjHQvLG_ovQcKHSZbmk0J-HwkPtSlXfzvgyPh8XcKqHrkU0ipwlqHQdNbdyr7OHxg6u6wGytmhLLdUAPTWUef9s";
 
@@ -20,10 +25,11 @@ export class ChatComponent implements OnInit {
   constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.connection();
   }
 
   public connection(){
-    this.io = io("http://127.0.0.1:3000",{query: 'channel=toto&auth_token='+this.token});
+    this.io = io("https://chat.rallypoint.tech",{query: 'channel=toto&auth_token='+this.token});
     this.io.on("message", this.onMessage.bind(this));
     this.io.on("vote", this.onVote.bind(this));
     this.io.on("code", this.onCode.bind(this));

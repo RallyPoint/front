@@ -8,6 +8,9 @@ import {ACE_CONFIG, AceConfigInterface, AceModule} from "ngx-ace-wrapper";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {NgScrollbarModule} from "ngx-scrollbar";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
@@ -25,7 +28,10 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    AceModule
+    AceModule,
+    NgScrollbarModule,
+    MatButtonModule,
+    MatTabsModule
   ],
   providers: [
     {

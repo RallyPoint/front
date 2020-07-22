@@ -1,15 +1,28 @@
-<p>chat works!</p>
+<h3>CHAT DU STREAM</h3>
+<div class="messages">
+<ng-scrollbar #scrollbarRef (updated)="scrollbarRef.scrollTo({bottom:0})">
 <ul>
-  <li *ngFor="let message of messages">
+  <li *ngFor="let message of messages" class="col-12">
+    <span class="pseudo">{{message.uuid}}</span>
+    <span class="vote" >{{message.voteCount}}</span>
     {{message.txt}}
-    <span (click)="vote(false,message.uuid)">-</span>
-    {{message.voteCount}}
-    <span (click)="vote(true,message.uuid)">+</span>
     {{message.gist}}
+    <div class="actions ">
+      <div class="col-4 d-flex align-items-center justify-content-center"><span>Voter : </span></div>
+      <div class="action col-4 d-flex align-items-center justify-content-center" (click)="vote(false,message.uuid)">-</div>
+      <div class="action col-4 d-flex align-items-center justify-content-center" (click)="vote(true,message.uuid)">+</div>
+    </div>
   </li>
 </ul>
-<button (click)="connection()">connexion</button>
-<form (ngSubmit)="send()">
-<input type="text" [(ngModel)]="message" name="message">
+</ng-scrollbar>
+</div>
+
+<form (ngSubmit)="send()" class="form">
+  <div class="col-12">
+    <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
+  </div>
+  <div class="col-12 d-flex justify-content-between">
+    <button  mat-raised-button color="primary"  type="button" (click)="openCodeEditor()"><></button>
+    <button  mat-raised-button color="second">chat</button>
+  </div>
 </form>
-<button (click)="openCodeEditor()">toto</button>

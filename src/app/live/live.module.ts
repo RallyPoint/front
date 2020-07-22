@@ -7,6 +7,8 @@ import {ShareModule} from "../share/share.module";
 import {LiveRoutingModule} from "./live-routing.module";
 import {FollowModule} from "../follow/follow.module";
 import { PlayerComponent } from './player/player.component';
+import {MatButtonModule} from "@angular/material/button";
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 
 
@@ -21,7 +23,9 @@ import { PlayerComponent } from './player/player.component';
     FollowModule,
     ChatModule,
     ShareModule,
-    AuthModule
+    AuthModule,
+    MatButtonModule,
+    NgScrollbarModule
   ]
 })
 export class LiveModule { }
