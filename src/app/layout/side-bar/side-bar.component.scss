@@ -58,6 +58,9 @@
         align-items: center;
         width: 100%;
         margin: 12px 0px;
+        &.offline{
+          opacity: 0.5;
+        }
         &:last-child {
           margin-bottom: 0;
         }

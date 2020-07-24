@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,9 @@ import {ShareModule} from "./share/share.module";
 import { FollowModule } from './follow/follow.module';
 import { LayoutModule } from './layout/layout.module';
 import { AccountModule } from './account/account.module';
-
+import localeFr from '@angular/common/locales/fr';
+import {registerLocaleData} from "@angular/common";
+registerLocaleData(localeFr);
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +28,9 @@ import { AccountModule } from './account/account.module';
     LayoutModule,
     AccountModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' }, //replace "en-US" with your locale
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,9 +10,17 @@
 .full__item-video {
   position: relative;
   width: 100%;
+  cursor: pointer;
+  &:hover{
+    .item__video {
+      background-color: $dark-background;
+    }
+  }
   .item__video {
-    background: #011B41;
     z-index: 1;
+    .title{
+      font-size: 12px;
+    }
       .img__img-video {
         position: relative;
         img {
@@ -24,21 +32,21 @@
           border-radius: 100px;
           position: absolute;
           top: 8px;
-          right: 14px;
+          right: 0px;
           color: #FFF;
           background: rgba(0, 0, 0, 0.50);
-          padding: 2px 8px;
-          font-size: 12px;
+          padding: 2px 10px;
+          font-size: 10px;
           font-weight: 400;
         }
         .live__button {
           border-radius: 100px;
           position: absolute;
           top: 8px;
-          left: 14px;
+          left: 0px;
           background: #E02020;
-          padding: 5px 14px;
-          font-size: 8px;
+          padding: 2px 10px;
+          font-size: 10px;
           font-weight: 400;
         }
         .over-data{
@@ -49,9 +57,8 @@
 
         .content__video {
           position: absolute;
-          bottom: 0px;
+          bottom: -10px;
           width: 100%;
-          background-color: rgba(0,0,0,0.80);
           h4 {
             font-size: 12px;
             font-weight: bold;
@@ -63,9 +70,13 @@
             }
           }
           .name__views {
-            color: #28CCE8;
-            font-weight: 600;
+            color: $dark-background;
+            font-weight: normal;
             font-size: 10px;
+            padding: 2px 5px;
+            background-color: #FFF;
+            text-transform: uppercase;
+            display: inline-block;
           }
           .language {
             border: 2px solid #1BB0A7;

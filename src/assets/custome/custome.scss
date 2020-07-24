@@ -233,6 +233,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 .material-icons {
   font-size: 24px;
   font-family: 'Material Icons Outlined', 'Material Icons';
+  line-height: 1;
   .mat-badge-content {
     font-family: 'Roboto';
   }

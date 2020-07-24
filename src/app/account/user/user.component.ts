@@ -18,19 +18,22 @@ export class UserComponent implements OnInit {
     pseudo: new FormControl('', [Validators.required]),
     avatar: new FormControl('', [Validators.required]),
     passwordConf: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    desc: new FormControl('')
   },[(control: FormGroup): ValidationErrors | null => {
     return control.get('password').value != control.get('passwordConf').value ? { 'samePassword': true } : null;
   }]);
 
-  constructor(private readonly apiService: ApiService,private authenticationService: AuthenticationService) { }
+  constructor(private readonly apiService: ApiService,private authenticationService: AuthenticationService) {
+  }
 
   ngOnInit(): void {
     this.apiService.axios.get('user/'+this.authenticationService.user.id).then((res)=>{
       this.previewImage = "/media/avatar/"+res.data.avatar;
       this.changeInformationdForm.patchValue({
         email: res.data.email,
-        pseudo: res.data.pseudo
+        pseudo: res.data.pseudo,
+        desc: res.data.desc
       });
     })
   }

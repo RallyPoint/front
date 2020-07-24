@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.ssoLoading = true;
-    this.ssoUrl = "https://github.com/login/oauth/authorize?client_id=4b64a6e73596ba9eac5f&scope=user";
+    this.ssoUrl = "https://github.com/login/oauth/authorize?client_id=941edbebbc817c7684fc&scope=user";
   }
 
   loginGitHub(){

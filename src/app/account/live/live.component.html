@@ -44,6 +44,25 @@
         </mat-select>
       </mat-form-field>
     </p>
+    <p>
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label>Date du prochain live</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker"
+               placeholder="Choose a date"
+               formControlName="date"
+               [min]="minDate">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker>
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
+    </p>
+
+    <p class="col-12">
+      <mat-label>Description de la chaine</mat-label>
+      <md-editor class="md-editor" [height]="'200px'" formControlName="desc">
+      </md-editor>
+    </p>
 
     <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
     <div class="col-12">

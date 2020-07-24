@@ -26,7 +26,7 @@ export class AuthenticationService {
   }
 
   private getGithubAuthorizeUrl(state: string): string{
-    return "https://github.com/login/oauth/authorize?client_id=4b64a6e73596ba9eac5f&scope=user,user:email&state="+state;
+    return "https://github.com/login/oauth/authorize?client_id=941edbebbc817c7684fc&scope=user,user:email&state="+state;
   }
 
   public githubLogin(data?:any){

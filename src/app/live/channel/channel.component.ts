@@ -16,6 +16,7 @@ export class ChannelComponent implements OnInit {
   public userChannel: any;
   public isAuth: boolean = false;
   public followed: boolean;
+  public now: Date = new Date();
 
   constructor(private readonly authService: AuthenticationService,
               private readonly loginService: LoginService,
@@ -29,7 +30,10 @@ export class ChannelComponent implements OnInit {
       console.log(params);
       this.apiService.axios.get('lives/'+params['liveName']).then((res)=>{
         this.userChannel = res.data;
-        this.followed = this.followService.isFollowed(this.userChannel.id);
+        this.userChannel.live.date = new Date(this.userChannel.live.date);
+        this.followService.isFollowed(this.userChannel.id).then((res)=>{
+          this.followed = res;
+        });
       });
     });
   }

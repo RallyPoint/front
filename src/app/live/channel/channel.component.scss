@@ -1,4 +1,7 @@
 :host{
+  ::ng-deep .preview-panel{
+    background-color: transparent !important;
+  }
   .chat{
     width: 100%;
     height: 100%;

@@ -41,6 +41,11 @@
         <input matInput type="password" formControlName="passwordConf" >
       </mat-form-field>
     </p>
+    <p class="col-12">
+      <mat-label>Bio</mat-label>
+      <md-editor class="md-editor" [height]="'200px'" formControlName="desc">
+      </md-editor>
+    </p>
     <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
     <div class="col-12">
       <div class="alert alert-primary" role="alert" *ngIf="succes === true">

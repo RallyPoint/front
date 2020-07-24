@@ -1,4 +1,37 @@
-<div class="d-flex  flex-wrap pl-2 pr-2 pt-2">
-  <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item p-1" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
+<ng-scrollbar>
+  <div class="col-12">
+    <div class="main-live d-flex col-12 p-0 mt-3" *ngIf="mainUser && mainUser.live">
+      <div class="preview col-6 align-items-center d-flex">
+        <div *ngIf="mainUser.live.status" class="offline w-100">
+          <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center">Debut du live live le {{mainUser.live.date | date  : 'dd/MM HH:mm'}}</div>
+          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center">Live terminer</div>
+        </div>
+      </div>
+      <div class="desc col-6 pt-4 pb-4">
+        <h2>Formation K8S Partie 1</h2>
+        <div class="by d-flex mt-4 mb-4 p-2">
+          <div class="avatar mr-2">
+            <img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4">
+          </div>
+          <div class="">
+            <div class="pseudo mb-1">Maxence</div>
+            <div class="w-100">Language: <b>Infrastructure</b> | langue: <b>Français</b></div>
+          </div>
+        </div>
+        <div class="text mb-4">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        <button  mat-raised-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo">Rejoindre</button>
+      </div>
+    </div>
+    <div class="row mt-3 pr-3">
+      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
+      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
 
-</div>
+      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
+      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
+      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
+
+    </div>
+  </div>
+</ng-scrollbar>

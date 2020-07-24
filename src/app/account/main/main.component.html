@@ -1,6 +1,8 @@
-<div class="d-flex flex-row">
-<app-side-bar></app-side-bar>
-  <div class="content">
-    <router-outlet></router-outlet>
+<div class="d-flex flex-row h-100">
+  <app-side-bar></app-side-bar>
+  <div class="content h-100">
+    <ng-scrollbar>
+      <router-outlet></router-outlet>
+    </ng-scrollbar>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="d-flex h-100">
+<div class="d-flex h-100" *ngIf="userChannel && userChannel.live">
   <div class="live">
     <ng-scrollbar>
       <div class="title d-flex">
@@ -18,13 +18,16 @@
         </div>
       </div>
       <div *ngIf="!userChannel.live.status" class="offline">
-        Chaine hors ligne pour le moment.
+        Chaine hors ligne.
+        <div *ngIf="userChannel.live.date.getTime() > now.getTime()">Prochain live le {{userChannel.live.date | date  : 'dd/MM HH:mm'}}</div>
       </div>
       <app-player *ngIf="userChannel.live.status"></app-player>
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
-          {{followed}}
-          <span *ngIf="isAuth">IS LOGGED</span>
+          <md-editor name="Content"
+            mode="preview" class="md-editor" [(ngModel)]="userChannel.live.desc" [height]="'200px'" >
+            {{userChannel.live.desc}}
+          </md-editor>
         </mat-tab>
         <mat-tab label="replay">
           replay

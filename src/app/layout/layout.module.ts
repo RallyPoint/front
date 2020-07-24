@@ -8,6 +8,8 @@ import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {FollowModule} from "../follow/follow.module";
 
 
 
@@ -22,7 +24,9 @@ import {MatButtonModule} from "@angular/material/button";
     AuthModule,
     RouterModule,
     NgScrollbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    FollowModule
   ]
 })
 export class LayoutModule { }

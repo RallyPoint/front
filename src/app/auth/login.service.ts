@@ -9,12 +9,12 @@ export class LoginService {
   }
 
   public signIn(): Promise<boolean>{
-    this.openAuthModal(false);
+    this.openAuthModal(true);
     return ;
   }
 
   public logIn(): Promise<boolean>{
-    this.openAuthModal(true);
+    this.openAuthModal(false);
     return ;
   }
 

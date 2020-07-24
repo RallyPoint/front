@@ -10,6 +10,8 @@ import { PlayerComponent } from './player/player.component';
 import {MatButtonModule} from "@angular/material/button";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {MatTabsModule} from "@angular/material/tabs";
+import {LMarkdownEditorModule} from "ngx-markdown-editor";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -27,7 +29,10 @@ import {MatTabsModule} from "@angular/material/tabs";
     AuthModule,
     MatButtonModule,
     NgScrollbarModule,
-    MatTabsModule
+    MatTabsModule,
+    LMarkdownEditorModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class LiveModule { }
