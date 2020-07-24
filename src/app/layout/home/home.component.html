@@ -14,24 +14,18 @@
             <img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4">
           </div>
           <div class="">
-            <div class="pseudo mb-1">Maxence</div>
-            <div class="w-100">Language: <b>Infrastructure</b> | langue: <b>Français</b></div>
+            <div class="pseudo mb-1">{{mainUser.pseudo}}</div>
+            <div class="w-100">Language: <b>{{mainUser.live.catLevel.name}}</b> | langue: <b>{{mainUser.live.catLanguage.name}}</b></div>
           </div>
         </div>
         <div class="text mb-4">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Aldus PageMaker including versions of Lorem Ipsum.
+          {{mainUser.live.desc}}
         </div>
         <button  mat-raised-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo">Rejoindre</button>
       </div>
     </div>
     <div class="row mt-3 pr-3">
       <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
-      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
-
-      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
-      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
-      <app-mini-live  routerLink="/channel/machin" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']" [img]="'1.jpg'"></app-mini-live>
-
     </div>
   </div>
 </ng-scrollbar>
