@@ -6,7 +6,7 @@
     </div>
       <div class="row text-center action" (click)="full = !full"><mat-icon >skip_next</mat-icon></div>
     <div class="item__recomandees">
-      <ng-scrollbar #scrollbarRef>
+      <ng-scrollbar #scrollbarRef visibility="hover">
         <div class="media col-12"  *ngFor="let follow of follows" [ngClass]="{'offline' : !follow.live.status}">
           <img class="mr-3" src="../../../assets/images/recommandees/2.png" alt="recommandees">
           <div class="media-body">

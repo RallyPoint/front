@@ -1,6 +1,6 @@
 <div class="d-flex h-100" *ngIf="userChannel && userChannel.live">
   <div class="live">
-    <ng-scrollbar>
+    <ng-scrollbar visibility="hover">
       <div class="title d-flex">
         <!--userChannel.avatar-->
         <div class="avatar m-3"><img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4"></div>
@@ -9,8 +9,8 @@
           <div class="top d-flex">
             <h1 class="mr-auto">{{userChannel.live.title}}</h1>
             <button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>
-            <button mat-raised-button color="primary" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-            <button mat-raised-button color="second" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
+            <button mat-raised-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
+            <button mat-raised-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>
           <div class="categories">
             Language : <span>{{userChannel.live.catLevel.name}}</span> | Langue : <span>{{userChannel.live.catLanguage.name}}</span>
@@ -21,12 +21,14 @@
         Chaine hors ligne.
         <div *ngIf="userChannel.live.date.getTime() > now.getTime()">Prochain live le {{userChannel.live.date | date  : 'dd/MM HH:mm'}}</div>
       </div>
-      <app-player *ngIf="userChannel.live.status"></app-player>
+      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo"></app-player>
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
           <md-editor name="Content"
-            mode="preview" class="md-editor" [(ngModel)]="userChannel.live.desc" [height]="'200px'" >
-            {{userChannel.live.desc}}
+                     mode="preview" class="md-editor" [(ngModel)]="userChannel.live.desc" [height]="'200px'" >
+          </md-editor>
+          <md-editor name="Content"
+                     mode="preview" class="md-editor" [(ngModel)]="userChannel.desc" [height]="'200px'" >
           </md-editor>
         </mat-tab>
         <mat-tab label="replay">

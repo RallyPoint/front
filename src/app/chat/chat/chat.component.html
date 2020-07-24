@@ -1,6 +1,6 @@
 <h3>CHAT DU STREAM</h3>
 <div class="messages">
-<ng-scrollbar #scrollbarRef (updated)="scrollbarRef.scrollTo({bottom:0})">
+<ng-scrollbar #scrollbarRef (updated)="scrollbarRef.scrollTo({bottom:0})" visibility="hover">
 <ul>
   <li *ngFor="let message of messages" class="col-12">
     <span class="pseudo">{{message.uuid}}</span>

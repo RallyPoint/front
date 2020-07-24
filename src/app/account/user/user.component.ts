@@ -58,6 +58,7 @@ export class UserComponent implements OnInit {
     formData.append('email', this.changeInformationdForm.get('email').value);
     formData.append('pseudo', this.changeInformationdForm.get('pseudo').value);
     formData.append('avatar', this.changeInformationdForm.get('avatar').value);
+    formData.append('desc', this.changeInformationdForm.get('desc').value);
     if(this.changeInformationdForm.get('password').value){
       formData.append('passwordConf', this.changeInformationdForm.get('passwordConf').value);
       formData.append('password', this.changeInformationdForm.get('password').value);

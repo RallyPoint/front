@@ -1,5 +1,5 @@
-import {ElementRef, Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
-import {EventEmitter} from 'events';
+import {ElementRef, Component, OnInit, ViewChild, AfterViewInit, Input} from '@angular/core';
+import {environment} from '../../../environments/environment';
 declare var p2pml: any;
 declare var shaka: any;
 
@@ -11,6 +11,9 @@ declare var shaka: any;
 export class PlayerComponent implements AfterViewInit {
 
   @ViewChild('playerEl', {read: ElementRef}) playerEl: ElementRef;
+
+  @Input('channel')
+  public channel: string;
 
   constructor() {
   }
@@ -33,14 +36,16 @@ export class PlayerComponent implements AfterViewInit {
 
       engine.on(p2pml.core.Events.PieceBytesUploaded, this.onBytesUploaded.bind(this));
       const player = new shaka.Player(this.playerEl.nativeElement);
-
       player.addEventListener('error', (error) => { console.error('Error code', error.detail.code, 'object', error.detail); });
 
       (window as any).shaka = shaka;
 
       engine.initShakaPlayer(player);
 
-      player.load('https://stats.rallypoint.tech/live/zHqELc7G0rIcogKueApdDNeShT3uwUQR.m3u8').catch(
+      player.load(environment.liveUrl + '/live/' + this.channel + '.m3u8').then(()=>{
+        console.log("======>");
+        this.playerEl.nativeElement.play();
+      }).catch(
         (error) => { console.error('Error code', error.code, 'object', error); }
       );
     } else {
