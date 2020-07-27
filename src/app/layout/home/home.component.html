@@ -1,14 +1,15 @@
 <ng-scrollbar visibility="hover">
   <div class="col-12">
     <div class="main-live d-flex col-12 p-0 mt-3" *ngIf="mainUser && mainUser.live">
-      <div class="preview col-6 align-items-center d-flex">
-        <div *ngIf="mainUser.live.status" class="offline w-100">
+      <div class="preview p-0 col-6 align-items-center d-flex">
+        <div *ngIf="!mainUser.live.status" class="offline col-12">
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center">Debut du live live le {{mainUser.live.date | date  : 'dd/MM HH:mm'}}</div>
           <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center">Live terminer</div>
         </div>
+        <app-player class="w-100" [channel]="mainUser.pseudo" *ngIf="mainUser.live.status"></app-player>
       </div>
       <div class="desc col-6 pt-4 pb-4">
-        <h2>Formation K8S Partie 1</h2>
+        <h2>{{mainUser.live.title}}</h2>
         <div class="by d-flex mt-4 mb-4 p-2">
           <div class="avatar mr-2">
             <img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4">

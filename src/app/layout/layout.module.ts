@@ -10,6 +10,7 @@ import {NgScrollbarModule} from "ngx-scrollbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {FollowModule} from "../follow/follow.module";
+import {LiveModule} from "../live/live.module";
 
 
 
@@ -26,7 +27,8 @@ import {FollowModule} from "../follow/follow.module";
     NgScrollbarModule,
     MatButtonModule,
     MatIconModule,
-    FollowModule
+    FollowModule,
+    LiveModule
   ]
 })
 export class LayoutModule { }

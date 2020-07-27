@@ -1,6 +1,10 @@
 :host{
   ::ng-deep .preview-panel{
     background-color: transparent !important;
+    font-size: 12px;
+  }
+  .live-desc{
+    font-size: 12px;
   }
   .chat{
     width: 100%;

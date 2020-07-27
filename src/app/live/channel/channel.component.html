@@ -24,9 +24,9 @@
       <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo"></app-player>
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
-          <md-editor name="Content"
-                     mode="preview" class="md-editor" [(ngModel)]="userChannel.live.desc" [height]="'200px'" >
-          </md-editor>
+          <div class="live-desc col-12 pt-4 pb-4">
+          {{userChannel.live.desc}}
+          </div>
           <md-editor name="Content"
                      mode="preview" class="md-editor" [(ngModel)]="userChannel.desc" [height]="'200px'" >
           </md-editor>
@@ -38,7 +38,7 @@
     </ng-scrollbar>
   </div>
   <div class="chat">
-    <app-chat></app-chat>
+    <app-chat [channel]="userChannel.pseudo"></app-chat>
   </div>
 </div>
 

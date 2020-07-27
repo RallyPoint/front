@@ -60,8 +60,7 @@
 
     <p class="col-12">
       <mat-label>Description de la chaine</mat-label>
-      <md-editor class="md-editor" [height]="'200px'" formControlName="desc">
-      </md-editor>
+      <textarea matInput style="height: 300px"  formControlName="desc"></textarea>
     </p>
 
     <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>

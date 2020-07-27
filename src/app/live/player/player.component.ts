@@ -39,7 +39,7 @@ export class PlayerComponent implements AfterViewInit {
       const setup = {
         parentId: '#video',
         plugins: [],
-        source: 'https://stats.rallypoint.tech/live/' + this.channel + '.m3u8',
+        source: environment.liveUrl+'/live/' + this.channel + '.m3u8',
         width: '100%',
         height: '100%',
         muted: true,

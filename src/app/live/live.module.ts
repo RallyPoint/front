@@ -18,7 +18,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [ChannelComponent, PlayerComponent],
   exports: [
-    ChannelComponent
+    ChannelComponent,
+    PlayerComponent
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://127.0.0.1:9090',
-  liveUrl: 'http://127.0.0.1:8080'
+  liveUrl: 'http://127.0.0.1:8080',
+  chatUrl: 'http://127.0.0.1:3000'
 };
 
 /*

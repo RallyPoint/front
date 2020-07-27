@@ -1,39 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as io from 'socket.io-client';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import Socket = SocketIOClient.Socket;
 import {EditorComponent} from '../editor/editor.component';
 import {LoginService} from '../../auth/login.service';
 import {AuthenticationService} from '../../auth/authentication.service';
+import { environment } from '../../../environments/environment';
+import {NgScrollbar} from "ngx-scrollbar";
+import {tap} from "rxjs/operators";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @Input()
+  public channel: string;
 
   public io: Socket;
-  public messages: {uuid: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
-    {uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0},
-    {uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0},
-    {uuid: 'azeaze', txt: 'Je le vois de partout sur Twitter @Demenoss ^^', voteCount: 0, votes: {}, voted: 0},
-    {uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0}
+  public messages: {uuid: string, pseudo: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
     ];
   public message: string;
-  private token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyNCIsImlhdCI6MTU5MTY5NjkyNH0.jU6m2PdRnWP64yeXsJBO94u-MAFgaOXc01cQLKSNrKaq_0hD3xBw0ddREXunPrdmLI9lLP1Qm7mL1lhu-acuQEU8r6LkfoW1JrWImnCX4UjYXyGBsvuhunSC-najNNwQRjXOJLZGcNdoCO4BcxLYZTMur6irhilKRKpUvoOOH3F8ymGr4Ts70epeY866cwujj61fUWbVwZdNzgtcblqjCndeKF5i1xlLGzjfnbeXr4kn2aioTFNcfrGhlRtWNIYaMSdUp06bzu1EHNSCRL7oGGkbj7AUqvP6EPvyAMKpmw3tBVwqtZ33p7iUrCboOqYcKspjKtuF15re9vNE1ko_2M3dhb_VvBwCFcgaAZz1vqfceGFV7G-HQXT5hxZEpMqg4oLDxhamp9f3pni_yYdnP1vi8BgqPxDOg0qrhprZzFKfrkeZl9wyz2zCUMaILhvJmI_WyoxQW6_Ywy7_C9tptunq6VJDPWmtPKM0zIb_SsuU6mNNhzsT6GmvStu3HxiRTHQXXM1YJO6HqcmWNdkfmtgZC3jgs7G9Korg5AWOMG3-sD7Qd8EbpcSvgXSCb4BBUvoINoYydXtDcTaoI03ZLjHQvLG_ovQcKHSZbmk0J-HwkPtSlXfzvgyPh8XcKqHrkU0ipwlqHQdNbdyr7OHxg6u6wGytmhLLdUAPTWUef9s';
-
+  public autoScroll: boolean;
+  @ViewChild(NgScrollbar, { static: true }) scrollbarRef: NgScrollbar;
+  // tslint:disable-next-line:variable-name
+  private _scrollSubscription = Subscription.EMPTY;
   // public socket: Socket;
   constructor(public matDialog: MatDialog,
               private readonly loginService: LoginService,
               private readonly authenticationService: AuthenticationService) { }
 
+  ngAfterViewInit() {
+    this._scrollSubscription = this.scrollbarRef.verticalScrolled.pipe(
+      tap((e: any) => {
+        this.autoScroll = e.target.scrollHeight === e.target.clientHeight+e.target.scrollTop;
+      })
+    ).subscribe();
+  }
   ngOnInit(): void {
     this.connection();
   }
+  ngOnDestroy() {
+    this._scrollSubscription.unsubscribe();
+  }
 
   public connection(){
-    this.io = io('https://chat.rallypoint.tech', {query: 'channel=toto&auth_token=' + this.authenticationService.token});
+    this.io = io(environment.chatUrl, {query: 'channel='+this.channel+'&auth_token=' + this.authenticationService.token});
     this.io.on('message', this.onMessage.bind(this));
     this.io.on('vote', this.onVote.bind(this));
     this.io.on('code', this.onCode.bind(this));
@@ -47,11 +62,11 @@ export class ChatComponent implements OnInit {
     this.message = '';
   }
 
-  public onCode(msg: {uuid: string, txt: string, url: string}): void{
-    this.messages.push({txt: msg.txt, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, gist: msg.url});
+  public onCode(msg: {uuid: string, pseudo: string, txt: string, url: string}): void{
+    this.messages.push({txt: msg.txt, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo , gist: msg.url});
   }
-  public onMessage(msg: {uuid: string, txt: string}): void{
-    this.messages.push({txt: msg.txt, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
+  public onMessage(msg: {uuid: string, pseudo: string, txt: string}): void{
+    this.messages.push({txt: msg.txt, pseudo: msg.pseudo, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
   }
 
   public onVote(msg: {uuid: string, vote: boolean, by: string}): void{

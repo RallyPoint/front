@@ -1,9 +1,9 @@
 <h3>CHAT DU STREAM</h3>
 <div class="messages">
-<ng-scrollbar #scrollbarRef (updated)="scrollbarRef.scrollTo({bottom:0})" visibility="hover">
+<ng-scrollbar #scrollbarRef (updated)="autoScroll ? scrollbarRef.scrollTo({bottom:0}):null;" visibility="hover">
 <ul>
   <li *ngFor="let message of messages" class="col-12">
-    <span class="pseudo">{{message.uuid}}</span>
+    <span class="pseudo">{{message.pseudo}}</span>
     <span class="vote" >{{message.voteCount}}</span>
     {{message.txt}}
     {{message.gist}}
