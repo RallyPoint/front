@@ -15,6 +15,9 @@ export class PlayerComponent implements AfterViewInit {
   @Input('channel')
   public channel: string;
 
+  @Input('file')
+  public file: string;
+
   constructor() {
   }
 
@@ -32,14 +35,20 @@ export class PlayerComponent implements AfterViewInit {
         }
       });
       engine.on(p2pml.core.Events.PieceBytesDownloaded, this.onBytesDownloaded.bind(this));
-
       engine.on(p2pml.core.Events.PieceBytesUploaded, this.onBytesUploaded.bind(this));
 
+      let url = '';
+      if (this.channel){
+        url = environment.liveUrl + '/live/' + this.channel + '.m3u8';
+      }else if (this.file){
+        url = environment.movieUrl + '/hls/' + this.file + '/master.m3u8';
+      }
+      console.log(url);
 
       const setup = {
         parentId: '#video',
         plugins: [],
-        source: environment.liveUrl+'/live/' + this.channel + '.m3u8',
+        source: url,
         width: '100%',
         height: '100%',
         muted: true,
@@ -60,25 +69,6 @@ export class PlayerComponent implements AfterViewInit {
       this.playerEl.nativeElement.appendChild(outer);
 
       const player = new Clappr.Player(setup);
-      /*
-            const player = new shaka.Player(this.playerEl.nativeElement);
-            player.addEventListener('error', (error) => { console.error('Error code', error.detail.code, 'object', error.detail); });
-
-            (window as any).shaka = shaka;
-
-            engine.initShakaPlayer(player);
-
-            player.load('https://stats.rallypoint.tech/live/' + this.channel + '.m3u8').then(() => {
-              console.log('======>');
-              this.playerEl.nativeElement.play();
-            }).catch(
-              (error) => { console.error('Error code', error.code, 'object', error); }
-            );
-          } else {
-            document.write('Not supported :(');
-          }
-
-       */
     }
   }
 

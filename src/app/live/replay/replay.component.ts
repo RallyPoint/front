@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../auth/authentication.service';
-import {ApiService} from '../../share/api.service';
-import {ActivatedRoute} from '@angular/router';
-import {FollowService} from '../../follow/follow.service';
 import {LoginService} from '../../auth/login.service';
+import {ApiService} from '../../share/api.service';
+import {FollowService} from '../../follow/follow.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-channel',
-  templateUrl: './channel.component.html',
-  styleUrls: ['./channel.component.scss']
+  selector: 'app-replay',
+  templateUrl: './replay.component.html',
+  styleUrls: ['./replay.component.scss']
 })
-export class ChannelComponent implements OnInit {
+export class ReplayComponent implements OnInit {
 
+  public replay: any;
   public userReplays: any;
-  public userChannel: any;
   public isAuth = false;
   public followed: boolean;
   public now: Date = new Date();
@@ -27,13 +27,13 @@ export class ChannelComponent implements OnInit {
   ngOnInit(): void {
     this.isAuth = this.authService.isLogged();
     this.route.params.subscribe(params => {
-      this.apiService.axios.get('lives/' + params.liveName).then((res) => {
-        this.userChannel = res.data;
+      this.apiService.axios.get('replay/' + params.replayId).then((res) => {
+        this.replay = res.data;
         this.apiService.axios.get('replay', {params: {user: res.data.user.id}}).then((res) => {
           this.userReplays = res.data;
         });
-        this.userChannel.live.date = new Date(this.userChannel.live.date);
-        this.followService.isFollowed(this.userChannel.id).then((status) => {
+        this.replay.date = new Date(this.replay.date);
+        this.followService.isFollowed(this.replay.id).then((status) => {
           this.followed = status;
         });
       });
@@ -46,18 +46,15 @@ export class ChannelComponent implements OnInit {
 
   follow(){
     if (!this.isAuth){this.connexion(); }
-    this.followService.follow(this.userChannel.id).then(() => {
+    this.followService.follow(this.replay.user.id).then(() => {
       this.followed = true;
     });
   }
 
   unFollow(){
-    this.followService.unFollow(this.userChannel.id).then(() => {
+    this.followService.unFollow(this.replay.user.id).then(() => {
       this.followed = false;
     });
   }
 
-  subscribe(){
-
-  }
 }

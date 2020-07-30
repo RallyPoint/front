@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
-import { MiniLiveComponent } from './mini-live/mini-live.component';
 import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {NgScrollbarModule} from "ngx-scrollbar";
@@ -15,7 +14,7 @@ import {LiveModule} from "../live/live.module";
 
 
 @NgModule({
-  declarations: [TopBarComponent, SideBarComponent, HomeComponent, MiniLiveComponent],
+  declarations: [TopBarComponent, SideBarComponent, HomeComponent],
   exports: [
     TopBarComponent,
     SideBarComponent

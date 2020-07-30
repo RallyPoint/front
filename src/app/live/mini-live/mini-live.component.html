@@ -1,8 +1,8 @@
   <div class="full__item-video mb-3">
     <div class="item__video">
       <div class="img__img-video">
-        <img [src]="'/media/hls/'+pseudo+'-thumbnail.jpg'" alt="">
-        <span class="live__button ml-2 mr-2">LIVE</span>
+        <img [src]="img" alt="">
+        <span *ngIf="live" class="live__button ml-2 mr-2">LIVE</span>
         <span class="viewer"><span class="icon-eye"></span>{{spec}}</span>
         <!--    <span class="play"></span> -->
         <div class="content__video pl-2 pr-2">

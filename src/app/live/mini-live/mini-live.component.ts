@@ -16,7 +16,9 @@ export class MiniLiveComponent implements OnInit {
   @Input()
   public title: string;
   @Input()
-  public img: string;
+  public img?: string;
+  @Input()
+  public live: boolean;
   @Input()
   public tag: string[];
 
