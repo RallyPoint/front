@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.axios.get('lives').then((res) => {
-      this.userLives = res.data.map((live)=>{
-        return Object.assign(live, {thumbnail: '/media/hls/'+live.user.pseudo+'-thumbnail.jpg'});
+      this.userLives = res.data.map((live) => {
+        return Object.assign(live, {thumbnail: '/media/hls/' + live.user.pseudo + '-thumbnail.jpg'});
       });
     });
     this.apiService.axios.get('replay').then((res) => {
