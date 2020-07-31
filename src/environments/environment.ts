@@ -6,9 +6,9 @@ export const environment = {
   production: false,
 //  apiUrl: 'https://api.rallypoint.tech/',
   apiUrl: 'http://127.0.0.1:9090',
-  movieUrl: 'http://127.0.0.1:8081',
+  vodUrl: ['http://127.0.0.1:8081'],
 //  liveUrl: 'https://stats.rallypoint.tech',
-  liveUrl: 'http://127.0.0.1:8080',
+  liveUrl: ['http://127.0.0.1:8080'],
   chatUrl: 'http://127.0.0.1:3000'
 };
 

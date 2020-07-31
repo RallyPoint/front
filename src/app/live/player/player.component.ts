@@ -1,5 +1,6 @@
 import {ElementRef, Component, OnInit, ViewChild, AfterViewInit, Input} from '@angular/core';
 import {environment} from '../../../environments/environment';
+import {Utils} from "../../share/utils";
 declare var p2pml: any;
 declare var Clappr: any;
 
@@ -39,9 +40,9 @@ export class PlayerComponent implements AfterViewInit {
 
       let url = '';
       if (this.channel){
-        url = environment.liveUrl + '/live/' + this.channel + '.m3u8';
+        url = Utils.GetRandomOfArray(environment.liveUrl) + '/live/' + this.channel + '.m3u8';
       }else if (this.file){
-        url = environment.movieUrl + '/hls/' + this.file + '/master.m3u8';
+        url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
       }
       console.log(url);
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../share/api.service';
 import { environment } from '../../../environments/environment';
+import {Utils} from "../../share/utils";
 
 @Component({
   selector: 'app-home',
@@ -23,8 +24,9 @@ export class HomeComponent implements OnInit {
       });
     });
     this.apiService.axios.get('replay').then((res) => {
+      const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
       this.userReplays = res.data.map((replay) => {
-        return Object.assign(replay, {thumbnail: environment.movieUrl + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+        return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
       });
     });
     this.apiService.axios.get('lives/home/main').then((res) => {
