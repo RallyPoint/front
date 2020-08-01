@@ -11,6 +11,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
 
 
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
@@ -31,7 +32,8 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     AceModule,
     NgScrollbarModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule
   ],
   providers: [
     {

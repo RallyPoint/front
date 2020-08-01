@@ -73,9 +73,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     // reverse Vote
     const message = this.findMessage(msg.uuid);
     if (!message){return; }
-    console.log(message.votes[msg.by]);
     if (message.votes[msg.by] !== undefined){
-      console.log('abort on vote');
       message.voteCount -= message.votes[msg.by];
     }
     // update vote

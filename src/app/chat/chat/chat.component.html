@@ -4,14 +4,9 @@
 <ul>
   <li *ngFor="let message of messages" class="col-12">
     <span class="pseudo">{{message.pseudo}}</span>
-    <span class="vote" >{{message.voteCount}}</span>
+    <span class="vote" ><mat-icon class="vote-btn" (click)="vote(true,message.uuid)">thumb_up</mat-icon><span class="vote-count">{{message.voteCount}}</span></span>
     {{message.txt}}
     {{message.gist}}
-    <div class="actions ">
-      <div class="col-4 d-flex align-items-center justify-content-center"><span>Voter : </span></div>
-      <div class="action col-4 d-flex align-items-center justify-content-center" (click)="vote(false,message.uuid)">-</div>
-      <div class="action col-4 d-flex align-items-center justify-content-center" (click)="vote(true,message.uuid)">+</div>
-    </div>
   </li>
 </ul>
 </ng-scrollbar>
@@ -22,7 +17,7 @@
     <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
   </div>
   <div class="col-12 d-flex justify-content-between">
-    <button  mat-raised-button color="primary"  type="button" (click)="openCodeEditor()"> &gt;code&lt;</button>
+    <button  mat-raised-button color="primary"  type="button" (click)="openCodeEditor()"> &lt;code&gt;</button>
     <button  mat-raised-button color="second">send</button>
   </div>
 </form>

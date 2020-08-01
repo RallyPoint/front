@@ -49,12 +49,25 @@
       padding-bottom: 7px;
       font-size: 12px;
       position: relative;
-      &:hover{
-        background-color: rgba(255,255,255,0.1);
+      .vote-count{
+        display: inline;
+      }
+      .vote-btn{
+        font-size: 12px;
+        line-height: 18px;
+        width: auto;
+        height: auto;
+        display: none;
         cursor: pointer;
-        .actions{
-          display: flex;
+      }
+      &:hover{
+        .vote-count{
+          display: none;
         }
+        .vote-btn{
+          display: inline-block;
+        }
+        background-color: rgba(255,255,255,0.1);
       }
       .pseudo{
         font-weight: bold;

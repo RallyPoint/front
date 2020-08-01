@@ -1,3 +1,7 @@
+<input id="consent_functional" type="checkbox" checked disabled /><label for="consent_functional">Functional (Strictly Necessary) Cookies</label>
+<input id="consent_performance" type="checkbox" checked /><label for="consent_performance">Performance Cookies</label>
+<input id="consent_targeting" type="checkbox" /><label for="consent_targeting">Targeting Cookies</label>
+<button type="button" class="button" id="consent_save">Save Cookie Settings</button>
 <div class="d-flex h-100" *ngIf="userChannel && userChannel.live">
   <div class="live">
     <ng-scrollbar visibility="hover">
@@ -8,7 +12,7 @@
           <h2>Maxence</h2>
           <div class="top d-flex">
             <h1 class="mr-auto">{{userChannel.live.title}}</h1>
-            <button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>
+            <!--<button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
             <button mat-raised-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
             <button mat-raised-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>

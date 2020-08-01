@@ -29,7 +29,7 @@ export class ChannelComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.apiService.axios.get('lives/' + params.liveName).then((res) => {
         this.userChannel = res.data;
-        this.apiService.axios.get('replay', {params: {user: res.data.user.id}}).then((res) => {
+        this.apiService.axios.get('replay', {params: {user: res.data.id}}).then((res) => {
           this.userReplays = res.data;
         });
         this.userChannel.live.date = new Date(this.userChannel.live.date);
