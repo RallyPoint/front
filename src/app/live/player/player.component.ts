@@ -52,7 +52,6 @@ export class PlayerComponent implements AfterViewInit {
 
       const setup = {
         parentId: '#video',
-        plugins: [],
         source: url,
         width: '100%',
         height: '100%',
@@ -63,6 +62,12 @@ export class PlayerComponent implements AfterViewInit {
           playInline: true,
           liveSyncDurationCount: 7,
           loader: engine.createLoaderClass()
+        },
+        plugins: {
+          core: [ClapprGaEventsPlugin],
+        },
+        gaEventsPlugin: {
+          trackingId: 'UA-XXXX-Y',
         }
       };
       const outer = document.createElement('div');
@@ -73,15 +78,7 @@ export class PlayerComponent implements AfterViewInit {
       outer.appendChild(video);
       this.playerEl.nativeElement.appendChild(outer);
 
-      const player = new Clappr.Player({
-        source: setup,
-        plugins: {
-          core: [ClapprGaEventsPlugin],
-        },
-        gaEventsPlugin: {
-          trackingId: 'UA-XXXX-Y',
-        }
-      });
+      const player = new Clappr.Player(setup);
     }
   }
 
