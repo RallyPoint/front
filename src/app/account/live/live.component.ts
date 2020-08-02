@@ -24,10 +24,12 @@ export class LiveComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
+  public previewImage;
   public changeInformationdForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
+    thumb: new FormControl('', [Validators.required]),
     date: new FormControl('', []),
     desc: new FormControl('', []),
   }, [(control: FormGroup): ValidationErrors | null => {
@@ -42,6 +44,7 @@ export class LiveComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.axios.get('user/' + this.authentificationService.user.id).then((res) => {
       this.user = res.data;
+      this.previewImage = "/media/live/"+res.data.thumb;
       this.user.live.date = new Date(this.user.live.date);
       this.changeInformationdForm.patchValue({
         title: this.user.live.title,
@@ -56,6 +59,20 @@ export class LiveComponent implements OnInit {
       this.languages = res.data.languages;
       this.categories = res.data.levels;
     });
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.changeInformationdForm.patchValue({
+        thumb: file
+      });
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = () => {
+        this.previewImage = reader.result;
+      };
+    }
   }
 
   renewLiveKey(){

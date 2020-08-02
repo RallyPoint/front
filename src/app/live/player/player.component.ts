@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {Utils} from "../../share/utils";
 declare var p2pml: any;
 declare var Clappr: any;
+declare var ClapprGaEventsPlugin: any;
 
 @Component({
   selector: 'app-player',
@@ -69,7 +70,15 @@ export class PlayerComponent implements AfterViewInit {
       outer.appendChild(video);
       this.playerEl.nativeElement.appendChild(outer);
 
-      const player = new Clappr.Player(setup);
+      const player = new Clappr.Player({
+        source: setup,
+        plugins: {
+          core: [ClapprGaEventsPlugin],
+        },
+        gaEventsPlugin: {
+          trackingId: 'UA-XXXX-Y',
+        }
+      });
     }
   }
 

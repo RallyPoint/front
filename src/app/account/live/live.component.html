@@ -57,10 +57,35 @@
         </ngx-mat-datetime-picker>
       </mat-form-field>
     </p>
-
-    <p class="col-12">
+    <div class="pl-3">
+      <mat-label>Prévisualisation pour le live off</mat-label>
+      <div class="pt-4 pb-4 row d-flex">
+        <div class="col-6">
+          <div class="thumb-container w-100">
+            <img class="thumb w-100" [src]="this.previewImage">
+          </div>
+        </div>
+        <div class="col-6 d-flex align-items-center">
+          <div>
+          <input type="file" hidden="true" (change)="onFileChange($event)" #fileInput>
+          <button mat-raised-button type="button" (click)="fileInput.click()">choisir un fichier</button>
+          <br>
+          <small class="pt-3 d-block">
+            Votre fichier doit etres une image de maximum 1Mo
+          </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>
+      <mat-form-field appearance="fill" class="col-12">
       <mat-label>Description de la chaine</mat-label>
-      <textarea matInput style="height: 300px"  formControlName="desc"></textarea>
+      <textarea matInput
+                formControlName="desc"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="3"
+                cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
     </p>
 
     <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
