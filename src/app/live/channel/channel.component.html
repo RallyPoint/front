@@ -25,7 +25,7 @@
         Chaine hors ligne.
         <div *ngIf="userChannel.live.date.getTime() > now.getTime()">Prochain live le {{userChannel.live.date | date  : 'dd/MM HH:mm'}}</div>
       </div>
-      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo"></app-player>
+      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip"></app-player>
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
           <div class="live-desc col-12 pt-4 pb-4">

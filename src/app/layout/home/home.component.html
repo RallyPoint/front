@@ -6,7 +6,7 @@
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center">Debut du live live le {{mainUser.live.date | date  : 'dd/MM HH:mm'}}</div>
           <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center">Live terminer</div>
         </div>
-        <app-player class="w-100" [channel]="mainUser.pseudo" *ngIf="mainUser.live.status"></app-player>
+        <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status"></app-player>
       </div>
       <div class="desc col-6 pt-4 pb-4">
         <h2>{{mainUser.live.title}}</h2>

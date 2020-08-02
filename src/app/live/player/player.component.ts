@@ -17,6 +17,9 @@ export class PlayerComponent implements AfterViewInit {
   @Input('channel')
   public channel: string;
 
+  @Input('server')
+  public server: string;
+
   @Input('file')
   public file: string;
 
@@ -41,7 +44,7 @@ export class PlayerComponent implements AfterViewInit {
 
       let url = '';
       if (this.channel){
-        url = Utils.GetRandomOfArray(environment.liveUrl) + '/live/' + this.channel + '.m3u8';
+        url = Utils.GetRandomOfArray(environment.liveUrl) + "/" + this.server + '/live/' + this.channel + '.m3u8';
       }else if (this.file){
         url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
       }
