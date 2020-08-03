@@ -9,6 +9,8 @@
 ***************************/
 .full__item-video {
   position: relative;
+  border-radius: 5px;
+  overflow: hidden;
   width: 100%;
   cursor: pointer;
   &:hover{
@@ -22,6 +24,7 @@
       font-size: 12px;
     }
       .img__img-video {
+        border-radius: 5px;
         position: relative;
         img {
           width: 100%;

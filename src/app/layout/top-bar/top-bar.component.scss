@@ -124,6 +124,7 @@
     }
   }
   .buttons__contact {
+    color: $dark-background;
     margin-left: 16px;
     .btn {
       color: #FFF;
@@ -148,4 +149,7 @@
       }
     }
   }
+}
+.menu{
+  color: $dark-background;
 }

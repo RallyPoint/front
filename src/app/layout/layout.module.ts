@@ -10,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {FollowModule} from "../follow/follow.module";
 import {LiveModule} from "../live/live.module";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -27,7 +28,8 @@ import {LiveModule} from "../live/live.module";
     MatButtonModule,
     MatIconModule,
     FollowModule,
-    LiveModule
+    LiveModule,
+    MatMenuModule
   ]
 })
 export class LayoutModule { }

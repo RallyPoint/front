@@ -11,6 +11,7 @@
   display: contents;
 }
 .sidebar__left {
+  border-right: 1px solid $normal-background;
   background-color: $dark-background;
   height: 100%;
   display: block;

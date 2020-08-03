@@ -1,3 +1,6 @@
+
+@import '../../../assets/helpers/variabls.scss';
+
 .md-editor{
   color: #1b1e21;
 }
@@ -11,4 +14,13 @@
     bottom: 0;
     height: 100%;
   }
+}
+
+h5{
+  display: inline-block;
+  font-size: 18px;
+  padding: 5px 7px;
+  margin: 20px 0;
+  background-color: #FFF;
+  color: $normal-background;
 }

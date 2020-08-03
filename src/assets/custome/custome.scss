@@ -250,3 +250,10 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 .mat-form-field-appearance-standard .mat-form-field-flex{
   padding-top: 0px !important;
 }
+
+.mat-menu-panel{
+  background-color: #FFFFFF;
+}
+.mat-menu-item{
+  color: $dark-background;
+}

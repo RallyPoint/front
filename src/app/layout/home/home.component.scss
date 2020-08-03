@@ -4,8 +4,12 @@
   .main-live{
     max-width: 1280px;
     background-color: $normal-background;
+    border-radius: 5px;
+    overflow: hidden;
     .preview{
       background-color: #000;
+      border-radius: 5px;
+      overflow: hidden;
       .offline{
         background-color: rgba(0,0,0,0.5);
         padding: 15px 0;

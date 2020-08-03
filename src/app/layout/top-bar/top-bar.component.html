@@ -21,14 +21,29 @@
         <a class="nav-link" href="#">Browse</a>
       </li>
     </ul>
-    <div class="buttons__contact" *ngIf="!isLogin">
-
-      <button mat-stroked-button>Basic</button>
-      <button mat-stroked-button color="accent" class="mr-4" (click)="singIn()">Login</button>
-      <button mat-stroked-button color="primary" class="mr-4" (click)="login()">SignUp</button>
-    </div>
-    <div class="buttons__contact" *ngIf="isLogin">
-      <button mat-stroked-button color="primary"  class="mr-4" routerLink="/account/">Mon compte</button>
+    <div class="buttons__contact" >
+      <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-4" (click)="singIn()">Login</button>
+      <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-4" (click)="login()">SignUp</button>
+      <button mat-stroked-button color="primary" *ngIf="isLogin"  class="mr-4" routerLink="/account/">Mon compte</button>
+      <button mat-icon-button color="accent" [matMenuTriggerFor]="menu" class="mr-4" aria-label="plus d'info"><mat-icon>more_vert</mat-icon></button>
     </div>
   </div>
 </nav>
+
+<mat-menu #menu>
+  <button mat-menu-item routerLink="/cms/faq">
+    <span>FAQ</span>
+  </button>
+  <button mat-menu-item>
+    <span>Partenaire</span>
+  </button>
+  <button mat-menu-item>
+    <span>Comment diffuser</span>
+  </button>
+  <button mat-menu-item>
+    <span>Dossier presse</span>
+  </button>
+  <button mat-menu-item  routerLink="/cms/legal">
+    <span>Mention legal</span>
+  </button>
+</mat-menu>
