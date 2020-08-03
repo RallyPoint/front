@@ -1,7 +1,8 @@
 :host{
   display: flex;
+  background-color: #000;
 
-  video{
+  .player{
     flex: 1;
     max-height: 500px;
   }

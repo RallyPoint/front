@@ -12,9 +12,9 @@
           <h2>Maxence</h2>
           <div class="top d-flex">
             <h1 class="mr-auto">{{userChannel.live.title}}</h1>
-            <!--<button mat-raised-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
-            <button mat-raised-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-            <button mat-raised-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
+            <!--<button mat-stroked-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
+            <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
+            <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>
           <div class="categories">
             Language : <span>{{userChannel.live.catLevel.name}}</span> | Techno : <span>{{userChannel.live.catLanguage.name}}</span>

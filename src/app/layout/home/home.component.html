@@ -1,6 +1,6 @@
 <ng-scrollbar visibility="hover">
-  <div class="col-12">
-    <div class="main-live d-flex col-12 p-0 mt-3" *ngIf="mainUser && mainUser.live">
+  <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+    <div class="main-live d-flex w-100 p-2 mt-3 center" *ngIf="mainUser && mainUser.live">
       <div class="preview p-0 col-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12">
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center">Debut du live live le {{mainUser.live.date | date  : 'dd/MM HH:mm'}}</div>
@@ -8,7 +8,7 @@
         </div>
         <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status"></app-player>
       </div>
-      <div class="desc col-6 pt-4 pb-4">
+      <div class="desc col-6 pt-3 pb-3">
         <h2>{{mainUser.live.title}}</h2>
         <div class="by d-flex mt-4 mb-4 p-2">
           <div class="avatar mr-2">
@@ -22,19 +22,21 @@
         <div class="text mb-4">
           {{mainUser.live.desc}}
         </div>
-        <button  mat-raised-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo">Rejoindre</button>
+        <button  mat-stroked-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo">Rejoindre</button>
       </div>
     </div>
-    <h4 class="pt-3">LIVE</h4>
-    <div class="row mt-3 pr-3" *ngIf="!userLives.length">
-      <div class="col-12 text-center">Pas de live en cours.</div>
-    </div>
-    <div class="row mt-3 pr-3" *ngIf="userLives.length">
-      <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
-    </div>
-    <h4 class="pt-3">REPLAYS</h4>
-    <div class="row mt-3 pr-3">
-      <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [live]="false" [img]="userReplay.thumbnail"></app-mini-live>
+    <div class="w-100">
+      <h4 class="pt-3">LIVE</h4>
+      <div class="row mt-3 pr-3" *ngIf="!userLives.length">
+        <div class="col-12 text-center">Pas de live en cours.</div>
+      </div>
+      <div class="row mt-3 pr-3" *ngIf="userLives.length">
+        <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
+      </div>
+      <h4 class="pt-3">REPLAYS</h4>
+      <div class="row mt-3 pr-3">
+        <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [live]="false" [img]="userReplay.thumbnail"></app-mini-live>
+      </div>
     </div>
   </div>
 </ng-scrollbar>

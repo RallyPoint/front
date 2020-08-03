@@ -11,7 +11,7 @@
 .navbar {
   padding: 13px 0;
   margin-bottom: 0;
-  background: #1e4c78;
+  background: #FFF;
   border-radius: 0;
   border-bottom: 1px solid $dark-background;
   .navbar-brand {
@@ -21,11 +21,11 @@
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
-    color: #FFF;
+    color: $dark-background;
     font-size: 24px;
     .bg{
-      background-color: #FFF;
-      color: #1e4c78;
+      background-color: $dark-background;
+      color: #FFF;
     }
     img {
       width: 100%;
@@ -39,8 +39,8 @@
   position: relative;
   .form-control {
 
-    background-color: rgba(255,255,255,0.1);
-    color: #FFF;
+    background-color: $gray-background;
+    color: $dark-background;
     border-radius: 5px;
     padding: 0px;
     flex: 1;
@@ -54,7 +54,7 @@
     padding-right: 10px;
     &:focus{
       background-color: rgba(255,255,255,0);
-      border: 1px solid #FFF;
+      border: 1px solid $dark-background;
     }
     &:focus {
       box-shadow: none;
@@ -92,13 +92,12 @@
       }
       &.active {}
       .nav-link {
-        color: #FFF;
-        font-family: "Montserrat";
+        color: $dark-background;
         font-size: 17px;
         font-weight: bold;
         @extend .transition;
         &:hover {
-          color: #E3AA26;
+          color: $normal-background;
           @extend .transition;
         }
       }

@@ -8,7 +8,7 @@
         <img class="avatar " [src]="this.previewImage">
         <div>
           <input type="file" hidden="true" (change)="onFileChange($event)" #fileInput>
-          <button mat-raised-button type="button" (click)="fileInput.click()">choisir un fichier</button>
+          <button mat-stroked-button type="button" (click)="fileInput.click()">choisir un fichier</button>
           <br>
           <small>
             Votre fichier doit etres une image de maximum 500ko
@@ -54,7 +54,7 @@
       <div class="alert alert-danger" role="alert" *ngIf="succes === false">
         Erreur de modification des information personnel
       </div>
-      <button mat-raised-button color="primary" class="col-12 mb-4">Changer</button>
+      <button mat-stroked-button color="primary" class="col-12 mb-4">Changer</button>
     </div>
   </form>
 

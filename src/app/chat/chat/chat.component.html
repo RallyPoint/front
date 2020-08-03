@@ -12,12 +12,12 @@
 </ng-scrollbar>
 </div>
 
-<form (ngSubmit)="send()" class="form">
+<form (ngSubmit)="send()" class="form mb-3">
   <div class="col-12">
     <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
   </div>
   <div class="col-12 d-flex justify-content-between">
-    <button  mat-raised-button color="primary"  type="button" (click)="openCodeEditor()"> &lt;code&gt;</button>
-    <button  mat-raised-button color="second">send</button>
+    <button  mat-stroked-button color="primary"  type="button" (click)="openCodeEditor()"> &lt;code&gt;</button>
+    <button  mat-stroked-button color="second">send</button>
   </div>
 </form>

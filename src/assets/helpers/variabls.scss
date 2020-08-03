@@ -119,6 +119,8 @@ $min_maxTablette: "(min-width: 992px) and (max-width: 1199px)"; //
 $DesktopFix: "(max-width: 1365px)"; //
 $notebook: "(max-width: 1366px)"; //
 
+$gray-background: #f7f7f7;
+$normal-background:     #1e4c78;
 // Dark bg
 $dark-background:     #062249;
 $dark-bg-lighter-5:   lighten($dark-background, 5%);

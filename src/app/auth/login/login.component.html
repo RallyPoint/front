@@ -18,9 +18,9 @@
           </mat-form-field>
         </p>
         <div class="col-12">
-          <button mat-raised-button color="primary" class="col-12 mb-2">Connexion</button>
+          <button mat-stroked-button color="primary" class="col-12 mb-2">Connexion</button>
           <span class="hr">ou</span>
-          <button mat-raised-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
+          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
         </div>
       </form>
     </mat-tab>
@@ -56,9 +56,9 @@
         </p>
         <mat-error *ngIf="signInForm.errors && signInForm.errors.samePassword && signInForm.get('passwordConfirm').touched && signInForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
         <div class="col-12">
-          <button mat-raised-button color="primary" class="col-12 mb-2" [disabled]="!signInForm.valid">Inscription</button>
+          <button mat-stroked-button color="primary" class="col-12 mb-2" [disabled]="!signInForm.valid">Inscription</button>
           <span class="hr">ou</span>
-          <button mat-raised-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
+          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
         </div>
       </form>
     </mat-tab>
@@ -75,7 +75,7 @@
           </mat-form-field>
         </p>
         <div class="col-12">
-          <button mat-raised-button color="primary" class="col-12">Inscription</button>
+          <button mat-stroked-button color="primary" class="col-12">Inscription</button>
         </div>
       </form>
     </mat-tab>
@@ -91,7 +91,7 @@
             <input matInput [(ngModel)]="resetPasswordForm.email" color="primary" type="email" name="email" required>
           </mat-form-field>
         </p>
-        <button mat-raised-button>Mot de passe oublier</button>
+        <button mat-stroked-button>Mot de passe oublier</button>
       </form>
       <div class="col-12">
         <div *ngIf="resetPasswordSended">

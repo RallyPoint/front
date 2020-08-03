@@ -55,6 +55,7 @@ export class PlayerComponent implements AfterViewInit {
         source: url,
         width: '100%',
         height: '100%',
+        maxHeight:'500px',
         muted: true,
         mute: true,
         autoPlay: true,
