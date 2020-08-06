@@ -2,7 +2,7 @@
     <div class="item__video">
       <div class="img__img-video">
         <img *ngIf="live" [src]="'/media/hls/'+pseudo+'-thumbnail.jpg'" alt="">
-        <img *ngIf="!live" [src]="'https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/0ede33da3959340fc326_korbenfr_198147394_1476450246//thumb/thumb0-320x180.jpg'" alt="">
+        <img *ngIf="!live" [src]="img" alt="">
         <span *ngIf="live" class="live__button ml-2 mr-2">LIVE</span>
         <span class="viewer"><span class="icon-eye"></span>{{spec}}</span>
         <!--    <span class="play"></span> -->

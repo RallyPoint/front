@@ -14,7 +14,7 @@ export class FollowService {
   }
 
   public get(): Promise<any[]>{
-    if (!this.authenticationService.isLogged()){return Promise.reject(); }
+    if (!this.authenticationService.isLogged()){return Promise.resolve([]); }
     if (this.myFollow){return this.myFollow; }
     this.myFollow = this.apiService.axios.get(`user/${this.authenticationService.user.id}/follow`).then((res) => {
       return res.data as any;
