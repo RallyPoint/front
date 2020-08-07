@@ -28,6 +28,7 @@ registerLocaleData(localeFr);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }, //replace "en-US" with your locale
+    {provide: 'googleTagManagerId', useValue: "GTM-N4BNPPG"}
   ],
   bootstrap: [AppComponent]
 })
