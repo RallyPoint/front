@@ -53,7 +53,6 @@ export class LiveComponent implements OnInit {
         date:  this.user.live.date,
         desc:  this.user.live.desc
       });
-      console.log(res.data);
     });
     this.apiService.axios.get('categorie').then((res) => {
       this.languages = res.data.languages;
@@ -82,13 +81,24 @@ export class LiveComponent implements OnInit {
   }
 
   changeInformationdSubmit(): void{
-    console.log(this.changeInformationdForm.getRawValue());
+
+    this.succes = null;
+    const formData = new FormData();
+    formData.append('title', this.changeInformationdForm.get('title').value);
+    formData.append('level', this.changeInformationdForm.get('level').value);
+    formData.append('language', this.changeInformationdForm.get('language').value);
+    formData.append('date', this.changeInformationdForm.get('date').value);
+    formData.append('desc', this.changeInformationdForm.get('desc').value);
+    if (this.changeInformationdForm.get('files').value){
+      formData.append('files', this.changeInformationdForm.get('files').value);
+    }
+
     this.apiService.axios.put('lives/' + this.user.pseudo,
-        this.changeInformationdForm.getRawValue()).then((res) => {
+      this.changeInformationdForm.getRawValue()).then((res) => {
       this.user = res.data;
       this.succes = true;
     }, () => {
-          this.succes = false;
+      this.succes = false;
     });
   }
 
