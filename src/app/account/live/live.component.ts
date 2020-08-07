@@ -44,7 +44,7 @@ export class LiveComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.axios.get('user/' + this.authentificationService.user.id).then((res) => {
       this.user = res.data;
-      this.previewImage = "/media/live/"+res.data.thumb;
+      this.previewImage = '/media/live/'+res.data.thumb;
       this.user.live.date = new Date(this.user.live.date);
       this.changeInformationdForm.patchValue({
         title: this.user.live.title,
