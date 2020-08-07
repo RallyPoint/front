@@ -4,7 +4,7 @@
       <form [formGroup]="logInForm" (ngSubmit)="logInSubmit()" class="pt-4 pb-4">
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Identifiant</mat-label>
+            <mat-label>Email</mat-label>
             <input matInput formControlName="email" required>
             <mat-error *ngIf="logInForm.get('email') && logInForm.get('email').invalid && logInForm.get('email').touched">Invalid</mat-error>
           </mat-form-field>
