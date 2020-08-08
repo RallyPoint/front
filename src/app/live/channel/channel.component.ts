@@ -4,6 +4,8 @@ import {ApiService} from '../../share/api.service';
 import {ActivatedRoute} from '@angular/router';
 import {FollowService} from '../../follow/follow.service';
 import {LoginService} from '../../auth/login.service';
+import {Utils} from "../../share/utils";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-channel',
@@ -30,7 +32,10 @@ export class ChannelComponent implements OnInit {
       this.apiService.axios.get('lives/' + params.liveName).then((res) => {
         this.userChannel = res.data;
         this.apiService.axios.get('replay', {params: {user: res.data.id}}).then((res) => {
-          this.userReplays = res.data;
+          const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
+          this.userReplays = res.data.map((replay) => {
+            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+          });
         });
         this.userChannel.live.date = new Date(this.userChannel.live.date);
         this.followService.isFollowed(this.userChannel.id).then((status) => {

@@ -6,9 +6,9 @@ import {EditorComponent} from '../editor/editor.component';
 import {LoginService} from '../../auth/login.service';
 import {AuthenticationService} from '../../auth/authentication.service';
 import { environment } from '../../../environments/environment';
-import {NgScrollbar} from "ngx-scrollbar";
-import {tap} from "rxjs/operators";
-import {Subscription} from "rxjs";
+import {NgScrollbar} from 'ngx-scrollbar';
+import {tap} from 'rxjs/operators';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     this._scrollSubscription = this.scrollbarRef.verticalScrolled.pipe(
       tap((e: any) => {
-        this.autoScroll = e.target.scrollHeight === e.target.clientHeight+e.target.scrollTop;
+        this.autoScroll = e.target.scrollHeight === e.target.clientHeight + e.target.scrollTop;
       })
     ).subscribe();
   }
@@ -48,7 +48,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public connection(){
-    this.io = io(environment.chatUrl, {query: 'channel='+this.channel+'&auth_token=' + this.authenticationService.token});
+    this.io = io(environment.chatUrl, {query: 'channel=' + this.channel + '&auth_token=' + this.authenticationService.token});
     this.io.on('message', this.onMessage.bind(this));
     this.io.on('vote', this.onVote.bind(this));
     this.io.on('code', this.onCode.bind(this));
@@ -77,7 +77,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
       message.voteCount -= message.votes[msg.by];
     }
     // update vote
-    message.votes[msg.by] = msg.vote ? 1 : -1;
+    message.votes[msg.by] += msg.vote ? 1 : -1;
     message.voteCount += message.votes[msg.by];
   }
 
