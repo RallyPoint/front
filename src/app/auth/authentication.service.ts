@@ -37,7 +37,7 @@ export class AuthenticationService {
       localStorage.setItem(AuthenticationService.STORAGE_KEY_STATE, state);
       this.document.open(this.getGithubAuthorizeUrl(state), 'Ratting', 'width=550,height=700,0,status=0,');
       if (window){
-        window.cbSSO = (urlParams: URLSearchParams) => {
+        window['cbSSO'] = (urlParams: URLSearchParams) => {
           this.apiService.axios.post('auth/github-login', {
             code : urlParams.get('code'),
             ...data
@@ -74,6 +74,7 @@ export class AuthenticationService {
   logOut(){
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.USER);
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
+    window.location.reload();
   }
 
   login(email: string, password: string): Promise<void>{
