@@ -1,6 +1,7 @@
-import {ElementRef, Component, OnInit, ViewChild, AfterViewInit, Input} from '@angular/core';
+import {ElementRef, Component, OnInit, ViewChild, AfterViewInit, Input, OnDestroy} from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {Utils} from "../../share/utils";
+import {Utils} from '../../share/utils';
+import {ApiService} from '../../share/api.service';
 declare var p2pml: any;
 declare var Clappr: any;
 declare var ClapprGaEventsPlugin: any;
@@ -10,7 +11,9 @@ declare var ClapprGaEventsPlugin: any;
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements AfterViewInit {
+export class PlayerComponent implements AfterViewInit, OnDestroy {
+
+  private static readonly STATS_INTERVAL_DELAY: number = 4000;
 
   @ViewChild('playerEl', {read: ElementRef}) playerEl: ElementRef;
 
@@ -23,7 +26,12 @@ export class PlayerComponent implements AfterViewInit {
   @Input('file')
   public file: string;
 
-  constructor() {
+  public nbViwer: number;
+
+  private statsInterval: number;
+  private statsUid: number;
+
+  constructor(private readonly apiService: ApiService) {
   }
 
   onBytesDownloaded(method, size) {
@@ -32,6 +40,12 @@ export class PlayerComponent implements AfterViewInit {
   onBytesUploaded(method, size) {
     console.log(method);
   }
+  ngOnDestroy(): void {
+    if (this.statsInterval) {
+      clearInterval(this.statsInterval);
+    }
+  }
+
   ngAfterViewInit(): void {
     if (p2pml.hlsjs.Engine.isSupported()) {
       const engine = new p2pml.hlsjs.Engine({
@@ -44,7 +58,11 @@ export class PlayerComponent implements AfterViewInit {
 
       let url = '';
       if (this.channel){
-        url = Utils.GetRandomOfArray(environment.liveUrl) + "/" + this.server + '/live/' + this.channel + '.m3u8';
+        if(environment.name !== 'local'){
+          url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/live/' + this.channel + '.m3u8';
+        }else{
+          url = Utils.GetRandomOfArray(environment.liveUrl) + '/live/' + this.channel + '.m3u8';
+        }
       }else if (this.file){
         url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
       }
@@ -55,7 +73,7 @@ export class PlayerComponent implements AfterViewInit {
         source: url,
         width: '100%',
         height: '100%',
-        maxHeight:'500px',
+        maxHeight: '500px',
         muted: true,
         mute: true,
         autoPlay: true,
@@ -80,7 +98,34 @@ export class PlayerComponent implements AfterViewInit {
       this.playerEl.nativeElement.appendChild(outer);
 
       const player = new Clappr.Player(setup);
+      player.listenTo(player, Clappr.Events.PLAYER_PLAY, () => {
+        this.startStats();
+      });
+      player.listenTo(player, Clappr.Events.PLAYER_STOP, () => {
+        this.stopStats();
+      });
+      player.listenTo(player, Clappr.Events.PLAYER_PAUSE, () => {
+        this.stopStats();
+      });
     }
+  }
+
+  private stopStats(): void {
+    if (this.statsInterval){
+      clearInterval(this.statsInterval);
+      this.statsUid = null;
+    }
+  }
+
+  private startStats(): void {
+    this.stopStats();
+    this.statsInterval = setInterval(() => {
+      this.apiService.axios.post(`${environment.statsLiveUrl}/${this.channel}/stats`,{uid:this.statsUid}).then((res) => {
+        this.statsUid = res.data.uid;
+        this.nbViwer = res.data.viwer;
+      });
+    }, PlayerComponent.STATS_INTERVAL_DELAY);
+
   }
 
 }

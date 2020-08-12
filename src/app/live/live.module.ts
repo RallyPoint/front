@@ -14,6 +14,7 @@ import {LMarkdownEditorModule} from 'ngx-markdown-editor';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReplayComponent } from './replay/replay.component';
 import {MiniLiveComponent} from './mini-live/mini-live.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -36,7 +37,8 @@ import {MiniLiveComponent} from './mini-live/mini-live.component';
     MatTabsModule,
     LMarkdownEditorModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ]
 })
 export class LiveModule { }

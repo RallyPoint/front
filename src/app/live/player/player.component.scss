@@ -1,9 +1,21 @@
 :host{
   display: flex;
   background-color: #000;
-
-  .player{
-    flex: 1;
-    max-height: 500px;
+  position: relative;
+  .nb-viwer{
+    border-radius: 100px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.50);
+    padding: 4px 6px;
+    font-size: 10px;
+    font-weight: 400;
+    mat-icon{
+      font-size: 14px;
+      height: 12px;
+      width: 16px;
+    }
   }
 }
