@@ -86,7 +86,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
           core: [ClapprGaEventsPlugin],
         },
         gaEventsPlugin: {
-          trackingId: 'UA-XXXX-Y',
+          trackingId: 'UA-174160792-1',
         }
       };
       const outer = document.createElement('div');
