@@ -6,19 +6,16 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <form class="form-inline form-search">
-    <input class="form-control" type="search" placeholder="Search a Streaming …" aria-label="Search">
+  <form class="form-inline form-search" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
+    <input class="form-control" type="text" placeholder="Search a Streaming …" aria-label="Search" formControlName="search">
     <button class="btn btn-outline-success" type="submit">
       <img src="../../../assets/images/search.png" alt="">
     </button>
   </form>
   <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav ml-4">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Discover<span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Browse</a>
+        <span class="nav-link cursor-pointer"  routerLink="/search/browse">Browse</span>
       </li>
     </ul>
     <div class="buttons__contact" >

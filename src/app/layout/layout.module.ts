@@ -11,6 +11,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {FollowModule} from "../follow/follow.module";
 import {LiveModule} from "../live/live.module";
 import {MatMenuModule} from "@angular/material/menu";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -29,7 +30,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatIconModule,
     FollowModule,
     LiveModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule
   ]
 })
 export class LayoutModule { }

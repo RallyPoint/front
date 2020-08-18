@@ -1,0 +1,42 @@
+
+<div class="w-100 d-flex flex-column min-h-100" *ngIf="!loading">
+  <form [formGroup]="browseForm" class="col-8 row pt-4 filter">
+
+    <mat-form-field appearance="outline" class="col-4">
+      <mat-label>Titre</mat-label>
+      <input matInput type="text" formControlName="title" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-4">
+      <mat-label>Language</mat-label>
+      <mat-select formControlName="language">
+        <mat-option *ngFor="let language of languages" [value]="language.id">
+          {{language.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-4">
+      <mat-label>Technologie</mat-label>
+      <mat-select formControlName="technology">
+        <mat-option *ngFor="let technology of technologies" [value]="technology.id">
+          {{technology.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+
+  <div class="col-12 d-flex flex-column min-h-100">
+    <div class="row mt-3 pr-3" *ngIf="data && data.items">
+      <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of data.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
+    </div>
+  </div>
+
+  <mat-paginator class="mt-auto row"
+                 [length]="data.count"
+                 [pageSize]="20"
+                 (page)="pageUpdate($event)"
+                 [pageSizeOptions]="[5, 10, 20, 50]">
+  </mat-paginator>
+</div>
