@@ -1,4 +1,8 @@
-<p>verify works!</p>
-<p *ngIf="pending">Verification en cours...</p>
-<p *ngIf="verified">Compte vérifier</p>
-<p *ngIf="error">Lien de validation invalide</p>
+<div class="col-6 m-auto p-4 h-100 d-flex justify-content-center flex-column text-center">
+  <p *ngIf="pending" i18n="user | verify">Verification en cours...</p>
+  <p *ngIf="verified">
+    <span i18n="user | verify">Adresse mail confirmer.</span>
+    <button mat-stroked-button color="primary" class="col-12 mt-2" [routerLink]="'/'" type="button" i18n="user | verify">Voir les lives</button>
+  </p>
+  <p *ngIf="error" i18n="user | verify">Lien de validation invalide</p>
+</div>

@@ -3,12 +3,12 @@
   <form [formGroup]="browseForm" class="col-8 row pt-4 filter">
 
     <mat-form-field appearance="outline" class="col-4">
-      <mat-label>Titre</mat-label>
+      <mat-label i18n="search | browse">Titre</mat-label>
       <input matInput type="text" formControlName="title" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="col-4">
-      <mat-label>Language</mat-label>
+      <mat-label i18n="search | browse">Language</mat-label>
       <mat-select formControlName="language">
         <mat-option *ngFor="let language of languages" [value]="language.id">
           {{language.name}}
@@ -17,7 +17,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="col-4">
-      <mat-label>Technologie</mat-label>
+      <mat-label i18n="search | browse">Technologie</mat-label>
       <mat-select formControlName="technology">
         <mat-option *ngFor="let technology of technologies" [value]="technology.id">
           {{technology.name}}

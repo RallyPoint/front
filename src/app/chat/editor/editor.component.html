@@ -3,13 +3,13 @@
   <mat-tab label="Poster votre code">
     <div class="p-2">
       <mat-form-field>
-        <mat-label>Language</mat-label>
+        <mat-label i18n="chat | editor">Language</mat-label>
         <mat-select [(value)]="mode">
           <mat-option *ngFor="let i of languages | keyvalue" [value]="i.key">{{i.key}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <mat-label>Message</mat-label>
+        <mat-label i18n="chat | editor">Message</mat-label>
         <input matInput placeholder="" [(ngModel)]="message">
       </mat-form-field>
       <ace id="codeEditor" [mode]="mode" [theme]="'github'" [(value)]="value"></ace>

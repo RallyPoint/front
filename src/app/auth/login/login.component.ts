@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {AuthenticationService} from "../authentication.service";
-import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {AuthenticationService} from '../authentication.service';
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -10,53 +10,59 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class LoginComponent implements OnInit {
 
-  public ssoLoading: boolean = false;
+  public ssoLoading = false;
   public ssoUrl: string;
-  public resetPassword: boolean = false;
-  public completSSO : boolean = false;
+  public resetPassword = false;
+  public completSSO = false;
   public completSSOCode: string;
   public completSSOMiss: string[] = [];
-  public completSSOForm: {email: string} = {email:""};
-  public resetPasswordForm: {email: string} = {email:""};
-  public resetPasswordSended: boolean = false;
-  public resetPasswordError: boolean = false;
-  public resetPasswordNotFound: boolean = false;
+  public completSSOForm: {email: string} = {email: ''};
+  public resetPasswordForm: {email: string} = {email: ''};
+  public resetPasswordSended = false;
+  public resetPasswordError = false;
+  public resetPasswordNotFound = false;
+  public inscriptionFail = false;
+  public inscriptionSucces = false;
   public defaultSelectedTab = 0;
 
   public logInForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
-    password: new FormControl('',[Validators.required])
+    password: new FormControl('', [Validators.required])
   });
 
   public signInForm = new FormGroup({
-    pseudo: new FormControl('',[Validators.required]),
-    password: new FormControl('',[
+    pseudo: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
       Validators.required,
       Validators.pattern(/^(?=.*[A-z])(?=.*[0-9])\S{6,99}$/)
     ]),
-    passwordConfirm: new FormControl('',[Validators.required]),
-    email: new FormControl('',[
+    passwordConfirm: new FormControl('', [Validators.required]),
+    email: new FormControl('', [
       Validators.required,
-      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
     ]),
-  },[(control: FormGroup): ValidationErrors | null => {
-    return control.get('password').value != control.get('passwordConfirm').value ? { 'samePassword': true } : null;
+  }, [(control: FormGroup): ValidationErrors | null => {
+    return control.get('password').value != control.get('passwordConfirm').value ? { samePassword: true } : null;
   }]);
 
-  constructor(protected readonly authenticationService: AuthenticationService,@Inject(MAT_DIALOG_DATA) public data: {mode:boolean},public dialogRef: MatDialogRef<LoginComponent>) {
-    this.defaultSelectedTab = data.mode?0:1;
+  constructor(protected readonly authenticationService: AuthenticationService, @Inject(MAT_DIALOG_DATA) public data: {mode: boolean}, public dialogRef: MatDialogRef<LoginComponent>) {
+    this.defaultSelectedTab = data.mode ? 0 : 1;
   }
 
   ngOnInit(): void {
     this.ssoLoading = true;
-    this.ssoUrl = "https://github.com/login/oauth/authorize?client_id=941edbebbc817c7684fc&scope=user";
+    this.ssoUrl = 'https://github.com/login/oauth/authorize?client_id=941edbebbc817c7684fc&scope=user';
+  }
+
+  close(){
+    this.dialogRef.close();
   }
 
   loginGitHub(){
-    this.authenticationService.githubLogin().then(()=>{
+    this.authenticationService.githubLogin().then(() => {
       this.dialogRef.close();
-    },(e)=>{
-      if(e.miss){
+    }, (e) => {
+      if (e.miss){
         this.completSSO = true;
         this.completSSOMiss = e.miss;
       }
@@ -64,10 +70,10 @@ export class LoginComponent implements OnInit {
   }
 
   resetPasswordSubmit(){
-    this.authenticationService.resetPassword(this.resetPasswordForm.email).then((data)=>{
+    this.authenticationService.resetPassword(this.resetPasswordForm.email).then((data) => {
       this.resetPasswordSended = true;
-    }).catch((res)=>{
-      if(res.response.status === 404){
+    }).catch((res) => {
+      if (res.response.status === 404){
         this.resetPasswordError = true;
       }else{
         this.resetPasswordNotFound = true;
@@ -76,16 +82,24 @@ export class LoginComponent implements OnInit {
   }
 
   completSSOSubmit(){
-    this.authenticationService.githubLogin(this.completSSOForm).then((data)=>{
-      console.log("success",data);
+    this.authenticationService.githubLogin(this.completSSOForm).then((data) => {
+      console.log('success', data);
     });
   }
 
   signInSubmit(){
-    this.authenticationService.register(this.signInForm.getRawValue().pseudo,this.signInForm.getRawValue().password,this.signInForm.getRawValue().email);
+    this.authenticationService.register(
+      this.signInForm.getRawValue().pseudo,
+      this.signInForm.getRawValue().password,
+      this.signInForm.getRawValue().email
+    ).then(()=>{
+      this.inscriptionSucces = true;
+    }).catch(()=>{
+      this.inscriptionFail = true;
+    });
   }
 
   logInSubmit(){
-    this.authenticationService.login(this.logInForm.getRawValue().email,this.logInForm.getRawValue().password);
+    this.authenticationService.login(this.logInForm.getRawValue().email, this.logInForm.getRawValue().password);
   }
 }

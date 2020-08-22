@@ -4,61 +4,68 @@
       <form [formGroup]="logInForm" (ngSubmit)="logInSubmit()" class="pt-4 pb-4">
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Email</mat-label>
+            <mat-label i18n="auth | login">Email</mat-label>
             <input matInput formControlName="email" required>
-            <mat-error *ngIf="logInForm.get('email') && logInForm.get('email').invalid && logInForm.get('email').touched">Invalid</mat-error>
+            <mat-error *ngIf="logInForm.get('email') && logInForm.get('email').invalid && logInForm.get('email').touched" i18n="auth | login">Invalide</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Mot de passe</mat-label>
+            <mat-label i18n="auth | login">Mot de passe</mat-label>
             <input matInput type="password" formControlName="password" required>
-            <mat-error *ngIf="logInForm.get('password') && logInForm.get('password').invalid && logInForm.get('password').touched">Invalid</mat-error>
-            <mat-hint><span (click)="resetPassword = true" class="cursor-pointer">mots de passe oublier ?</span></mat-hint>
+            <mat-error *ngIf="logInForm.get('password') && logInForm.get('password').invalid && logInForm.get('password').touched" i18n="auth | login">Invalide</mat-error>
+            <mat-hint><span (click)="resetPassword = true" class="cursor-pointer" i18n="auth | login">mots de passe oublier ?</span></mat-hint>
           </mat-form-field>
         </p>
         <div class="col-12">
-          <button mat-stroked-button color="primary" class="col-12 mb-2">Connexion</button>
+          <button mat-stroked-button color="primary" class="col-12 mb-2" i18n="auth | login">Connexion</button>
           <span class="hr">ou</span>
-          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
+          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button" i18n="auth | login">Avec Github</button>
         </div>
       </form>
     </mat-tab>
     <mat-tab label="Inscription">
-      <form [formGroup]="signInForm" (ngSubmit)="signInSubmit()" class="pt-4 pb-4">
+      <div class="pt-4 pb-4" *ngIf="inscriptionSucces">
+        <p class="col-12">
+          <span i18n="auth | login">Inscription terminer. Un email vous a été envoyer pour confirmer votre adresse mail.</span>
+          <button mat-stroked-button color="primary" class="col-12 mt-2" type="button" (click)="close()" i18n="asuth | logisn">Fermer</button>
+        </p>
+      </div>
+      <form [formGroup]="signInForm" *ngIf="!inscriptionSucces" (ngSubmit)="signInSubmit()" class="pt-4 pb-4">
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Identifiant</mat-label>
+            <mat-label i18n="auth | login">Identifiant</mat-label>
             <input matInput formControlName="pseudo" required>
-            <mat-error *ngIf="signInForm.get('pseudo') && signInForm.get('pseudo').invalid && signInForm.get('pseudo').touched">Invalid</mat-error>
+            <mat-error *ngIf="signInForm.get('pseudo') && signInForm.get('pseudo').invalid && signInForm.get('pseudo').touched" i18n="auth | login">Invalide</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Mot de passe</mat-label>
+            <mat-label i18n="auth | login">Mot de passe</mat-label>
             <input matInput type="password" formControlName="password" required>
-            <mat-error *ngIf="signInForm.get('password') && signInForm.get('password').invalid && signInForm.get('password').touched">Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</mat-error>
+            <mat-error *ngIf="signInForm.get('password') && signInForm.get('password').invalid && signInForm.get('password').touched" i18n="auth | login">Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Confirmer le mot de passe</mat-label>
+            <mat-label i18n="auth | login">Confirmer le mot de passe</mat-label>
             <input matInput type="password" formControlName="passwordConfirm" required>
-            <mat-error *ngIf="signInForm.get('passwordConfirm') && signInForm.get('passwordConfirm').invalid && signInForm.get('passwordConfirm').touched">Invalid</mat-error>
+            <mat-error *ngIf="signInForm.get('passwordConfirm') && signInForm.get('passwordConfirm').invalid && signInForm.get('passwordConfirm').touched" i18n="auth | login">Invalide</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>Adresse e-mail</mat-label>
+            <mat-label i18n="auth | login">Adresse e-mail</mat-label>
             <input matInput type="email" formControlName="email" required>
-            <mat-error *ngIf="signInForm.get('email') && signInForm.get('email').invalid && signInForm.get('email').touched">Invalid</mat-error>
+            <mat-error *ngIf="signInForm.get('email') && signInForm.get('email').invalid && signInForm.get('email').touched" i18n="auth | login">Invalide</mat-error>
           </mat-form-field>
         </p>
-        <mat-error *ngIf="signInForm.errors && signInForm.errors.samePassword && signInForm.get('passwordConfirm').touched && signInForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
+        <mat-error *ngIf="inscriptionFail" class="col-12 mb-4"><small i18n="auth | login">Erreur lors de l'inscription.</small></mat-error>
+        <mat-error *ngIf="signInForm.errors && signInForm.errors.samePassword && signInForm.get('passwordConfirm').touched && signInForm.get('password').touched" class="col-12 mb-4"><small i18n="auth | login">Les mots de passes ne sont pas identiques</small></mat-error>
         <div class="col-12">
-          <button mat-stroked-button color="primary" class="col-12 mb-2" [disabled]="!signInForm.valid">Inscription</button>
-          <span class="hr">ou</span>
-          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button">Avec Github</button>
+          <button mat-stroked-button color="primary" class="col-12 mb-2" [disabled]="!signInForm.valid" i18n="auth | login">Inscription</button>
+          <span class="hr" i18n="auth | login">ou</span>
+          <button mat-stroked-button color="primary" class="col-12 mt-2" (click)="loginGitHub()"  type="button" i18n="auth | login">Avec Github</button>
         </div>
       </form>
     </mat-tab>
@@ -70,12 +77,12 @@
       <form (ngSubmit)="completSSOSubmit()" class="pt-4 pb-4">
         <p *ngIf="completSSOMiss.indexOf('email') != -1">
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>email</mat-label>
+            <mat-label i18n="auth | login">email</mat-label>
             <input matInput [(ngModel)]="completSSOForm.email" type="email" name="email" required>
           </mat-form-field>
         </p>
         <div class="col-12">
-          <button mat-stroked-button color="primary" class="col-12">Inscription</button>
+          <button mat-stroked-button color="primary" class="col-12" i18n="auth | login">Inscription</button>
         </div>
       </form>
     </mat-tab>
@@ -87,20 +94,20 @@
       <form (ngSubmit)="resetPasswordSubmit()" *ngIf="!resetPasswordSended && !resetPasswordError && !resetPasswordNotFound"  class="pt-4 pb-4">
         <p>
           <mat-form-field appearance="fill" class="col-12">
-            <mat-label>email</mat-label>
+            <mat-label i18n="auth | login">email</mat-label>
             <input matInput [(ngModel)]="resetPasswordForm.email" color="primary" type="email" name="email" required>
           </mat-form-field>
         </p>
         <button mat-stroked-button>Mot de passe oublier</button>
       </form>
       <div class="col-12">
-        <div *ngIf="resetPasswordSended">
+        <div *ngIf="resetPasswordSended" i18n="auth | login">
           Vous avez reçut un mail pour changer votre mots de passe
         </div>
-        <div *ngIf="resetPasswordNotFound">
+        <div *ngIf="resetPasswordNotFound" i18n="auth | login">
           Aucun compte n'existe avec cette email
         </div>
-        <div *ngIf="resetPasswordError">
+        <div *ngIf="resetPasswordError" i18n="auth | login">
           Une erreur technique est survenue veuilleir tenter plustard
         </div>
       </div>

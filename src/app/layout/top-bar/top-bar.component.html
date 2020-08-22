@@ -3,44 +3,43 @@
   <span class="navbar-brand col-3" routerLink="/">
     Rally Point&nbsp;<span class="bg">&nbsp;Tech&nbsp;</span>
   </span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <form class="form-inline form-search" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
+  <form class="form-inline form-search d-none d-md-block" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
     <input class="form-control" type="text" placeholder="Search a Streaming …" aria-label="Search" formControlName="search">
     <button class="btn btn-outline-success" type="submit">
       <img src="../../../assets/images/search.png" alt="">
     </button>
   </form>
-  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-4">
+  <div class="links d-flex justify-content-between">
+    <ul class="navbar-nav ml-4 d-none d-sm-block">
       <li class="nav-item">
-        <span class="nav-link cursor-pointer"  routerLink="/search/browse">Browse</span>
+        <span class="nav-link cursor-pointer"  routerLink="/search/browse"  i18n="top-bar">Browse</span>
       </li>
     </ul>
+    <div>
+    </div>
     <div class="buttons__contact" >
-      <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-4" (click)="singIn()">Login</button>
-      <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-4" (click)="login()">SignUp</button>
-      <button mat-stroked-button color="primary" *ngIf="isLogin"  class="mr-4" routerLink="/account/">Mon compte</button>
-      <button mat-icon-button color="accent" [matMenuTriggerFor]="menu" class="mr-4" aria-label="plus d'info"><mat-icon>more_vert</mat-icon></button>
+      <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-2 d-none d-sm-block" (click)="singIn()"  i18n="top-bar">Login</button>
+      <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-2" (click)="login()"  i18n="top-bar">SignUp</button>
+      <button mat-stroked-button color="primary" *ngIf="isLogin"  class="mr-2" routerLink="/account/"  i18n="top-bar">Mon compte</button>
+      <button mat-icon-button color="accent" [matMenuTriggerFor]="menu" class="mr-2" aria-label="plus d'info"><mat-icon>more_vert</mat-icon></button>
     </div>
   </div>
 </nav>
 
 <mat-menu #menu>
   <button mat-menu-item routerLink="/cms/faq">
-    <span>FAQ</span>
+    <span  i18n="top-bar">FAQ</span>
   </button>
   <button mat-menu-item>
-    <span>Partenaire</span>
+    <span  i18n="top-bar">Partenaire</span>
   </button>
   <button mat-menu-item>
-    <span>Comment diffuser</span>
+    <span  i18n="top-bar">Comment diffuser</span>
   </button>
   <button mat-menu-item>
-    <span>Dossier presse</span>
+    <span  i18n="top-bar">Dossier presse</span>
   </button>
   <button mat-menu-item  routerLink="/cms/legal">
-    <span>Mention legal</span>
+    <span  i18n="top-bar">Mention legal</span>
   </button>
 </mat-menu>

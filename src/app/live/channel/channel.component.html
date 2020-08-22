@@ -15,17 +15,17 @@
           <div class="top d-flex">
             <h1 class="mr-auto">{{userChannel.live.title}}</h1>
             <!--<button mat-stroked-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
-            <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-            <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
+            <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed" i18n="live | channel">Ne plus suivre</button>
+            <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed" i18n="live | channel">Suivre</button>
           </div>
           <div class="categories">
-            Language : <span>{{userChannel.live.catLevel.name}}</span> | Techno : <span>{{userChannel.live.catLanguage.name}}</span>
+            <span i18n="live | channel">Language</span> : <span class="bold">{{userChannel.live.catLevel.name}}</span> | <span i18n="live | channel">Techno</span> : <span class="bold">{{userChannel.live.catLanguage.name}}</span>
           </div>
         </div>
       </div>
       <div *ngIf="!userChannel.live.status" class="offline">
-        Chaine hors ligne.
-        <div *ngIf="userChannel.live.date.getTime() > now.getTime()">Prochain live le {{userChannel.live.date | date  : 'dd/MM HH:mm'}}</div>
+        <span  i18n="live | channel">Chaine hors ligne.</span>
+        <div *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
       </div>
       <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip"></app-player>
       <mat-tab-group mat-align-tabs="center">

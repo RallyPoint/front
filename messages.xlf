@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="fr-FR" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="d3a9f065f23e29de1092894229555b2c8953c235" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="76b42fe238cfaf8b8ca4d6c5b8f8eccdac9843b0" datatype="html">
+        <source>Invalide</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="c3e1451580c7fdef730f14ae69042fb9b56fa0c8" datatype="html">
+        <source>Mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="7fdb7ddd617e8f33ecb7d2f41065c9cf61fa7008" datatype="html">
+        <source>mots de passe oublier ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="842cbe3834b16c13665fb8d0ef3b135dc41f57b2" datatype="html">
+        <source>Connexion</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="67451462ae111c514a08c919bc5b7236f577781e" datatype="html">
+        <source>Avec Github</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="aac5322de7d696e25814201799c258eeecc2fced" datatype="html">
+        <source>Identifiant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="18b7b03b3a00ceeec3bc17ed5cf8b3a273b32ffd" datatype="html">
+        <source>Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="44954c307756881add430775ff964bf0cd28c1e3" datatype="html">
+        <source>Confirmer le mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="58ac61e66ccf1655e1366e47c7d86566e1db5257" datatype="html">
+        <source>Adresse e-mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="eb41af8cb5184b2853c53982490e964407beef40" datatype="html">
+        <source>Les mots de passes ne sont pas identiques</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="9b6e3fa774668659025a022f1ce2c9d07c4a0818" datatype="html">
+        <source>Inscription</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="f7735120e258720e72fa8d9406e3685aa11e76ce" datatype="html">
+        <source>ou</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="97af3c5f5aa807dfc221509d3ff5d964eed186d3" datatype="html">
+        <source>email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="8c184d778c329b8224fc59ceec55e2d1a53e950d" datatype="html">
+        <source>
+          Vous avez reçut un mail pour changer votre mots de passe
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="e4b57facb95a46995edc6f12c62ba994cc884197" datatype="html">
+        <source>
+          Aucun compte n&apos;existe avec cette email
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="a3bfcf09d1917de421ab38671a72c70376f6dac2" datatype="html">
+        <source>
+          Une erreur technique est survenue veuilleir tenter plustard
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="2c7dc726e93bcf3ca2f316bbebe96fa1e5288ba0" datatype="html">
+        <source>Browse</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="8bcb15a9d7606c507eee39541af0608422c171ff" datatype="html">
+        <source>SignUp</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="00c682dae2403dca1126342856950a4784fff635" datatype="html">
+        <source>Mon compte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="4b6dbf2d92858e82bcf6ae5dbc8dfb4b29d82ad0" datatype="html">
+        <source>FAQ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="b1516106080c1b84169c0c7ebb127925abc7e0e2" datatype="html">
+        <source>Partenaire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="632d48f4e0c5017285934095fc96d88fc03745d7" datatype="html">
+        <source>Comment diffuser</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="1ba7fe0bd30779296325fdcb765ceacbe142d15a" datatype="html">
+        <source>Dossier presse</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="2fb7c9aa012709eada8d92c376d7ce2aa2eb1b3f" datatype="html">
+        <source>Mention legal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="2b34680062c4aed90c4d846eab42d6e99501b783" datatype="html">
+        <source>Offline</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">side-bar</note>
+      </trans-unit>
+      <trans-unit id="4582ca856f7b9f4b4cdf09dd6aa0f4e4b06ba2d4" datatype="html">
+        <source>1200 Followers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">side-bar</note>
+      </trans-unit>
+      <trans-unit id="1f509f4472819d311c26ae92ebd368f4d9b54e00" datatype="html">
+        <source>Prochain live : <x id="INTERPOLATION" equiv-text="{{mainUser.live.date | date : &apos;short&apos;  }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="c3cf8d5cde4af3b23673662ea84220c1ca7ad995" datatype="html">
+        <source>Live terminer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="ba641e2ba5951e227d0402b65ade10578a0be0e9" datatype="html">
+        <source>Language: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="6d2c8c4801962a4c39df5e008208a6739acc0464" datatype="html">
+        <source>Techno</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="84373049a86a9f6a269f4d30a4c140995ceac294" datatype="html">
+        <source>Rejoindre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="df754f9d47b1a072519f1c9f7f1726937f44040a" datatype="html">
+        <source>LIVE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="3be7120b94dea4e02124195de2cdc607afdb8375" datatype="html">
+        <source>Pas de live en cours.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="6b08c8d6eb229b8e3e2fa77ec06616d05bf9cf7c" datatype="html">
+        <source>REPLAYS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/home/home.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">home</note>
+      </trans-unit>
+      <trans-unit id="d59b042121d44dff921b857940049bef83ba5be1" datatype="html">
+        <source>Verification en cours...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description"> verify</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="e26e7e61d5e29a030f5fa2933878994c62585946" datatype="html">
+        <source>Compte vérifier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description"> verify</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="4ebae329890e7f65a9bbf0b7cc86e9e1b7bfc0d7" datatype="html">
+        <source>Lien de validation invalide</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> verify</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="8d3896b0a239d8a73d24665a2f25a0f1a06f2e08" datatype="html">
+        <source>Mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="9e4b514983218509f84536f61e347274bb6726f8" datatype="html">
+        <source>Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="04c6316ec60b7e110cbefe8d5992f31905fe86ae" datatype="html">
+        <source>Confirmer le mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="7a51371ac4ba4efbb3c460d3585706ac3152df51" datatype="html">
+        <source>Invalid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="593f20143f6e91b0bea187aeeae902478ef46da3" datatype="html">
+        <source>Les mots de passes ne sont pas identiques</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="4efe65eee0c37bce671e396ed6b9bd70dace1750" datatype="html">
+        <source>Changer de mot de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="83c97d810b8d2f7e2fd129957f5a3098dc922226" datatype="html">
+        <source>
+  Impossible de changer votre mots de passe.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="45af6ead05693333028884a9e24b305a9024bbaa" datatype="html">
+        <source>
+  Votre mots passe a été changer vous pouvez vous connecter avec votre nouveau mots de passe.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="07760f4d59e6a9a5bccc4ec0bcdaf1e79d18a7bf" datatype="html">
+        <source>
+  Une erreur techniqe est survenue veilleur retenter plus tard.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="f8ae4b77cd6e205a1489169deedb9d38409cd912" datatype="html">
+        <source>Ne plus suivre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="06160fd703d07672d7e5814e59206511fa5abd36" datatype="html">
+        <source>Suivre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="81f69af9da394a2cfc1300176b62852d1464b211" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/replay/replay.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="dded4339e05b45024f0b405b07dfe593711bfff0" datatype="html">
+        <source>Techno</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/replay/replay.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="7809b2826beb47c98a8afdf019e792e045030fee" datatype="html">
+        <source>Chaine hors ligne.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="ef00963a69402dc784966676e179af235a99eaa5" datatype="html">
+        <source>Prochain live le <x id="INTERPOLATION" equiv-text="{{userChannel.live.date | date }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="1f4322a41300fb54e50e22c83cf95dca9b7ff3ac" datatype="html">
+        <source>LIVE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/mini-live/mini-live.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> mini-live</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="6ee9f016f216542bcf5a8acf6ce675179cd96546" datatype="html">
+        <source>Recherche en cours...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search/search.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">search</note>
+      </trans-unit>
+      <trans-unit id="8abf392dead60a7eac06453f3b6b761279945c60" datatype="html">
+        <source>Recherche &quot;<x id="INTERPOLATION" equiv-text="{{title}}"/>&quot;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search/search.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">search</note>
+      </trans-unit>
+      <trans-unit id="4f6c988770a7f810658d9bf8a7fc1cf231f8c4ea" datatype="html">
+        <source>Plus de resultas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search/search.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search/search.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">search</note>
+      </trans-unit>
+      <trans-unit id="5d19483d2118b488257256767cdbb51dd63f9fea" datatype="html">
+        <source>Replay</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search/search.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">search</note>
+      </trans-unit>
+      <trans-unit id="e16fa3d76f11fbf3426572a32d046242378c085d" datatype="html">
+        <source>Recherche en cours...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/live/live.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="f19df7ab962f8968741eb24ef895f9a4b9f0a914" datatype="html">
+        <source>Recherche &quot;<x id="INTERPOLATION" equiv-text="{{title}}"/>&quot;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/live/live.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="13d75aba1620550ac95809b4e41ba7cf66ea4b73" datatype="html">
+        <source>Plus de resultas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/live/live.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="d54b68272bcf2a218d77a734369877ea97fb2834" datatype="html">
+        <source>Titre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> browse</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="4f170ba4e42cc8782c83f5f8baa36e986e6fac20" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description"> browse</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="8fc596a5e0bc2a6c990ad6a46d7c131d1010b9dd" datatype="html">
+        <source>Technologie</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description"> browse</note>
+        <note priority="1" from="meaning">search </note>
+      </trans-unit>
+      <trans-unit id="2d8cd5c5751bbfdd8c78e11f951bd000c7c9fbaa" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/chat/editor/editor.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> editor</note>
+        <note priority="1" from="meaning">chat </note>
+      </trans-unit>
+      <trans-unit id="c3e9c4f115e70b60202de8861d59584562352667" datatype="html">
+        <source>Message</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/chat/editor/editor.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description"> editor</note>
+        <note priority="1" from="meaning">chat </note>
+      </trans-unit>
+      <trans-unit id="3c108adb1b5274b91c781b8e2644dbee0b581430" datatype="html">
+        <source> &lt;code&gt;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/chat/chat/chat.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">chat</note>
+      </trans-unit>
+      <trans-unit id="f30107733139899d786646d79d4841afde3e2d12" datatype="html">
+        <source>send</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/chat/chat/chat.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">chat</note>
+      </trans-unit>
+      <trans-unit id="cc38e9e7e208072a59fbc7a9a69630d837667138" datatype="html">
+        <source>Information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="3401f398d37315793b60b2fd9a186842d30c7090" datatype="html">
+        <source>Avatar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="b5c04cc1c9964a46e86450e544417702941d9988" datatype="html">
+        <source>choisir un fichier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="f5664eeced981408bdd3635f68523214cd99c7bd" datatype="html">
+        <source>
+            Votre fichier doit etres une image de maximum 500ko
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="2cb4779d389c47fc90e75441f26496e8a4ae4480" datatype="html">
+        <source>Pseudo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="4068ebe02931dc53d3503457db72e126a319fe32" datatype="html">
+        <source>Confirmation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="a06715d380f23478f901cdef24de19a4b5e39fca" datatype="html">
+        <source>Bio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="6e2cc60f12fce4f2ee0c705dae211199e78aa4db" datatype="html">
+        <source>
+        Modification effectué
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="25a3efc6bdf897f9b4ba4408f362396e8e54691f" datatype="html">
+        <source>
+        Erreur de modification des information personnel
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="206ade5e245d18a7cbaf2a167212439b6fd67471" datatype="html">
+        <source>Changer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/user/user.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <note priority="1" from="description"> user</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="16cab316aa583028afaf7b43365ccfad9e960ca7" datatype="html">
+        <source>Live key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="8796b2ab7f4a0629ada7e139cadb6fa3b478622a" datatype="html">
+        <source>Nouvelle clée</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="a793fbdd8e0be66231f7c6bcac00c28ed90b012e" datatype="html">
+        <source>Afficher</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="d293064858a156c1ccebe89bb8a533ec0c934813" datatype="html">
+        <source>Information sur le live</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="ab27208856ebafa64f592ee49eb4cbe8d9d75c78" datatype="html">
+        <source>Titre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="ba0a9fae7f9d3a171e6b7b2926aedb89305b3e0b" datatype="html">
+        <source>Catégorie</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="5c87446a70b20c1561bb35d72110beea6a243831" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="cf1df4315706716fa97afed8a15fe2f90d3fd49f" datatype="html">
+        <source>Prévisualisation pour le live off</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="77a5bb121ede17f2bc8f8e9635c74cd8244b4667" datatype="html">
+        <source>
+            Votre fichier doit etres une image de maximum 1Mo
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="0fb853dba9969c204a9142d7c0a085ee9e69935d" datatype="html">
+        <source>Description de la chaine</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="9661b276e16e07747a04ca4c0e56ff97051039be" datatype="html">
+        <source>
+    Mon compte
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description"> side-bar</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="8a97697bc2175b43b7ff1444df5eda4a7271a9b4" datatype="html">
+        <source>
+    Stream
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description"> side-bar</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="e812c202272c17af9180bc3a5bf4013ad28188e2" datatype="html">
+        <source>
+    Stats
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description"> side-bar</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="7b45025db67fb6889cda1d4250aa1df66264097e" datatype="html">
+        <source>
+    Deconnexion
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description"> side-bar</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

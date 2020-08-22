@@ -1,16 +1,16 @@
 <div class="row pb-4 pt-4">
   <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()" class="col-12">
-    <h5>Information</h5>
+    <h5 i18n="auth | user">Information</h5>
 
     <div class="pl-3">
-      <mat-label>Avatar</mat-label>
+      <mat-label i18n="auth | user">Avatar</mat-label>
       <div class="pt-4 pb-4 d-flex">
         <img class="avatar " [src]="this.previewImage">
         <div>
           <input type="file" hidden="true" (change)="onFileChange($event)" #fileInput>
-          <button mat-stroked-button type="button" (click)="fileInput.click()">choisir un fichier</button>
+          <button mat-stroked-button type="button" (click)="fileInput.click()" i18n="auth | user">choisir un fichier</button>
           <br>
-          <small>
+          <small i18n="auth | user">
             Votre fichier doit etres une image de maximum 500ko
           </small>
         </div>
@@ -18,43 +18,43 @@
     </div>
     <p>
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label>Email</mat-label>
+        <mat-label i18n="auth | user">Email</mat-label>
         <input matInput type="text" formControlName="email" required>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label>Pseudo</mat-label>
+        <mat-label i18n="auth | user">Pseudo</mat-label>
         <input matInput type="text" formControlName="pseudo" required>
       </mat-form-field>
     </p>
 
     <p>
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label>Mot de passe</mat-label>
+        <mat-label i18n="auth | user">Mot de passe</mat-label>
         <input matInput type="password" formControlName="password" >
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label>Confirmation</mat-label>
+        <mat-label i18n="auth | user">Confirmation</mat-label>
         <input matInput type="password" formControlName="passwordConf" >
       </mat-form-field>
     </p>
     <p class="col-12">
-      <mat-label>Bio</mat-label>
+      <mat-label i18n="auth | user">Bio</mat-label>
       <md-editor class="md-editor" [height]="'200px'" formControlName="desc">
       </md-editor>
     </p>
-    <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small>Les mots de passes ne sont pas identiques</small></mat-error>
+    <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n="auth | user">Les mots de passes ne sont pas identiques</small></mat-error>
     <div class="col-12">
-      <div class="alert alert-primary" role="alert" *ngIf="succes === true">
+      <div class="alert alert-primary" role="alert" *ngIf="succes === true" i18n="auth | user">
         Modification effectué
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="succes === false">
+      <div class="alert alert-danger" role="alert" *ngIf="succes === false" i18n="auth | user">
         Erreur de modification des information personnel
       </div>
-      <button mat-stroked-button color="primary" class="col-12 mb-4">Changer</button>
+      <button mat-stroked-button color="primary" class="col-12 mb-4" i18n="auth | user">Changer</button>
     </div>
   </form>
 

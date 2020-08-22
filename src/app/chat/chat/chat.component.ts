@@ -77,8 +77,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
       message.voteCount -= message.votes[msg.by];
     }
     // update vote
-    message.votes[msg.by] += msg.vote ? 1 : -1;
-    message.voteCount += message.votes[msg.by];
+    message.votes[msg.by] = msg.vote ? 1 : -1;
+    message.voteCount += msg.vote ? 1 : -1;
   }
 
   public vote(vote: boolean, uuid: string){

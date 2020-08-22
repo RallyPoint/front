@@ -1,17 +1,17 @@
-<div *ngIf="loading" class="col-12 text-center">Recherche en cours...</div>
+<div *ngIf="loading" class="col-12 text-center" i18n="search">Recherche en cours...</div>
 
 <div class="col-12 d-flex flex-column min-h-100" *ngIf="!loading">
-  <h2 class="pt-4 pb-4">Recherche "{{title}}"</h2>
+  <h2 class="pt-4 pb-4" i18n="search">Recherche "{{title}}"</h2>
   <div class="d-flex justify-content-between">
     <h5>Live</h5>
-    <button  mat-button color="primary" class="" [routerLink]="'/search/lives'" [queryParams]="{title: this.title}">Plus de resultas</button>
+    <button  mat-button color="primary" class="" [routerLink]="'/search/lives'" [queryParams]="{title: this.title}"  i18n="search">Plus de resultas</button>
   </div>
   <div class="row mt-3 pr-3" *ngIf="data && data.lives">
     <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of data.lives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
   </div>
   <div class="d-flex justify-content-between">
-    <h5>Replay</h5>
-    <button  mat-button color="primary" class="" [routerLink]="'/search/replays'" [queryParams]="{title: this.title}">Plus de resultas</button>
+    <h5 i18n="search">Replay</h5>
+    <button  mat-button color="primary" class="" [routerLink]="'/search/replays'" [queryParams]="{title: this.title}" i18n="search">Plus de resultas</button>
   </div>
   <div class="row mt-3 pr-3" *ngIf="data && data.replay">
     <app-mini-live  [routerLink]="'/replay/'+userReplay.id" [queryParams]="{title: this.title}" *ngFor="let userReplay of data.replay"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [live]="false" [img]="userReplay.thumbnail"></app-mini-live>

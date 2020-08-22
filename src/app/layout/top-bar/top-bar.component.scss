@@ -3,11 +3,24 @@
 ***************************/
 
 @import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
 
 /**************************
 * Main Style
 ***************************/
-
+@include media-breakpoint-down(sm) {
+  .links{
+    flex: none;
+  }
+  .navbar {
+    padding: 8px 0 !important;
+    .navbar-brand {
+      font-size: 16px !important;
+    }
+  }
+}
 .navbar {
   padding: 13px 0;
   margin-bottom: 0;
@@ -35,7 +48,7 @@
 }
 
 .form-search {
-  width: 264px;
+  width: 220px;
   position: relative;
   .form-control {
 
@@ -82,71 +95,71 @@
     }
   }
 }
-
-.navbar-collapse {
-  .navbar-nav {
-    .nav-item {
-      margin-right: 30px;
-      &:last-child {
-        margin-right: 0;
-      }
-      &.active {}
-      .nav-link {
-        color: $dark-background;
-        font-size: 17px;
-        font-weight: bold;
-        @extend .transition;
-        &:hover {
-          color: $normal-background;
-          @extend .transition;
-        }
-      }
+.links{
+  flex: 1;
+}
+.navbar-nav {
+  .nav-item {
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0;
     }
-  }
-  .socialmedia {
-    margin-bottom: 0;
-    margin-left: 44px;
-    li {
-      float: left;
-      margin-right: 16px;
-      &:last-child {
-        margin-right: 0;
-      }
-      a {
-        color: #ffffff;
-        font-size: 15px;
-        @extend .transition;
-        &:hover {
-          color: $mainColor;
-          @extend .transition;
-        }
-      }
-    }
-  }
-  .buttons__contact {
-    color: $dark-background;
-    margin-left: 16px;
-    .btn {
-      color: #FFF;
-      font-size: 15px;
-      font-weight: 500;
-      text-transform: uppercase;
-      border-radius: 30px;
-      margin-left: 11px;
-      background: transparent;
-      height: 35px;
-      line-height: 32px;
-      padding: 0 14px;
-      border: 2px solid #FFF;
+    &.active {}
+    .nav-link {
+      color: $dark-background;
+      font-size: 17px;
+      font-weight: bold;
       @extend .transition;
       &:hover {
-        color: #ffffff;
-        background: #FFF;
-        @extend .transition
+        color: $normal-background;
+        @extend .transition;
       }
-      &:first-child {
-        margin-left: 0;
+    }
+  }
+}
+.socialmedia {
+  margin-bottom: 0;
+  margin-left: 44px;
+  li {
+    float: left;
+    margin-right: 16px;
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      color: #ffffff;
+      font-size: 15px;
+      @extend .transition;
+      &:hover {
+        color: $mainColor;
+        @extend .transition;
       }
+    }
+  }
+}
+.buttons__contact {
+  color: $dark-background;
+  margin-left: 16px;
+  .btn {
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    margin-left: 11px;
+    background: transparent;
+    height: 35px;
+    line-height: 32px;
+    padding: 0 14px;
+    border: 2px solid #FFF;
+    @extend .transition;
+    &:hover {
+      color: #ffffff;
+      background: #FFF;
+      @extend .transition
+    }
+    &:first-child {
+      margin-left: 0;
     }
   }
 }

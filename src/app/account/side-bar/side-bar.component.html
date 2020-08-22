@@ -1,14 +1,14 @@
 <ul class="row">
-  <li routerLink="/account/user" routerLinkActive="active-route">
+  <li routerLink="/account/user" routerLinkActive="active-route" i18n="auth | side-bar">
     Mon compte
   </li>
-  <li routerLink="/account/stream" routerLinkActive="active-route">
+  <li routerLink="/account/stream" routerLinkActive="active-route" i18n="auth | side-bar">
     Stream
   </li>
-  <li class="disabled">
+  <li class="disabled" i18n="auth | side-bar">
     Stats
   </li>
-  <li (click)="logOut()">
+  <li (click)="logOut()" i18n="auth | side-bar">
     Deconnexion
   </li>
 </ul>

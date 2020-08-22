@@ -17,7 +17,7 @@
     <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
   </div>
   <div class="col-12 d-flex justify-content-between">
-    <button  mat-stroked-button color="primary"  type="button" (click)="openCodeEditor()"> &lt;code&gt;</button>
-    <button  mat-stroked-button color="second">send</button>
+    <button  mat-stroked-button color="primary"  type="button" (click)="openCodeEditor()" i18n="chat"> &lt;code&gt;</button>
+    <button  mat-stroked-button color="second" i18n="chat">send</button>
   </div>
 </form>

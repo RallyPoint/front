@@ -1,39 +1,39 @@
 <ng-scrollbar visibility="hover">
   <div class="col-12 d-flex justify-content-center align-items-center flex-column">
-    <div class="main-live d-flex w-100 p-2 mt-3 center" *ngIf="mainUser && mainUser.live">
-      <div class="preview p-0 col-6 align-items-center d-flex">
+    <div class="main-live d-flex w-100 p-2 mt-3 center sm-flex-column" *ngIf="mainUser && mainUser.live">
+      <div class="preview p-0 col-12 col-sm-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12">
-          <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center">Debut du live live le {{mainUser.live.date | date  : 'dd/MM HH:mm'}}</div>
-          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center">Live terminer</div>
+          <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
+          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center" i18n="home">Live terminer</div>
         </div>
         <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status"></app-player>
       </div>
-      <div class="desc col-6 pt-3 pb-3">
+      <div class="desc col-12 col-sm-6 pt-2 pb-2">
         <h2>{{mainUser.live.title}}</h2>
-        <div class="by d-flex mt-4 mb-4 p-2">
+        <div class="by d-flex mt-2 mt-sm-4 mb-2 mb-sm-4 p-2">
           <div class="avatar mr-2">
             <img [src]="'/media/avatar/'+mainUser.avatar">
           </div>
           <div class="">
             <div class="pseudo mb-1">{{mainUser.pseudo}}</div>
-            <div class="w-100">Language: <b>{{mainUser.live.catLevel.name}}</b> | Techno: <b>{{mainUser.live.catLanguage.name}}</b></div>
+            <div class="w-100"><span i18n="home">Language: </span><b>{{mainUser.live.catLevel.name}}</b> | <span i18n="home">Techno</span>: <b>{{mainUser.live.catLanguage.name}}</b></div>
           </div>
         </div>
         <div class="text mb-4">
           {{mainUser.live.desc}}
         </div>
-        <button  mat-stroked-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo">Rejoindre</button>
+        <button  mat-stroked-button color="primary" [routerLink]="'/channel/'+mainUser.pseudo" i18n="home">Rejoindre</button>
       </div>
     </div>
     <div class="w-100">
-      <h4 class="pt-3">LIVE</h4>
+      <h4 class="pt-3" i18n="home">LIVE</h4>
       <div class="row mt-3 pr-3" *ngIf="!userLives.length">
-        <div class="col-12 text-center">Pas de live en cours.</div>
+        <div class="col-12 text-center" i18n="home">Pas de live en cours.</div>
       </div>
       <div class="row mt-3 pr-3" *ngIf="userLives.length">
         <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
       </div>
-      <h4 class="pt-3">REPLAYS</h4>
+      <h4 class="pt-3" i18n="home">REPLAYS</h4>
       <div class="row mt-3 pr-3">
         <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [live]="false" [img]="userReplay.thumbnail"></app-mini-live>
       </div>
