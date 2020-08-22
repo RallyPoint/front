@@ -17,7 +17,7 @@
     </ul>
     <div>
     </div>
-    <div class="buttons__contact" >
+    <div class="buttons__contact d-flex" >
       <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-2 d-none d-sm-block" (click)="singIn()"  i18n="top-bar">Login</button>
       <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-2" (click)="login()"  i18n="top-bar">SignUp</button>
       <button mat-stroked-button color="primary" *ngIf="isLogin"  class="mr-2" routerLink="/account/"  i18n="top-bar">Mon compte</button>
@@ -27,6 +27,12 @@
 </nav>
 
 <mat-menu #menu>
+  <button mat-menu-item routerLink="/search/browse" class="d-block d-sm-none">
+    <span  i18n="top-bar">Browse</span>
+  </button>
+  <button mat-menu-item (click)="singIn()" class="d-block d-sm-none">
+    <span  i18n="top-bar">Login</span>
+  </button>
   <button mat-menu-item routerLink="/cms/faq">
     <span  i18n="top-bar">FAQ</span>
   </button>

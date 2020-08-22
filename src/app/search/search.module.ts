@@ -11,6 +11,7 @@ import { BrowseComponent } from './browse/browse.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 @NgModule({
   declarations: [SearchComponent, LiveComponent, ReplayComponent, BrowseComponent],
@@ -22,7 +23,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatPaginatorModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgScrollbarModule
   ]
 })
 export class SearchModule { }

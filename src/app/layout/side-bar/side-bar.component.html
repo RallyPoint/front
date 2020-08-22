@@ -1,4 +1,5 @@
-<div id="sidebar__left" class="sidebar__left col-3" [ngClass]="{'min' : !full}">
+<ng-scrollbar class="content" #scrollbarRef visibility="hover">
+  <div id="sidebar__left" class="sidebar__left col-3" [ngClass]="{'min' : !full}">
     <div class="recommandees row pt-4">
       <div class="title col-12 d-flex justify-content-center align-items-center justify-content-between">
         <img src="../../../assets/images/left.png" class="left__img" alt="">
@@ -36,7 +37,8 @@
           </div>
         </div>
       </div>
-    </div>  <ng-scrollbar #scrollbarRef visibility="hover">
+    </div>
+
+  </div>
 
 </ng-scrollbar>
-</div>

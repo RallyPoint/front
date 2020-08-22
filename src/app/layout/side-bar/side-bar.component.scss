@@ -9,10 +9,15 @@
 ***************************/
 :host{
   display: contents;
-}
-.sidebar__left {
+  height: 100%;
+  width: 250px;
   border-right: 1px solid $normal-background;
   background-color: $dark-background;
+}
+.content{
+  width: 250px;
+}
+.sidebar__left {
   height: 100%;
   display: block;
   overflow-y: hidden;
