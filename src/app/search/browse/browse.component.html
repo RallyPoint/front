@@ -1,13 +1,13 @@
 
 <div class="w-100 d-flex flex-column min-h-100" *ngIf="!loading">
-  <form [formGroup]="browseForm" class="col-8 row pt-4 filter">
+  <form [formGroup]="browseForm" class="col-12 col-sm-8 pt-4 filter">
 
-    <mat-form-field appearance="outline" class="col-4">
+    <mat-form-field appearance="outline" class="col-12 col-sm-4">
       <mat-label i18n="search | browse">Titre</mat-label>
       <input matInput type="text" formControlName="title" required>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="col-4">
+    <mat-form-field appearance="outline" class="col-6 col-sm-4">
       <mat-label i18n="search | browse">Language</mat-label>
       <mat-select formControlName="language">
         <mat-option *ngFor="let language of languages" [value]="language.id">
@@ -16,7 +16,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="col-4">
+    <mat-form-field appearance="outline" class="col-6 col-sm-4">
       <mat-label i18n="search | browse">Technologie</mat-label>
       <mat-select formControlName="technology">
         <mat-option *ngFor="let technology of technologies" [value]="technology.id">
