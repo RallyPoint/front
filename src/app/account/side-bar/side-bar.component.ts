@@ -8,6 +8,8 @@ import {AuthenticationService} from '../../auth/authentication.service';
 })
 export class SideBarComponent implements OnInit {
 
+  showMenu = false;
+
   constructor(private readonly authentificationService: AuthenticationService) { }
 
   ngOnInit(): void {

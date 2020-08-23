@@ -38,7 +38,6 @@ a,a:hover{
 }
 *:focus{
   outline: 0 !important;
-  border: none !important;
 }
 
 .hr {
@@ -66,9 +65,9 @@ a,a:hover{
   /* espace les traits du texte */
   margin: 0 .5em;
 }
-
-
-
+  .ng-native-scrollbar-hider {
+    --native-scrollbar-size: 0px !important;
+  }
 
 
 .cookie-popup-area {

@@ -1,17 +1,51 @@
+/**************************
+* Import style
+***************************/
+
+@import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+/**************************
+* Main Style
+***************************/
+@include media-breakpoint-down(sm) {
+  :host {
+    max-width: 100% !important;
+  }
+  ul{
+    li{
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      &.active-route{
+        display: flex;
+        mat-icon{
+          display: block !important;
+        }
+      }
+      &.show-menu{
+        display: flex !important;
+      }
+    }
+  }
+}
 :host{
   height: 100%;
   max-width: 200px;
   ul{
     list-style: none;
     border-right: 1px solid #062249;
-    padding: 0 20px 0 0;
-    margin: 20px 20px 0;
     li{
       width: 100%;
       margin: 5px 0;
       padding: 5px 0;
       border-bottom: 1px solid #043869;
       cursor: pointer;
+      mat-icon{
+        display: none;
+      }
       &:hover{
         border-bottom: 1px solid #FFF;
       }

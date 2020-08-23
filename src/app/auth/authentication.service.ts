@@ -74,7 +74,7 @@ export class AuthenticationService {
   logOut(){
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.USER);
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
-    window.location.reload();
+    window.location.href = '/';
   }
 
   login(email: string, password: string): Promise<void>{

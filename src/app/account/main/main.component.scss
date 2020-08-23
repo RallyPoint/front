@@ -1,3 +1,22 @@
+/**************************
+* Import style
+***************************/
+
+@import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+/**************************
+* Main Style
+***************************/
+@include media-breakpoint-down(sm) {
+  :host {
+    .content{
+      flex-direction: column !important
+    }
+  }
+}
 :host{
   .content{
     flex: 1;

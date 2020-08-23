@@ -42,9 +42,6 @@
 
 :host{
   ::ng-deep{
-    .ng-native-scrollbar-hider{
-      --native-scrollbar-size: 0px !important;
-    }
     .preview-panel{
        background-color: transparent !important;
        font-size: 12px;

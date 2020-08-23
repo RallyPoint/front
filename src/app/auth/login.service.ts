@@ -24,6 +24,8 @@ export class LoginService {
     dialogConfig.data = {
       mode,
     };
+    dialogConfig.width = "90%";
+    dialogConfig.maxWidth = "500px";
     const modalDialog = this.matDialog.open(LoginComponent, dialogConfig);
   }
 
