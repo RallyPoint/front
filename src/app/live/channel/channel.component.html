@@ -1,26 +1,23 @@
-<!--<input id="consent_functional" type="checkbox" checked disabled /><label for="consent_functional">Functional (Strictly Necessary) Cookies</label>
-<input id="consent_performance" type="checkbox" checked /><label for="consent_performance">Performance Cookies</label>
-<input id="consent_targeting" type="checkbox" /><label for="consent_targeting">Targeting Cookies</label>
-<button type="button" class="button" id="consent_save">Save Cookie Settings</button>-->
-<div class="d-flex h-100" *ngIf="userChannel && userChannel.live">
+<div class="d-flex h-100 content" *ngIf="userChannel && userChannel.live">
   <div class="live">
-    <ng-scrollbar visibility="hover">
-      <div class="title d-flex">
+
+    <ng-scrollbar visibility="hover" class="scrollbar">
+      <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
-        <div class="avatar m-3">
+        <div class="avatar m-3"  [routerLink]="'/channel/'+userChannel.pseudo" [queryParams]="{displayTabMobile: displayTabMobile?0:1}" >
           <img [src]="'/media/avatar/'+userChannel.avatar">
         </div>
         <div class="info m-2">
           <h2>{{userChannel.pseudo}}</h2>
           <div class="top d-flex">
-            <h1 class="mr-auto">{{userChannel.live.title}}</h1>
-            <!--<button mat-stroked-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
-            <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed" i18n="live | channel">Ne plus suivre</button>
-            <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed" i18n="live | channel">Suivre</button>
-          </div>
+            <h1 class="mr-auto">{{userChannel.live.title}}</h1></div>
           <div class="categories">
             <span i18n="live | channel">Language</span> : <span class="bold">{{userChannel.live.catLevel.name}}</span> | <span i18n="live | channel">Techno</span> : <span class="bold">{{userChannel.live.catLanguage.name}}</span>
           </div>
+        </div>
+        <div class="d-flex flex-column">
+          <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed" i18n="live | channel">Ne plus suivre</button>
+          <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed" i18n="live | channel">Suivre</button>
         </div>
       </div>
       <div *ngIf="!userChannel.live.status" class="offline">
@@ -28,7 +25,7 @@
         <div *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
       </div>
       <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip"></app-player>
-      <mat-tab-group mat-align-tabs="center">
+      <mat-tab-group mat-align-tabs="center" class="tab" [ngClass]="{'display-tab-mobile' : displayTabMobile}">
         <mat-tab label="description">
           <div class="live-desc col-12 pt-4 pb-4">
           {{userChannel.live.desc}}
@@ -39,6 +36,8 @@
         </mat-tab>
         <mat-tab label="replay">
           <div class="row col-12 pt-3 pr-3">
+            <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']"  [live]="false"></app-mini-live>
+
             <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']"  [live]="false"></app-mini-live>
           </div>
         </mat-tab>

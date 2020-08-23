@@ -18,6 +18,7 @@ export class ChannelComponent implements OnInit {
   public userChannel: any;
   public isAuth = false;
   public followed: boolean;
+  public displayTabMobile: boolean = false;
   public now: Date = new Date();
 
   constructor(private readonly authService: AuthenticationService,
@@ -28,6 +29,9 @@ export class ChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuth = this.authService.isLogged();
+    this.route.queryParams.subscribe((query)=>{
+      this.displayTabMobile = !!parseFloat(query.displayTabMobile);
+    });
     this.route.params.subscribe(params => {
       this.apiService.axios.get('lives/' + params.liveName).then((res) => {
         this.userChannel = res.data;

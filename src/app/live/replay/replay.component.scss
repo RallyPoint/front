@@ -1,3 +1,39 @@
+/**************************
+* Import style
+***************************/
+
+@import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+/**************************
+* Main Style
+***************************/
+@include media-breakpoint-down(sm) {
+  .content {
+    flex-direction: column;
+    .tab{
+      display: none;
+    }
+    .display-tab-mobile{
+      display: block;
+    }
+  }
+
+  .title{
+    .avatar{
+      width: 30px !important;
+      height: 30px !important;
+    }
+    .info{
+      h1{
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
 :host{
   ::ng-deep .preview-panel{
     background-color: transparent !important;
@@ -30,7 +66,7 @@
       height: 60px;
       overflow: hidden;
       img{
-        width: 60px;
+        width: 100%;
       }
     }
     .info{

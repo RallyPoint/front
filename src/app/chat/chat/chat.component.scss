@@ -1,6 +1,31 @@
+/**************************
+* Import style
+***************************/
 
 @import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
 
+/**************************
+* Main Style
+***************************/
+@include media-breakpoint-down(sm) {
+  form{
+    display: flex;
+    .action{
+      flex-direction: column;
+      padding-left: 0px !important;
+    }
+    button,textarea{
+      margin: 4px 0 !important;
+    }
+    textarea{
+      max-height: 36px !important;
+      height: 36px !important;
+    }
+  }
+}
 :host{
   display: flex;
   flex-direction: column;

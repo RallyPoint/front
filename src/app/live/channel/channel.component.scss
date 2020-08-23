@@ -1,7 +1,54 @@
+/**************************
+* Import style
+***************************/
+
+@import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+/**************************
+* Main Style
+***************************/
+@include media-breakpoint-down(sm) {
+  .content {
+    flex-direction: column;
+    .tab{
+      display: none;
+    }
+    .display-tab-mobile{
+      display: block;
+    }
+  }
+
+  .title{
+    .avatar{
+      width: 30px !important;
+      height: 30px !important;
+    }
+    .info{
+      h1{
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  .chat{
+    width: 100%;
+    height: 100%;
+    max-width: none !important;
+  }
+}
+
 :host{
-  ::ng-deep .preview-panel{
-    background-color: transparent !important;
-    font-size: 12px;
+  ::ng-deep{
+    .ng-native-scrollbar-hider{
+      --native-scrollbar-size: 0px !important;
+    }
+    .preview-panel{
+       background-color: transparent !important;
+       font-size: 12px;
+     }
   }
   .live-desc{
     font-size: 12px;
@@ -13,7 +60,7 @@
   }
   .live{
     flex: 1;
-    height: 100M;
+    height: 100%;
   }
   .offline{
     text-align: center;
@@ -21,7 +68,7 @@
     text-transform: uppercase;
     background-color: #000;
     color: #FFF;
-    padding: 50px 0;
+    padding: 30px 0;
   }
   .title{
     .avatar{
@@ -29,7 +76,7 @@
       height: 60px;
       overflow: hidden;
       img{
-        width: 60px;
+        width: 100%;
       }
     }
     .info{

@@ -1,7 +1,7 @@
 <div class="d-flex h-100" *ngIf="replay && replay.user">
   <div class="replay">
     <ng-scrollbar visibility="hover">
-      <div class="title d-flex">
+      <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
         <div class="avatar m-3" [routerLink]="'/channel/'+replay.user.pseudo" >
           <img src="https://avatars2.githubusercontent.com/u/6843156?s=88&u=4a3900c2260cb75b957ee9d48db6c8e0b9b00853&v=4">
@@ -10,13 +10,14 @@
           <h2>{{replay.user.pseudo}}</h2>
           <div class="top d-flex">
             <h1 class="mr-auto">{{replay.title}}</h1>
-            <!--<button mat-stroked-button color="primary" class="mr-2" (click)="subscribe()">S'abonner</button>-->
-            <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
-            <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
           </div>
           <div class="categories">
             <span i18n="live | replay">Language</span> : <span>{{replay.catLevel.name}}</span> | <span i18n="live | replay">Techno</span> : <span>{{replay.catLanguage.name}}</span>
           </div>
+        </div>
+        <div class="d-flex flex-column">
+          <button mat-stroked-button color="second" class="mr-2" (click)="unFollow()" *ngIf="followed">Ne plus suivre</button>
+          <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
         </div>
       </div>
       <app-player [file]="replay.file"></app-player>
