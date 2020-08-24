@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {FaqComponent} from './faq/faq.component';
-import {LegalComponent} from './legal/legal.component';
+import { FaqComponent } from './faq/faq.component';
+import { LegalComponent } from './legal/legal.component';
+import { DefaultComponent } from './default/default.component';
 
 const routes: Routes = [
-  { path: 'faq', component: FaqComponent},
-  { path: 'legal', component: LegalComponent}
+  { path: ':slug', component: DefaultComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="fr-FR" datatype="plaintext" original="ng2.template">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="d3a9f065f23e29de1092894229555b2c8953c235" datatype="html">
         <source>Email</source>
@@ -27,15 +27,15 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">53</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -48,7 +48,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/user/user.component.html</context>
@@ -83,16 +83,34 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">68</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="57b807a3890b9714814cf836895a65198b567d6d" datatype="html">
+        <source>Inscription terminer. Un email vous a été envoyer pour confirmer votre adresse mail.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="4cf229cf3d2596030b95f3fd3b84748addac660a" datatype="html">
+        <source>Fermer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description"> logisn</note>
+        <note priority="1" from="meaning">asuth </note>
       </trans-unit>
       <trans-unit id="aac5322de7d696e25814201799c258eeecc2fced" datatype="html">
         <source>Identifiant</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -101,7 +119,7 @@
         <source>Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -110,7 +128,7 @@
         <source>Confirmer le mot de passe</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -119,7 +137,16 @@
         <source>Adresse e-mail</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description"> login</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="50315614455ff5ddba12bc156e5942f24506713e" datatype="html">
+        <source>Erreur lors de l&apos;inscription.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -128,7 +155,7 @@
         <source>Les mots de passes ne sont pas identiques</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">64</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/user/user.component.html</context>
@@ -136,7 +163,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">94</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -145,11 +172,11 @@
         <source>Inscription</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">85</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -158,7 +185,7 @@
         <source>ou</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -167,11 +194,11 @@
         <source>email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">97</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -182,7 +209,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -193,7 +220,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">107</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -204,7 +231,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">103</context>
+          <context context-type="linenumber">110</context>
         </context-group>
         <note priority="1" from="description"> login</note>
         <note priority="1" from="meaning">auth </note>
@@ -213,7 +240,11 @@
         <source>Browse</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -221,7 +252,11 @@
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -229,7 +264,7 @@
         <source>SignUp</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -237,7 +272,7 @@
         <source>Mon compte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -245,7 +280,7 @@
         <source>FAQ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -253,7 +288,7 @@
         <source>Partenaire</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">40</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -261,7 +296,7 @@
         <source>Comment diffuser</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -269,7 +304,7 @@
         <source>Dossier presse</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
       </trans-unit>
@@ -277,15 +312,35 @@
         <source>Mention legal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/top-bar/top-bar.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <note priority="1" from="description">top-bar</note>
+      </trans-unit>
+      <trans-unit id="cf23bbb5c0dcad5f4fe9a0defd764ee3440ab276" datatype="html">
+        <source>
+          Bientôt
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">side-bar</note>
+      </trans-unit>
+      <trans-unit id="06a6cfc263e9fd0151144e905a4f1305ed02f1ed" datatype="html">
+        <source>
+          CHAÎNES RECOMMANDÉES
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">side-bar</note>
       </trans-unit>
       <trans-unit id="2b34680062c4aed90c4d846eab42d6e99501b783" datatype="html">
         <source>Offline</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <note priority="1" from="description">side-bar</note>
       </trans-unit>
@@ -293,7 +348,7 @@
         <source>1200 Followers</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/side-bar/side-bar.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <note priority="1" from="description">side-bar</note>
       </trans-unit>
@@ -365,16 +420,25 @@
         <source>Verification en cours...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="linenumber">2</context>
         </context-group>
         <note priority="1" from="description"> verify</note>
         <note priority="1" from="meaning">user </note>
       </trans-unit>
-      <trans-unit id="e26e7e61d5e29a030f5fa2933878994c62585946" datatype="html">
-        <source>Compte vérifier</source>
+      <trans-unit id="34f19ab0a4a801613f21cf8446fd1aff0f02215b" datatype="html">
+        <source>Adresse mail confirmer.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description"> verify</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="077f2e0f4906b8501305bacc172ced8d38780810" datatype="html">
+        <source>Voir les lives</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <note priority="1" from="description"> verify</note>
         <note priority="1" from="meaning">user </note>
@@ -383,16 +447,25 @@
         <source>Lien de validation invalide</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/verify/verify.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">7</context>
         </context-group>
         <note priority="1" from="description"> verify</note>
+        <note priority="1" from="meaning">user </note>
+      </trans-unit>
+      <trans-unit id="0b51f5467461b2abe40ad440c390c1516bf640b4" datatype="html">
+        <source>Change votre mots de passe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
       </trans-unit>
       <trans-unit id="8d3896b0a239d8a73d24665a2f25a0f1a06f2e08" datatype="html">
         <source>Mot de passe</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
@@ -401,7 +474,7 @@
         <source>Votre mots de passe doit contenire des létre et des chifre, et doit faire au moin 6 caractéres</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
@@ -410,7 +483,7 @@
         <source>Confirmer le mot de passe</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
@@ -419,7 +492,7 @@
         <source>Invalid</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
@@ -428,7 +501,7 @@
         <source>Les mots de passes ne sont pas identiques</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
@@ -437,71 +510,53 @@
         <source>Changer de mot de passe</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">20</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
       </trans-unit>
-      <trans-unit id="83c97d810b8d2f7e2fd129957f5a3098dc922226" datatype="html">
+      <trans-unit id="d9d6a581cefd5845d67d0236bede88b2d698527a" datatype="html">
         <source>
-  Impossible de changer votre mots de passe.
-</source>
+    Impossible de changer votre mots de passe.
+  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
       </trans-unit>
-      <trans-unit id="45af6ead05693333028884a9e24b305a9024bbaa" datatype="html">
+      <trans-unit id="d9e49431be2e5eede7fe830a39d126e6e09c781e" datatype="html">
         <source>
-  Votre mots passe a été changer vous pouvez vous connecter avec votre nouveau mots de passe.
-</source>
+    Votre mots passe a été changer vous pouvez vous connecter avec votre nouveau mots de passe.
+  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
       </trans-unit>
-      <trans-unit id="07760f4d59e6a9a5bccc4ec0bcdaf1e79d18a7bf" datatype="html">
+      <trans-unit id="54cca67b66026d28264a2e03875fe72d8910cb45" datatype="html">
         <source>
-  Une erreur techniqe est survenue veilleur retenter plus tard.
-</source>
+    Une erreur techniqe est survenue veilleur retenter plus tard.
+  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/user/change-password/change-password.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <note priority="1" from="description"> change-password</note>
         <note priority="1" from="meaning">user </note>
-      </trans-unit>
-      <trans-unit id="f8ae4b77cd6e205a1489169deedb9d38409cd912" datatype="html">
-        <source>Ne plus suivre</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-        <note priority="1" from="description"> channel</note>
-        <note priority="1" from="meaning">live </note>
-      </trans-unit>
-      <trans-unit id="06160fd703d07672d7e5814e59206511fa5abd36" datatype="html">
-        <source>Suivre</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-        <note priority="1" from="description"> channel</note>
-        <note priority="1" from="meaning">live </note>
       </trans-unit>
       <trans-unit id="81f69af9da394a2cfc1300176b62852d1464b211" datatype="html">
         <source>Language</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/replay/replay.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description"> channel</note>
         <note priority="1" from="meaning">live </note>
@@ -510,11 +565,29 @@
         <source>Techno</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/replay/replay.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="f8ae4b77cd6e205a1489169deedb9d38409cd912" datatype="html">
+        <source>Ne plus suivre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description"> channel</note>
+        <note priority="1" from="meaning">live </note>
+      </trans-unit>
+      <trans-unit id="06160fd703d07672d7e5814e59206511fa5abd36" datatype="html">
+        <source>Suivre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
         <note priority="1" from="description"> channel</note>
         <note priority="1" from="meaning">live </note>
@@ -523,16 +596,16 @@
         <source>Chaine hors ligne.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description"> channel</note>
         <note priority="1" from="meaning">live </note>
       </trans-unit>
-      <trans-unit id="ef00963a69402dc784966676e179af235a99eaa5" datatype="html">
-        <source>Prochain live le <x id="INTERPOLATION" equiv-text="{{userChannel.live.date | date }}"/></source>
+      <trans-unit id="5ca6d90ce934cefe01fe3e4b71ccd80a206fbc87" datatype="html">
+        <source>Prochain live le <x id="INTERPOLATION" equiv-text="{{userChannel.live.date | date : &apos;short&apos;}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/live/channel/channel.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <note priority="1" from="description"> channel</note>
         <note priority="1" from="meaning">live </note>
@@ -588,6 +661,10 @@
           <context context-type="sourcefile">src/app/search/live/live.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/replay/replay.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
         <note priority="1" from="description"> live</note>
         <note priority="1" from="meaning">search </note>
       </trans-unit>
@@ -595,6 +672,10 @@
         <source>Recherche &quot;<x id="INTERPOLATION" equiv-text="{{title}}"/>&quot;</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/search/live/live.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/replay/replay.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
         <note priority="1" from="description"> live</note>
@@ -613,7 +694,7 @@
         <source>Titre</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
         <note priority="1" from="description"> browse</note>
         <note priority="1" from="meaning">search </note>
@@ -622,7 +703,7 @@
         <source>Language</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <note priority="1" from="description"> browse</note>
         <note priority="1" from="meaning">search </note>
@@ -631,7 +712,7 @@
         <source>Technologie</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/search/browse/browse.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description"> browse</note>
         <note priority="1" from="meaning">search </note>
@@ -654,6 +735,14 @@
         <note priority="1" from="description"> editor</note>
         <note priority="1" from="meaning">chat </note>
       </trans-unit>
+      <trans-unit id="d86b1089a672217bf91f8aa8ffce775deb5b300c" datatype="html">
+        <source>CHAT DU STREAM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/chat/chat/chat.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">chat</note>
+      </trans-unit>
       <trans-unit id="3c108adb1b5274b91c781b8e2644dbee0b581430" datatype="html">
         <source> &lt;code&gt;</source>
         <context-group purpose="location">
@@ -662,8 +751,8 @@
         </context-group>
         <note priority="1" from="description">chat</note>
       </trans-unit>
-      <trans-unit id="f30107733139899d786646d79d4841afde3e2d12" datatype="html">
-        <source>send</source>
+      <trans-unit id="dee4f8a57a983f799be11db23fe7b71e8db16c20" datatype="html">
+        <source>Envoyer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/chat/chat/chat.component.html</context>
           <context context-type="linenumber">21</context>
@@ -743,10 +832,6 @@
           <context context-type="sourcefile">src/app/account/user/user.component.html</context>
           <context context-type="linenumber">51</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">93</context>
-        </context-group>
         <note priority="1" from="description"> user</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
@@ -757,10 +842,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/user/user.component.html</context>
           <context context-type="linenumber">54</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">96</context>
         </context-group>
         <note priority="1" from="description"> user</note>
         <note priority="1" from="meaning">auth </note>
@@ -773,7 +854,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">99</context>
+          <context context-type="linenumber">102</context>
         </context-group>
         <note priority="1" from="description"> user</note>
         <note priority="1" from="meaning">auth </note>
@@ -845,18 +926,18 @@
         <source>Prévisualisation pour le live off</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <note priority="1" from="description"> live</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
-      <trans-unit id="77a5bb121ede17f2bc8f8e9635c74cd8244b4667" datatype="html">
+      <trans-unit id="78619d91a3e63e720b785a372c39da20bb860a12" datatype="html">
         <source>
-            Votre fichier doit etres une image de maximum 1Mo
-          </source>
+                Votre fichier doit etres une image de maximum 1Mo
+              </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description"> live</note>
         <note priority="1" from="meaning">auth </note>
@@ -865,14 +946,36 @@
         <source>Description de la chaine</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/live/live.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">84</context>
         </context-group>
         <note priority="1" from="description"> live</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
-      <trans-unit id="9661b276e16e07747a04ca4c0e56ff97051039be" datatype="html">
+      <trans-unit id="6c59144f98947074aeef304dec202a7de69379c7" datatype="html">
         <source>
-    Mon compte
+          Modification effectué
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="bb17c815598638464f3d7263915ed6b11b26cb43" datatype="html">
+        <source>
+          Erreur de modification des information personnel
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/account/live/live.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <note priority="1" from="description"> live</note>
+        <note priority="1" from="meaning">auth </note>
+      </trans-unit>
+      <trans-unit id="9cc2b3d3c8ed200bff446a9f408f079bb1009722" datatype="html">
+        <source>
+    <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Mon compte<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>list<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/>
   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
@@ -881,9 +984,9 @@
         <note priority="1" from="description"> side-bar</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
-      <trans-unit id="8a97697bc2175b43b7ff1444df5eda4a7271a9b4" datatype="html">
+      <trans-unit id="4c98df07284619af07543fe6e7575033b8d4deb7" datatype="html">
         <source>
-    Stream
+    <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Stream<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>list<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/>
   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
@@ -892,9 +995,9 @@
         <note priority="1" from="description"> side-bar</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
-      <trans-unit id="e812c202272c17af9180bc3a5bf4013ad28188e2" datatype="html">
+      <trans-unit id="ebc69403ecab6c512b5fdd9d1bbef5601b52b4ec" datatype="html">
         <source>
-    Stats
+    <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Stats<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>list<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/>
   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>
@@ -903,9 +1006,9 @@
         <note priority="1" from="description"> side-bar</note>
         <note priority="1" from="meaning">auth </note>
       </trans-unit>
-      <trans-unit id="7b45025db67fb6889cda1d4250aa1df66264097e" datatype="html">
+      <trans-unit id="89dc8d83a9c33a62bb5e9c9a101416e106275298" datatype="html">
         <source>
-    Deconnexion
+    <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Deconnexion<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>list<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/>
   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account/side-bar/side-bar.component.html</context>

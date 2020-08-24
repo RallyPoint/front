@@ -5,14 +5,15 @@
       <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
         <div class="avatar m-3"  [routerLink]="'/channel/'+userChannel.pseudo" [queryParams]="{displayTabMobile: displayTabMobile?0:1}" >
-          <img [src]="'/media/avatar/'+userChannel.avatar">
+          <img [src]="'/media/avatar/'+userChannel.avatar" *ngIf="userChannel.avatar">
+          <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!userChannel.avatar">
         </div>
         <div class="info m-2">
           <h2>{{userChannel.pseudo}}</h2>
           <div class="top d-flex">
             <h1 class="mr-auto">{{userChannel.live.title}}</h1></div>
           <div class="categories">
-            <span i18n="live | channel">Language</span> : <span class="bold">{{userChannel.live.catLevel.name}}</span> | <span i18n="live | channel">Techno</span> : <span class="bold">{{userChannel.live.catLanguage.name}}</span>
+            <span i18n="live | channel">Language</span> : <span class="bold">{{userChannel.live.catLevel && userChannel.live.catLevel.name}}</span> | <span i18n="live | channel">Techno</span> : <span class="bold">{{userChannel.live.catLanguage && userChannel.live.catLanguage.name}}</span>
           </div>
         </div>
         <div class="d-flex flex-column">
@@ -30,9 +31,8 @@
           <div class="live-desc col-12 pt-4 pb-4">
           {{userChannel.live.desc}}
           </div>
-          <md-editor name="Content"
-                     mode="preview" class="md-editor" [(ngModel)]="userChannel.desc" [height]="'200px'" >
-          </md-editor>
+          <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="userChannel.descHtml">
+          </div>
         </mat-tab>
         <mat-tab label="replay">
           <div class="row col-12 pt-3 pr-3">

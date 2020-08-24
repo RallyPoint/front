@@ -28,7 +28,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
 
   public nbViwer: number;
 
-  private statsInterval: number;
+  private statsInterval: any;
   private statsUid: number;
 
   constructor(private readonly apiService: ApiService) {

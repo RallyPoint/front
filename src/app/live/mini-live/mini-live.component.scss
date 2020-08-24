@@ -115,17 +115,6 @@
     padding-top: 19px;
     display: none;
     @extend .transition;
-    &:after {
-      width: 200px;
-      height: 200px;
-      content: url(../../../assets/images/play-2.png);
-      top: 5px;
-      left: 5px;
-      position: absolute;
-      display: inline-block;
-      background-position: center;
-      background-size: cover;
-    }
     .item__live {
       text-align: right;
       padding-right: 15px;

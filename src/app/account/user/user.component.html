@@ -41,11 +41,20 @@
         <input matInput type="password" formControlName="passwordConf" >
       </mat-form-field>
     </p>
-    <p class="col-12">
-      <mat-label i18n="auth | user">Bio</mat-label>
-      <md-editor class="md-editor" [height]="'200px'" formControlName="desc">
-      </md-editor>
+    <p>
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label i18n="auth | live">Description de la chaine</mat-label>
+        <textarea matInput
+                  formControlName="desc"
+                  cdkTextareaAutosize
+                  (ngModelChange)="updateMarkDown($event)"
+                  cdkAutosizeMinRows="3"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
     </p>
+    <div class="col-12" [innerHTML]="previewMarkDown" >
+
+    </div>
     <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n="auth | user">Les mots de passes ne sont pas identiques</small></mat-error>
     <div class="col-12">
       <div class="alert alert-primary" role="alert" *ngIf="succes === true" i18n="auth | user">

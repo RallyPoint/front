@@ -14,7 +14,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
 import {MatIconModule} from '@angular/material/icon';
 import {MAT_DATE_LOCALE} from "@angular/material/core";
-import {LMarkdownEditorModule} from "ngx-markdown-editor";
 import {NgScrollbarModule} from "ngx-scrollbar";
 
 
@@ -31,7 +30,6 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     MatSelectModule,
     MatDatepickerModule,
     MatIconModule,
-    LMarkdownEditorModule,
     NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgScrollbarModule
   ],
   providers : [

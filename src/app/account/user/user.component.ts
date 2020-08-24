@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ApiService} from '../../share/api.service';
 import {AuthenticationService} from '../../auth/authentication.service';
-
+import * as showdown from 'showdown';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -12,6 +12,8 @@ export class UserComponent implements OnInit {
 
   public previewImage;
   public succes: boolean = null;
+  public previewMarkDown: string = "";
+  public markDownRender: showdown.Converter = new showdown.Converter();
 
   public changeInformationdForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -36,6 +38,10 @@ export class UserComponent implements OnInit {
         desc: res.data.desc
       });
     });
+  }
+
+  updateMarkDown(event){
+    this.previewMarkDown = this.markDownRender.makeHtml(event);
   }
 
   onFileChange(event) {
