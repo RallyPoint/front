@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   name: 'prod',
+  siteUrl: 'https://rallypoint.tech',
   apiUrl: 'https://api.rallypoint.tech',
   liveUrl: ['https://live01.rallypoint.tech/server', 'https://live02.rallypoint.tech/server'],
   chatUrl: 'https://chat.rallypoint.tech',

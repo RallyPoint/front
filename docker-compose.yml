@@ -2,6 +2,7 @@ version: '2'
 services:
   main:
     build: .
+    command: /usr/src/app/ci/run-local.sh
     volumes:
       - .:/usr/app/
     ports:

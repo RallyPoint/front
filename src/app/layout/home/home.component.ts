@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private readonly apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.axios.get('lives').then((res) => {
+    this.apiService.axios.get('search/lives').then((res) => {
       if (!res.data || !res.data.length){return; }
       this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
         params : {

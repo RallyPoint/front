@@ -7,6 +7,9 @@
 @import "assets/vendor/fonts.css";
 @import 'assets/helpers/variabls';
 
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/theme/darcula.css";
+
 @import "~bootstrap/scss/bootstrap";
 @import "assets/custome/custome";
 

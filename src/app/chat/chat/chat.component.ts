@@ -1,14 +1,15 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import * as io from 'socket.io-client';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import Socket = SocketIOClient.Socket;
-import {EditorComponent} from '../editor/editor.component';
+//import {EditorComponent} from '../editor/editor.component';
 import {LoginService} from '../../auth/login.service';
 import {AuthenticationService} from '../../auth/authentication.service';
 import { environment } from '../../../environments/environment';
 import {NgScrollbar} from 'ngx-scrollbar';
 import {tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-chat',
@@ -30,6 +31,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   private _scrollSubscription = Subscription.EMPTY;
   // public socket: Socket;
   constructor(public matDialog: MatDialog,
+              @Inject(PLATFORM_ID) private platformId: any,
               private readonly loginService: LoginService,
               private readonly authenticationService: AuthenticationService) { }
 
@@ -48,6 +50,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public connection(){
+    if(!isPlatformBrowser(this.platformId)){ return ; }
     this.io = io(environment.chatUrl, {query: 'channel=' + this.channel + '&auth_token=' + this.authenticationService.token});
     this.io.on('message', this.onMessage.bind(this));
     this.io.on('vote', this.onVote.bind(this));
@@ -102,7 +105,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     // dialogConfig.height = "350px";
     // dialogConfig.width = "600px";
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
+    //const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
   }
 
   private sendData(code: string, language: string, message: string): void{

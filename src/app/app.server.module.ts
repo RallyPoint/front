@@ -3,6 +3,9 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import {ssr} from './ssr.status';
+
+ssr.status = true;
 
 @NgModule({
   imports: [
@@ -11,4 +14,5 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent],
 })
+// @ts-ignore
 export class AppServerModule {}

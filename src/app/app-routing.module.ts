@@ -5,6 +5,7 @@ import {HomeComponent} from './layout/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: '', loadChildren: () => import('./channel/channel.module').then(m => m.ChannelModule) },
   { path: 'cms', loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule) },
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },

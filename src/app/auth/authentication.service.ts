@@ -1,5 +1,6 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { isPlatformBrowser } from '@angular/common';
 import {DOCUMENT} from '@angular/common';
 import {ApiService} from '../share/api.service';
 import {AxiosError} from 'axios';
@@ -9,7 +10,8 @@ import {AuthenticationConstant} from './authentication.constant';
 export class AuthenticationService {
 
   constructor(public matDialog: MatDialog,  @Inject(DOCUMENT) private document: Document,
-              protected readonly apiService: ApiService
+              protected readonly apiService: ApiService,
+              @Inject(PLATFORM_ID) private platformId: any
   ) {
     this.loadAuth();
   }
@@ -33,6 +35,9 @@ export class AuthenticationService {
 
   public githubLogin(data?: any){
     return new Promise((resolve, reject) => {
+      if (!isPlatformBrowser(this.platformId)){
+        return reject({miss: ''});
+      }
       const state: string = Math.random().toString(36).substring(24);
       localStorage.setItem(AuthenticationService.STORAGE_KEY_STATE, state);
       this.document.open(this.getGithubAuthorizeUrl(state), 'Ratting', 'width=550,height=700,0,status=0,');
@@ -59,6 +64,7 @@ export class AuthenticationService {
   }
 
   loadAuth(): void{
+    if(!isPlatformBrowser(this.platformId)){ return ; }
     this.token = localStorage.getItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
     this.user = JSON.parse(localStorage.getItem(AuthenticationConstant.STORAGE_KEY.USER));
     this.apiService.setToken(this.token);
@@ -67,11 +73,13 @@ export class AuthenticationService {
   saveAuth(user: any, token: string): void{
     this.user = user;
     this.token = token;
+    if(!isPlatformBrowser(this.platformId)){ return ; }
     localStorage.setItem(AuthenticationConstant.STORAGE_KEY.USER, JSON.stringify(user));
     localStorage.setItem(AuthenticationConstant.STORAGE_KEY.TOKEN, token);
   }
 
   logOut(){
+    if(!isPlatformBrowser(this.platformId)){ return ; }
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.USER);
     localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
     window.location.href = '/';

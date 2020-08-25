@@ -1,16 +1,8 @@
-const domino = require('domino');
-const fs = require('fs');
-const path = require('path');
-const template = fs.readFileSync(path.join(__dirname, '..', 'browser', 'index.html')).toString();
-const win = domino.createWindow(template);
-global['window'] = win;
-console.log("==========>");
-console.log("==========>");
-console.log("==========>");
-console.log("==========>");
-console.log("==========>");
-console.log(win);
-global['document'] = win.document;
+const domino = require("domino");
+const fs = require("fs");
+const path = require("path");
+const templateA = fs.readFileSync(path.join(__dirname, '..', 'browser', 'index.html')).toString();
+const win = domino.createWindow(templateA);
 
 
 import 'zone.js/dist/zone-node';
@@ -25,6 +17,19 @@ import { existsSync } from 'fs';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+
+
+  win.Object = Object;
+  win.Math = Math;
+
+  global['window'] = win;
+  global['document'] = win.document;
+  global['DOMTokenList'] = win.DOMTokenList;
+  global['Node'] = win.Node;
+  global['Text'] = win.Text;
+  global['HTMLElement'] = win.HTMLElement;
+  global['navigator'] = win.navigator;
+
   const server = express();
   const distFolder = join(process.cwd(), 'dist/rallypointtech/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
