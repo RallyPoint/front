@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './layout/home/home.component';
+import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from "./layout/home/channel.resolver";
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, resolve : {
+      lives : HomeLivesResolver,
+      replays: HomeReplaysResolver,
+      mainLive: HomeMainLiveResolver,
+    }
+  },
   { path: '', loadChildren: () => import('./channel/channel.module').then(m => m.ChannelModule) },
   { path: 'cms', loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule) },
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },

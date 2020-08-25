@@ -11,6 +11,7 @@ import { AccountModule } from './account/account.module';
 import localeFr from '@angular/common/locales/fr';
 import {registerLocaleData} from "@angular/common";
 import {LiveModule} from "./live/live.module";
+import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from "./layout/home/channel.resolver";
 
 registerLocaleData(localeFr);
 @NgModule({
@@ -29,7 +30,10 @@ registerLocaleData(localeFr);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }, //replace "en-US" with your locale
-    {provide: 'googleTagManagerId', useValue: 'GTM-N4BNPPG'}
+    {provide: 'googleTagManagerId', useValue: 'GTM-N4BNPPG'},
+    HomeReplaysResolver,
+    HomeMainLiveResolver,
+    HomeLivesResolver
   ],
   bootstrap: [AppComponent]
 })
