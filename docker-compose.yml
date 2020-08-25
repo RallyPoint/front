@@ -7,3 +7,4 @@ services:
       - .:/usr/app/
     ports:
       - '80:80'
+      - '4000:4000'
