@@ -87,6 +87,8 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
         },
         gaEventsPlugin: {
           trackingId: 'UA-174160792-1',
+          eventValueAuto: true,
+          eventValueAsLive: true,
         }
       };
       const outer = document.createElement('div');
