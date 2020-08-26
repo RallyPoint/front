@@ -4,6 +4,8 @@ import {LoginService} from '../../auth/login.service';
 import {ApiService} from '../../share/api.service';
 import {FollowService} from '../../follow/follow.service';
 import {ActivatedRoute} from '@angular/router';
+import {Utils} from "../../share/utils";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-replay',
@@ -30,7 +32,10 @@ export class ReplayComponent implements OnInit {
       this.apiService.axios.get('replay/' + params.replayId).then((res) => {
         this.replay = res.data;
         this.apiService.axios.get('replay', {params: {user: res.data.user.id}}).then((res) => {
-          this.userReplays = res.data;
+          const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
+          this.userReplays = res.data.map((replay) => {
+            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+          });
         });
         this.replay.date = new Date(this.replay.date);
         this.followService.isFollowed(this.replay.id).then((status) => {

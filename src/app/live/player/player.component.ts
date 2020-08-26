@@ -98,8 +98,8 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
       outer.appendChild(video);
       this.playerEl.nativeElement.appendChild(outer);
 
+      const player = new Clappr.Player(setup);
       if (this.channel) {
-        const player = new Clappr.Player(setup);
         player.listenTo(player, Clappr.Events.PLAYER_PLAY, () => {
           this.startStats();
         });

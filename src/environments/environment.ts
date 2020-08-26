@@ -1,26 +1,11 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
-  siteUrl: 'http://localhost:4200',
-//  apiUrl: 'https://api.rallypoint.tech/',
-  apiUrl: 'http://127.0.0.1:9090',
-  vodUrl: ['http://127.0.0.1:8081'],
-//  liveUrl: 'https://stats.rallypoint.tech',
-  liveUrl: ['http://127.0.0.1:8080'],
-  statsLiveUrl: ['http://127.0.0.1:3001'],
-  chatUrl: 'http://127.0.0.1:3000',
-  name: 'local',
+  name: 'prod',
+  siteUrl: 'https://rallypoint.tech',
+  apiUrl: 'https://api.rallypoint.tech',
+  liveUrl: ['https://live01.rallypoint.tech/server', 'https://live02.rallypoint.tech/server'],
+  chatUrl: 'https://chat.rallypoint.tech',
+  vodUrl: ['https://vod01.rallypoint.tech', 'https://vod02.rallypoint.tech'],
+  statsLiveUrl: ['https://stats.rallypoint.tech'],
   thumbor : {url : 'https://image.rallypoint.tech'}
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
