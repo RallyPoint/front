@@ -5,7 +5,9 @@ import { LegalComponent } from './legal/legal.component';
 import { DefaultComponent } from './default/default.component';
 
 const routes: Routes = [
-  { path: ':slug', component: DefaultComponent}
+  //{ path: ':slug', component: DefaultComponent},
+     { path: 'faq', component: FaqComponent},
+     { path: 'legal', component: LegalComponent}
 ];
 
 @NgModule({
