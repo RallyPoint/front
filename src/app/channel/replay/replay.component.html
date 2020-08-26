@@ -4,7 +4,7 @@
       <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
         <div class="avatar m-3" [routerLink]="'/channel/'+replay.user.pseudo" >
-          <img [src]="'/media/avatar/'+replay.user.avatar" *ngIf="replay.user.avatar">
+          <img [src]="'/media/avatar/'+replay.user.avatar  | thumbor : [60,60]" *ngIf="replay.user.avatar">
           <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!replay.user.avatar">
         </div>
         <div class="info m-2">

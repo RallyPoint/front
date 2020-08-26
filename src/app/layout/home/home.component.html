@@ -12,7 +12,7 @@
         <h2>{{mainUser.live.title}}</h2>
         <div class="by d-flex mt-2 mt-sm-4 mb-2 mb-sm-4 p-2">
           <div class="avatar mr-2">
-            <img [src]="'/media/avatar/'+mainUser.avatar" *ngIf="mainUser.avatar">
+            <img [src]="'/media/avatar/'+mainUser.avatar | thumbor : [60,60]" *ngIf="mainUser.avatar">
             <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!mainUser.avatar">
           </div>
           <div class="">

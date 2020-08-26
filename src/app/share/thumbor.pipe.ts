@@ -61,6 +61,9 @@ Thumbor.prototype = {
   setImagePath(imagePath) {
     this.imagePath = (imagePath.charAt(0) === '/') ?
       imagePath.substring(1, imagePath.length) : imagePath;
+    if(this.imagePath.indexOf('http') != 0){
+      this.imagePath = environment.siteUrl + '/' + this.imagePath;
+    }
     return this;
   },
   /**

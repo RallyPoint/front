@@ -12,6 +12,7 @@ import {FollowModule} from "../follow/follow.module";
 import {LiveModule} from "../live/live.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ShareModule} from "../share/share.module";
 
 
 
@@ -31,7 +32,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     FollowModule,
     LiveModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ]
 })
 export class LayoutModule { }
