@@ -19,7 +19,7 @@ export class HomeLivesResolver implements Resolve<any> {
         if (!res.data || !res.data.length){return; }
         this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
           params : { channels : res.data.map((live) => live.user.pseudo) }
-        }).catch((e) => null).then((resStats) => {
+        }).then((resStats) => {
           observer.next(res.data.map((live) => {
             return Object.assign(live, {
               thumbnail: '/media/hls/' + live.user.pseudo + '-thumbnail.jpg',
