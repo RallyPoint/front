@@ -12,7 +12,8 @@ export const environment = {
   liveUrl: ['http://127.0.0.1:8080'],
   statsLiveUrl: ['http://127.0.0.1:3001'],
   chatUrl: 'http://127.0.0.1:3000',
-  name: 'local'
+  name: 'local',
+  thumbor : {url : 'https://image.rallypoint.tech'}
 };
 
 /*

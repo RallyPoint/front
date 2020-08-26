@@ -7,4 +7,5 @@ export const environment = {
   chatUrl: 'https://chat.rallypoint.tech',
   vodUrl: ['https://vod01.rallypoint.tech', 'https://vod02.rallypoint.tech'],
   statsLiveUrl: ['https://stats.rallypoint.tech'],
+  thumbor : {url : 'https://image.rallypoint.tech'}
 };
