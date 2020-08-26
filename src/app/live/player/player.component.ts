@@ -57,16 +57,15 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
       engine.on(p2pml.core.Events.PieceBytesUploaded, this.onBytesUploaded.bind(this));
 
       let url = '';
-      if (this.channel){
-        if(environment.name !== 'local'){
+      if (this.channel) {
+        if (environment.name !== 'local') {
           url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/live/' + this.channel + '.m3u8';
-        }else{
+        } else {
           url = Utils.GetRandomOfArray(environment.liveUrl) + '/live/' + this.channel + '.m3u8';
         }
-      }else if (this.file){
+      } else if (this.file) {
         url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
       }
-      console.log(url);
 
       const setup = {
         parentId: '#video',
@@ -99,16 +98,18 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
       outer.appendChild(video);
       this.playerEl.nativeElement.appendChild(outer);
 
-      const player = new Clappr.Player(setup);
-      player.listenTo(player, Clappr.Events.PLAYER_PLAY, () => {
-        this.startStats();
-      });
-      player.listenTo(player, Clappr.Events.PLAYER_STOP, () => {
-        this.stopStats();
-      });
-      player.listenTo(player, Clappr.Events.PLAYER_PAUSE, () => {
-        this.stopStats();
-      });
+      if (this.channel) {
+        const player = new Clappr.Player(setup);
+        player.listenTo(player, Clappr.Events.PLAYER_PLAY, () => {
+          this.startStats();
+        });
+        player.listenTo(player, Clappr.Events.PLAYER_STOP, () => {
+          this.stopStats();
+        });
+        player.listenTo(player, Clappr.Events.PLAYER_PAUSE, () => {
+          this.stopStats();
+        });
+      }
     }
   }
 
