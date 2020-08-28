@@ -1,7 +1,18 @@
-import {ElementRef, Component, OnInit, ViewChild, AfterViewInit, Input, OnDestroy} from '@angular/core';
+import {
+  ElementRef,
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  Input,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Utils} from '../../share/utils';
 import {ApiService} from '../../share/api.service';
+import {isPlatformBrowser} from "@angular/common";
 declare var p2pml: any;
 declare var Clappr: any;
 declare var ClapprGaEventsPlugin: any;
@@ -28,10 +39,21 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
 
   public nbViwer: number;
 
+  public showShare: boolean = false;
+
+  public currentUrl : string;
+
+  @Input('title')
+  public title: string;
+
   private statsInterval: any;
   private statsUid: number;
 
-  constructor(private readonly apiService: ApiService) {
+  constructor(private readonly apiService: ApiService,
+              @Inject(PLATFORM_ID) private platformId: any) {
+    if (isPlatformBrowser(this.platformId)){
+      this.currentUrl = window.location.href;
+    }
   }
 
   onBytesDownloaded(method, size) {

@@ -21,11 +21,15 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input()
   public channel: string;
 
+  public banned: boolean = false;
+  public isAdmin: boolean = false;
+
   public io: Socket;
-  public messages: {uuid: string, pseudo: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
-    ];
+  public messages: {uuid: string, by: string, pseudo: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
+    {pseudo: 'Maxence', by: 'azeaze', uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0},
+  ];
   public message: string;
-  public autoScroll: boolean;
+  public autoScroll: boolean = true;
   @ViewChild(NgScrollbar, { static: true }) scrollbarRef: NgScrollbar;
   // tslint:disable-next-line:variable-name
   private _scrollSubscription = Subscription.EMPTY;
@@ -33,7 +37,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(public matDialog: MatDialog,
               @Inject(PLATFORM_ID) private platformId: any,
               private readonly loginService: LoginService,
-              private readonly authenticationService: AuthenticationService) { }
+              private readonly authenticationService: AuthenticationService) {
+  }
 
   ngAfterViewInit() {
     this._scrollSubscription = this.scrollbarRef.verticalScrolled.pipe(
@@ -44,6 +49,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   ngOnInit(): void {
     this.connection();
+    console.log(this.authenticationService.user,this.channel);
+    this.isAdmin = this.authenticationService.user.pseudo === this.channel;
   }
   ngOnDestroy() {
     this._scrollSubscription.unsubscribe();
@@ -55,6 +62,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.io.on('message', this.onMessage.bind(this));
     this.io.on('vote', this.onVote.bind(this));
     this.io.on('code', this.onCode.bind(this));
+    this.io.on('admin', this.onAdmin.bind(this));
+    this.io.on('systeme', this.onSysteme.bind(this));
   }
 
   public send(){
@@ -65,11 +74,18 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.message = '';
   }
 
-  public onCode(msg: {uuid: string, pseudo: string, txt: string, url: string}): void{
-    this.messages.push({txt: msg.txt, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo , gist: msg.url});
+  public onCode(msg: {uuid: string, pseudo: string, txt: string, url: string, by: string}): void{
+    this.messages.push({txt: msg.txt, by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo , gist: msg.url});
   }
-  public onMessage(msg: {uuid: string, pseudo: string, txt: string}): void{
-    this.messages.push({txt: msg.txt, pseudo: msg.pseudo, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
+  public onAdmin(msg: {uuid: string, by: string, forPseudo: string, pseudo: string, for: string, action: string}): void{
+    this.messages.push({txt: 'Utilisateur ' + msg.forPseudo + ' banni', by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo});
+  }
+  public onSysteme(msg: {uuid: string, by: string, forPseudo: string, pseudo: string, for: string, action: string}): void{
+    console.log("systeme",msg);
+    this.banned = true;
+  }
+  public onMessage(msg: {uuid: string, by: string, pseudo: string, txt: string}): void{
+    this.messages.push({txt: msg.txt, by: msg.by, pseudo: msg.pseudo, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
   }
 
   public onVote(msg: {uuid: string, vote: boolean, by: string}): void{
@@ -82,6 +98,14 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     // update vote
     message.votes[msg.by] = msg.vote ? 1 : -1;
     message.voteCount += msg.vote ? 1 : -1;
+  }
+
+  public ban(userId: string, pseudo: string){
+    this.io.emit('admin', {
+      userId,
+      pseudo,
+      action: 'ban'
+    });
   }
 
   public vote(vote: boolean, uuid: string){

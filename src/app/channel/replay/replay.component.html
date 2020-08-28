@@ -21,7 +21,7 @@
           <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
         </div>
       </div>
-      <app-player [file]="replay.file"></app-player>
+      <app-player [file]="replay.file" [title]="replay.title"></app-player>
 
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">

@@ -8,3 +8,23 @@
   </div>
 </div>
 <div class="nb-viwer d-flex align-middle align-items-center"><mat-icon>visibility</mat-icon>{{nbViwer}}</div>
+<div class="share d-flex align-middle align-items-center cursor-pointer" (click)="showShare = true"><mat-icon>share</mat-icon></div>
+<div class="share-view d-flex  justify-content-center align-items-center flex-column" *ngIf="showShare">
+  <div class="buttons row pt-3 pb-3">
+    <div class="col-6">
+      <a [href]="'https://www.linkedin.com/sharing/share-offsite/?url='+currentUrl" target="_blank" mat-stroked-button color="second" class="w-100 mb-3"  i18n="player | channel">Linkedin</a>
+    </div>
+    <div class="col-6">
+      <a [href]="'https://twitter.com/intent/tweet?text='+title+'&url='+currentUrl" target="_blank" mat-stroked-button color="second" class="w-100 mb-3"  i18n="player | channel">Twitter</a>
+    </div>
+    <div class="col-6">
+      <a [href]="'http://www.facebook.com/sharer/sharer.php?u='+currentUrl+'&t='+title" target="_blank" mat-stroked-button color="second" class="w-100 mb-3"  i18n="player | channel">Facebook</a>
+    </div>
+    <div class="col-6">
+      <a [href]="'mailto:?subject='+title+'&body='+currentUrl" mat-stroked-button color="second" class="w-100 mb-3"  i18n="player | channel">Email</a>
+    </div>
+    <div class="col-12">
+      <button mat-stroked-button color="primary" class="w-100" (click)="showShare = false;"  i18n="player | channel">Fermer</button>
+    </div>
+  </div>
+</div>

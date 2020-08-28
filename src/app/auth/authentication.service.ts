@@ -5,6 +5,7 @@ import {DOCUMENT} from '@angular/common';
 import {ApiService} from '../share/api.service';
 import {AxiosError} from 'axios';
 import {AuthenticationConstant} from './authentication.constant';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
@@ -30,7 +31,7 @@ export class AuthenticationService {
     window.location.reload();
   }
   private getGithubAuthorizeUrl(state: string): string{
-    return 'https://github.com/login/oauth/authorize?client_id=4ba2522ac3257f9dfac3&scope=read:user&state=' + state;
+    return 'https://github.com/login/oauth/authorize?client_id=' + environment.githubKey + '&scope=read:user&state=' + state;
   }
 
   public githubLogin(data?: any){

@@ -1,18 +1,23 @@
 <h3 i18n="chat">CHAT DU STREAM</h3>
 <div class="messages">
 <ng-scrollbar #scrollbarRef (updated)="autoScroll ? scrollbarRef.scrollTo({bottom:0}):null;" visibility="hover">
-<ul>
+<ul class="admin" [ngClass]="{admin:isAdmin}">
   <li *ngFor="let message of messages" class="col-12">
     <span class="pseudo">{{message.pseudo}}</span>
-    <span class="vote" ><mat-icon class="vote-btn" (click)="vote(true,message.uuid)">thumb_up</mat-icon><span class="vote-count">{{message.voteCount}}</span></span>
+    <span class="vote text-center cursor-pointer" ><mat-icon class="vote-btn" (click)="vote(true,message.uuid)">thumb_up</mat-icon><span class="vote-count">{{message.voteCount}}</span></span>
     {{message.txt}}
     {{message.gist}}
+    <div class="actions justify-content-center align-items-center ">
+      <button mat-flat-button color="second" (click)="ban(message.by,message.pseudo)" i18n="chat">Bannir {{message.pseudo}}</button>
+    </div>
   </li>
 </ul>
 </ng-scrollbar>
 </div>
-
-<form (ngSubmit)="send()" class="form mb-1 mb-sm-3">
+<div class="form p-4 text-center" *ngIf="banned" i18n="chat">
+  Vous êtes banni
+</div>
+<form (ngSubmit)="send()" class="form mb-1 mb-sm-3" *ngIf="!banned">
   <div class="col-9 col-sm-12 d-flex">
     <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
   </div>

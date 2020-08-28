@@ -30,8 +30,8 @@
       </div>
       <div class="item">
         <div class="media col-12"  *ngFor="let follow of follows" [ngClass]="{'offline' : !follow.live.status}">
-          <img [src]="'/media/avatar/'+follow.avatar | thumbor : [60,60]" *ngIf="follow.avatar">
-          <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!follow.avatar">
+          <img class="mr-3" [src]="'/media/avatar/'+follow.avatar | thumbor : [60,60]" *ngIf="follow.avatar">
+          <img class="mr-3" src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!follow.avatar">
           <div class="media-body">
             <h5 class="mt-0">{{follow.pseudo}}</h5>
             <span class="followers" *ngIf="!follow.live.status" i18n="side-bar">Offline</span>

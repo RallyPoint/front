@@ -4,7 +4,7 @@
     <ng-scrollbar visibility="hover" class="scrollbar">
       <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
-        <div class="avatar m-3"  [routerLink]="'/channel/'+userChannel.pseudo" [queryParams]="{displayTabMobile: displayTabMobile?0:1}" >
+        <div class="avatar m-2 m-sm-3"  [routerLink]="'/channel/'+userChannel.pseudo" [queryParams]="{displayTabMobile: displayTabMobile?0:1}" >
           <img [src]="'/media/avatar/'+userChannel.avatar | thumbor : [60,60]" *ngIf="userChannel.avatar">
           <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!userChannel.avatar">
         </div>
@@ -25,7 +25,7 @@
         <span  i18n="live | channel">Chaine hors ligne.</span>
         <div *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
       </div>
-      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip"></app-player>
+      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip" [title]="userChannel.live.title"></app-player>
       <mat-tab-group mat-align-tabs="center" class="tab" [ngClass]="{'display-tab-mobile' : displayTabMobile}">
         <mat-tab label="description">
           <div class="live-desc col-12 pt-4 pb-4">

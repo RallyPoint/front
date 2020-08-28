@@ -4,8 +4,8 @@ import {LoginService} from '../../auth/login.service';
 import {ApiService} from '../../share/api.service';
 import {FollowService} from '../../follow/follow.service';
 import {ActivatedRoute} from '@angular/router';
-import {Utils} from "../../share/utils";
-import {environment} from "../../../environments/environment";
+import {Utils} from '../../share/utils';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-replay',

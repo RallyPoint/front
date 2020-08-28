@@ -65,6 +65,32 @@
     flex: 1;
     overflow: hidden;
   }
+  .admin{
+    li{
+      position: relative;
+      &:hover{
+        .actions {
+          display: flex;
+        }
+      }
+      .actions{
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255,255,255,0.5);
+        button{
+          line-height: 24px;
+          font-size: 12px;
+        }
+        &:hover{
+          display: flex;
+        }
+      }
+    }
+  }
   ul{
     list-style: none;
     margin: 0;
@@ -73,6 +99,7 @@
       padding-top: 7px;
       padding-bottom: 7px;
       font-size: 12px;
+      line-height: 22px;
       position: relative;
       .vote-count{
         display: inline;
@@ -92,7 +119,6 @@
         .vote-btn{
           display: inline-block;
         }
-        background-color: $normal-background;
       }
       .pseudo{
         font-weight: bold;
@@ -102,6 +128,7 @@
         border-radius: 5px;
         padding: 0 5px;
         margin: 0 5px;
+        min-width: 22px;
         display: inline-block;
       }
       .actions{
