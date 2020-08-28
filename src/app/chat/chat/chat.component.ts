@@ -26,7 +26,6 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public io: Socket;
   public messages: {uuid: string, by: string, pseudo: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
-    {pseudo: 'Maxence', by: 'azeaze', uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0},
   ];
   public message: string;
   public autoScroll: boolean = true;
