@@ -1,23 +1,22 @@
 
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Poster votre code">
-    <div class="pt-2 col-12">
-      <mat-form-field>
+    <mat-form-field class="col-12 mt-3">
         <mat-label i18n="chat | editor">Language</mat-label>
-        <mat-select [(value)]="mode">
+        <mat-select [(value)]="mode" (valueChange)="languageChange($event)">
           <mat-option *ngFor="let i of languages | keyvalue" [value]="i.key">{{i.key}}</mat-option>
         </mat-select>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label i18n="chat | editor">Message</mat-label>
-        <input matInput placeholder="" [(ngModel)]="message">
-      </mat-form-field>
-    </div>
-    <mat-form-field class="col-12" *ngIf="isBrowser">
-      <mat-codemirror [(ngModel)]="value" required  placeholder="Votre code"></mat-codemirror>
     </mat-form-field>
-    <button type="button" mat-stroked-button color="primary" class="mt-2 col-12" (click)="sendAndClose()">Save</button>
-
-
+    <mat-form-field class="col-12">
+        <mat-label i18n="chat | editor">Message</mat-label>
+        <input matInput placeholder="" [(ngModel)]="message" >
+      </mat-form-field>
+    <div class="col-12 mt-2 mb-3" *ngIf="isBrowser">
+      <div #codeEditor class="w-100 code-editor" style="height: 200px"
+            ></div>
+    </div>
+    <div class="col-12 mb-3">
+      <button type="button" mat-stroked-button color="primary" class="mt-2 col-12" (click)="sendAndClose()">Save</button>
+    </div>
   </mat-tab>
 </mat-tab-group>

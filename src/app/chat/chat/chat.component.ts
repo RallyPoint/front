@@ -2,7 +2,7 @@ import {AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID,
 import * as io from 'socket.io-client';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import Socket = SocketIOClient.Socket;
-//import {EditorComponent} from '../editor/editor.component';
+import {EditorComponent} from '../editor/editor.component';
 import {LoginService} from '../../auth/login.service';
 import {AuthenticationService} from '../../auth/authentication.service';
 import { environment } from '../../../environments/environment';
@@ -125,10 +125,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     dialogConfig.data = {
       sendCode : this.sendData.bind(this)
     };
-    // dialogConfig.height = "350px";
-    // dialogConfig.width = "600px";
+    dialogConfig.width = "90%";
+    dialogConfig.maxWidth = "500px";
     // https://material.angular.io/components/dialog/overview
-    //const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
   }
 
   private sendData(code: string, language: string, message: string): void{

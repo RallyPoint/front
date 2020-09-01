@@ -11,18 +11,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgScrollbarModule} from 'ngx-scrollbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-//import {MatCodemirrorModule} from "ngx-mat-codemirror";
+import {EditorComponent} from './editor/editor.component';
 
 
 
 @NgModule({
-  declarations: [ChatComponent/*, EditorComponent*/],
+  declarations: [ChatComponent, EditorComponent],
   exports: [
     ChatComponent
   ],
   imports: [
     CommonModule,
-    //MatCodemirrorModule,
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,

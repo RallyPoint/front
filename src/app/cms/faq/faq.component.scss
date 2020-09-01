@@ -1,14 +1,33 @@
 
-@import '../../../assets/helpers/variabls';
+@import '../../../assets/helpers/variabls.scss';
 
-h2{
-  display: inline-block;
-  font-size: 18px;
-  padding: 5px 7px;
-  margin: 20px 0;
-  background-color: #FFF;
-  color: $normal-background;
-}
-p{
-  font-size: 14px;
+::ng-deep .cms-content {
+
+  h2 {
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px 7px;
+    margin: 20px 0;
+    background-color: #FFF;
+    color: $normal-background;
+  }
+
+  h3{
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 7px;
+    margin: 20px 0;
+    background-color: $normal-background;
+  }
+  ul.list{
+    li{
+      margin: 10px 0;
+      .sub-title{
+        display: inline-block;
+        font-size: 16px;
+        padding: 5px 10px;
+        background-color: $normal-background;
+      }
+    }
+  }
 }
