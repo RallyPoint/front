@@ -10,7 +10,7 @@
     <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of data.lives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
   </div>
   <div class="d-flex justify-content-between">
-    <h5 i18n="search">Replay</h5>
+    <h5 i18n="search">Rediffusions</h5>
     <button  mat-button color="primary" class="" [routerLink]="'/search/replays'" [queryParams]="{title: this.title}" i18n="search">Plus de resultas</button>
   </div>
   <div class="row mt-3 pr-3" *ngIf="data && data.replay">

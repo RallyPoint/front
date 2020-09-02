@@ -4,7 +4,7 @@
       <div class="preview p-0 col-12 col-sm-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12">
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
-          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center" i18n="home">Live terminer</div>
+          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center" i18n="home">Direct terminé</div>
         </div>
         <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status" [title]="mainUser.live.title"></app-player>
       </div>
@@ -27,14 +27,14 @@
       </div>
     </div>
     <div class="w-100">
-      <h4 class="pt-3" i18n="home">LIVE</h4>
+      <h4 class="pt-3" i18n="home">Directs</h4>
       <div class="row mt-3 pr-3" *ngIf="!userLives.length">
         <div class="col-12 text-center" i18n="home">Pas de live en cours.</div>
       </div>
       <div class="row mt-3 pr-3" *ngIf="userLives.length">
         <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
       </div>
-      <h4 class="pt-3" i18n="home">REPLAYS</h4>
+      <h4 class="pt-3" i18n="home">Rediffusions</h4>
       <div class="row mt-3 pr-3">
         <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [live]="false" [img]="userReplay.thumbnail"></app-mini-live>
       </div>

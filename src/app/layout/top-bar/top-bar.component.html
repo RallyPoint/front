@@ -4,7 +4,7 @@
     <span>Rally <br> Point&nbsp;</span><span class="bg">&nbsp;Tech&nbsp;</span>
   </span>
   <form class="form-inline form-search d-none d-md-block" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
-    <input class="form-control" type="text" placeholder="Search a Streaming …" aria-label="Search" formControlName="search">
+    <input class="form-control" type="text" placeholder="Rechercher un direct" aria-label="Search" formControlName="search">
     <button class="btn btn-outline-success" type="submit">
       <img src="../../../assets/images/search.png" alt="">
     </button>
@@ -12,14 +12,14 @@
   <div class="links d-flex justify-content-between">
     <ul class="navbar-nav ml-4 d-none d-sm-block">
       <li class="nav-item">
-        <span class="nav-link cursor-pointer"  routerLink="/search/browse"  i18n="top-bar">Browse</span>
+        <span class="nav-link cursor-pointer"  routerLink="/search/browse"  i18n="top-bar">Parcourir</span>
       </li>
     </ul>
     <div>
     </div>
     <div class="buttons__contact d-flex" >
-      <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-2 d-none d-sm-block" (click)="singIn()"  i18n="top-bar">Login</button>
-      <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-2" (click)="login()"  i18n="top-bar">SignUp</button>
+      <button mat-stroked-button color="accent" *ngIf="!isLogin" class="mr-2 d-none d-sm-block" (click)="singIn()"  i18n="top-bar">Connexion</button>
+      <button mat-stroked-button color="primary" *ngIf="!isLogin" class="mr-2" (click)="login()"  i18n="top-bar">Inscription</button>
       <button mat-stroked-button color="primary" *ngIf="isLogin"  class="mr-2" routerLink="/account/"  i18n="top-bar">Mon compte</button>
       <button mat-icon-button color="accent" [matMenuTriggerFor]="menu" class="mr-2" aria-label="plus d'info"><mat-icon>more_vert</mat-icon></button>
     </div>
@@ -55,7 +55,7 @@
     </a>
   </button>
   <button mat-menu-item  routerLink="/cms/legal">
-    <span  i18n="top-bar">Mention legal</span>
+    <span  i18n="top-bar">Mention légalle</span>
   </button>
   <button mat-menu-item  routerLink="/cms/sitemap">
     <span  i18n="top-bar">Plan du site</span>

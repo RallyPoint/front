@@ -34,7 +34,7 @@
           <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="userChannel.descHtml">
           </div>
         </mat-tab>
-        <mat-tab label="replay">
+        <mat-tab label="Rediffusions">
           <div class="row col-12 pt-3 pr-3">
             <app-mini-live  [routerLink]="'/replay/'+userReplay.id" *ngFor="let userReplay of userReplays"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="121" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title" [tag]="['PHP']" [img]="userReplay.thumbnail" [live]="false"></app-mini-live>
           </div>

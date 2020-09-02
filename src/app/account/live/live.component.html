@@ -1,12 +1,12 @@
 <div class="row pb-4 pt-0 pt-sm-3">
   <form class="col-12">
-    <h5 i18n="auth | live">Live key</h5>
+    <h5 i18n="auth | live">Clé de stream</h5>
     <div class="d-flex row">
       <mat-form-field appearance="standard" class="col-12 col-sm-6">
         <input matInput type="password" disabled #liveKey [value]="user ? user.pseudo+'?psk='+user.live.key : ''">
       </mat-form-field>
       <div class="col-6 col-sm-3">
-        <button mat-stroked-button color="basic" type="button" (click)="renewLiveKey()" class="col-12" i18n="auth | live">Nouvelle clée</button>
+        <button mat-stroked-button color="basic" type="button" (click)="renewLiveKey()" class="col-12" i18n="auth | live">Nouvelle clé</button>
       </div>
       <div class="col-6 col-sm-3">
         <button mat-stroked-button color="primary" type="button" (click)="liveKey.type='text'" class="col-12" i18n="auth | live">Afficher</button>
@@ -16,7 +16,7 @@
   </form>
 
   <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()" class="col-12">
-    <h5 i18n="auth | live">Information sur le live</h5>
+    <h5 i18n="auth | live">Informations sur le direct</h5>
     <br>
     <p class="row">
       <mat-form-field appearance="fill" class="col-12">
@@ -46,7 +46,7 @@
     </p>
     <p class="row">
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label>Date du prochain live</mat-label>
+        <mat-label>Date du prochain direct</mat-label>
         <input matInput [ngxMatDatetimePicker]="picker"
                placeholder="Choose a date"
                formControlName="date"
@@ -59,7 +59,7 @@
     </p>
     <div class="row">
       <div class="col-12">
-        <mat-label i18n="auth | live">Prévisualisation pour le live off</mat-label>
+        <mat-label i18n="auth | live">Prévisualisation pour le direct</mat-label>
         <div class="pt-4 pb-4 row d-flex">
           <div class="col-6">
             <div class="thumb-container w-100">
@@ -72,7 +72,7 @@
               <button mat-stroked-button type="button" (click)="fileInput.click()">choisir un fichier</button>
               <br>
               <small class="pt-3 d-block" i18n="auth | live">
-                Votre fichier doit etres une image de maximum 1Mo
+                Votre fichier doit être une image de maximum 1Mo
               </small>
             </div>
           </div>
@@ -81,7 +81,7 @@
     </div>
     <div class="row">
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label i18n="auth | live">Description de la chaine</mat-label>
+        <mat-label i18n="auth | live">Description du direct</mat-label>
         <textarea matInput
                   formControlName="desc"
                   cdkTextareaAutosize
