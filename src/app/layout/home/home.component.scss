@@ -31,8 +31,14 @@
       border-radius: 5px;
       overflow: hidden;
       .offline{
-        background-color: rgba(0,0,0,0.5);
-        padding: 15px 0;
+        padding: 0 0;
+        position: relative;
+        .wording{
+          position: absolute;
+          top: 10%;
+          left: 0;
+          background-color: rgba(0,0,0,0.5);
+        }
       }
     }
     .desc{

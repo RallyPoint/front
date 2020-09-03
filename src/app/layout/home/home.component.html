@@ -3,8 +3,9 @@
     <div class="main-live d-flex w-100 p-2 mt-3 center sm-flex-column" *ngIf="mainUser && mainUser.live">
       <div class="preview p-0 col-12 col-sm-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12">
-          <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
-          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center" i18n="home">Direct terminé</div>
+          <img src="https://rallypoint.tech/media/live/410332b65a445dd731777e1383f977d24.png" class="w-100">
+          <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center wording p-4" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
+          <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center wording p-4" i18n="home">Direct terminé</div>
         </div>
         <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status" [title]="mainUser.live.title"></app-player>
       </div>
