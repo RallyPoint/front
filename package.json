@@ -46,6 +46,7 @@
     "codeflask": "^1.4.1",
     "codemirror": "^5.57.0",
     "domino": "^2.1.6",
+    "escape-html": "^1.0.3",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",
     "moment": "^2.27.0",

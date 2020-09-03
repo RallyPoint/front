@@ -3,6 +3,8 @@ import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/for
 import {ApiService} from '../../share/api.service';
 import {AuthenticationService} from '../../auth/authentication.service';
 import * as showdown from 'showdown';
+import * as escapeHTML from 'escape-html';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -41,7 +43,7 @@ export class UserComponent implements OnInit {
   }
 
   updateMarkDown(event){
-    this.previewMarkDown = this.markDownRender.makeHtml(event);
+    this.previewMarkDown = this.markDownRender.makeHtml(escapeHTML(event));
   }
 
   onFileChange(event) {
