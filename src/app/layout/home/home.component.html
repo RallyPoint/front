@@ -3,7 +3,7 @@
     <div class="main-live d-flex w-100 p-2 mt-3 center sm-flex-column" *ngIf="mainUser && mainUser.live">
       <div class="preview p-0 col-12 col-sm-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12 h-100">
-          <img [src]="'/media/live/'+mainUser.live.thumb | thumbor : [800,600]" *ngIf="mainUser.live.thumb" class="w-100">
+          <img [src]="'/media/live/'+mainUser.live.thumb | thumbor : [1200,720]" *ngIf="mainUser.live.thumb" class="w-100">
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center wording p-4" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
           <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center wording p-4" i18n="home">Direct terminé</div>
         </div>

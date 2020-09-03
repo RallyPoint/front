@@ -22,7 +22,7 @@
         </div>
       </div>
       <div *ngIf="!userChannel.live.status" class="offline">
-        <img [src]="'/media/live/'+userChannel.live.thumb | thumbor : [800,600]" *ngIf="userChannel.live.thumb" class="w-100">
+        <img [src]="'/media/live/'+userChannel.live.thumb | thumbor : [1200,720]" *ngIf="userChannel.live.thumb" class="w-100">
         <div class="wording p-4 w-100" i18n="live | channel">Chaine hors ligne.</div>
         <div class="wording p-4 w-100" *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
       </div>
