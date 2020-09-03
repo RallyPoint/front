@@ -93,8 +93,7 @@ export class LiveComponent implements OnInit {
       formData.append('thumb', this.changeInformationdForm.get('thumb').value);
     }
 
-    this.apiService.axios.put('lives/' + this.user.pseudo,
-      this.changeInformationdForm.getRawValue()).then((res) => {
+    this.apiService.axios.put('lives/' + this.user.pseudo, formData).then((res) => {
       this.user = res.data;
       this.succes = true;
     }, () => {
