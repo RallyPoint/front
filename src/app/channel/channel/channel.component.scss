@@ -65,7 +65,14 @@
     text-transform: uppercase;
     background-color: #000;
     color: #FFF;
-    padding: 30px 0;
+    min-height: 200px;
+    position: relative;
+    .wording{
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      top: 10%;
+      left: 0;
+    }
   }
   .title{
     .avatar{

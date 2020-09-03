@@ -22,8 +22,9 @@
         </div>
       </div>
       <div *ngIf="!userChannel.live.status" class="offline">
-        <span  i18n="live | channel">Chaine hors ligne.</span>
-        <div *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
+        <img [src]="'/media/live/'+userChannel.live.thumb | thumbor : [800,600]" *ngIf="userChannel.live.thumb" class="w-100">
+        <div class="wording p-4 w-100" i18n="live | channel">Chaine hors ligne.</div>
+        <div class="wording p-4 w-100" *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
       </div>
       <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip" [title]="userChannel.live.title"></app-player>
       <mat-tab-group mat-align-tabs="center" class="tab" [ngClass]="{'display-tab-mobile' : displayTabMobile}">
