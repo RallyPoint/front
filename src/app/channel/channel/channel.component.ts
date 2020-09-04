@@ -41,13 +41,13 @@ export class ChannelComponent implements OnInit {
         { name: 'twitter:url', content: environment.siteUrl + '/channel/' + this.userChannel.pseudo },
         { name: 'twitter:title', content: this.userChannel.live.title },
         { name: 'twitter:description', content: this.userChannel.live.desc },
-        { name: 'twitter:image', content: environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
+        { name: 'twitter:image', content: this.userChannel.live.thumb ? this.userChannel.live.thumb : environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
 
         { name: 'og:type', content: 'website' },
         { name: 'og:url', content: environment.siteUrl + '/channel/' + this.userChannel.pseudo },
         { name: 'og:title', content: this.userChannel.live.title },
         { name: 'og:description', content: this.userChannel.live.desc },
-        { name: 'og:image', content: environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
+        { name: 'og:image', content: this.userChannel.live.thumb ? this.userChannel.live.thumb : environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
 
 
         { name: 'title', content: this.userChannel.live.title },
