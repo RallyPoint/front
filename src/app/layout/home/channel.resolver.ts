@@ -14,15 +14,15 @@ export class HomeLivesResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
       this.apiService.axios.get('search/lives').then((res) => {
-        if (!res.data || !res.data.length){
+        if (!res.data.count){
           observer.next([]);
           observer.complete();
           return;
         }
         this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
-          params : { channels : res.data.map((live) => live.user.pseudo) }
+          params : { channels : res.data.items.map((live) => live.user.pseudo) }
         }).then((resStats) => {
-          observer.next(res.data.map((live) => {
+          observer.next(res.data.items.map((live) => {
             return Object.assign(live, {
               thumbnail: '/media/hls/' + live.user.pseudo + '-thumbnail.jpg',
               viwer : resStats ? resStats.data.find((stats) => stats.name === live.user.pseudo).viwer : null
