@@ -34,7 +34,7 @@ export class ReplayComponent implements OnInit {
         this.apiService.axios.get('replay', {params: {user: res.data.user.id}}).then((res) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
           this.userReplays = res.data.map((replay) => {
-            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.replay.user.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });
         this.replay.date = new Date(this.replay.date);

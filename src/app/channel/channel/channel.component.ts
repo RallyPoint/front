@@ -57,7 +57,7 @@ export class ChannelComponent implements OnInit {
         this.apiService.axios.get('replay', {params: {user: data.userChannel.id}}).then((res) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
           this.userReplays = res.data.map((replay) => {
-            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+            return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.userChannel.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });
         this.followService.isFollowed(this.userChannel.id).then((status) => {

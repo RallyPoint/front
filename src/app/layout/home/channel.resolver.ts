@@ -48,7 +48,7 @@ export class HomeReplaysResolver implements Resolve<any> {
       this.apiService.axios.get('replay').then((res) => {
         const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
         observer.next(res.data.map((replay) => {
-          return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.file + '/thumb-1000.jpg'});
+          return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.user.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
         }));
         observer.complete();
       }).catch(()=>{
