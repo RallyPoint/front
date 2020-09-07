@@ -14,8 +14,6 @@ export class HomeLivesResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
       this.apiService.axios.get('search/lives').then((res) => {
-        observer.next([]);
-        observer.complete();
         if (!res.data || !res.data.length){return; }
         this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
           params : { channels : res.data.map((live) => live.user.pseudo) }
