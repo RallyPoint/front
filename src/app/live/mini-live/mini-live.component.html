@@ -1,7 +1,7 @@
   <div class="full__item-video mb-3">
     <div class="item__video">
       <div class="img__img-video">
-        <img *ngIf="live" [src]="'/media/hls/'+pseudo+'-thumbnail.jpg' | thumbor : [480,270]" alt="">
+        <img *ngIf="live" [src]="'/media/hls/'+pseudo+'.png' | thumbor : [480,270]" alt="">
         <img *ngIf="!live" [src]="img | thumbor : [480,270]" alt="">
         <span *ngIf="live" class="live__button ml-2 mr-2"  i18n="live | mini-live">LIVE</span>
         <div class="viewer d-flex align-middle align-items-center" *ngIf="spec > 0"><mat-icon>visibility</mat-icon>{{spec}}</div>
