@@ -31,6 +31,9 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   @Input('channel')
   public channel: string;
 
+  @Input('muted')
+  public muted: boolean = false;
+
   @Input('server')
   public server: string;
 
@@ -97,7 +100,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
         height: '100%',
         maxHeight: '500px',
         muted: true,
-        mute: true,
+        mute: this.muted,
         autoPlay: true,
         playback: {
           playInline: true,

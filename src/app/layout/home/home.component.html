@@ -7,7 +7,7 @@
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center wording p-4" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
           <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center wording p-4" i18n="home">Direct terminé</div>
         </div>
-        <app-player class="w-100" [channel]="mainUser.pseudo"  [server]="mainUser.live.ip" *ngIf="mainUser.live.status" [title]="mainUser.live.title"></app-player>
+        <app-player class="w-100" [channel]="mainUser.pseudo" [muted]="true" [server]="mainUser.live.ip" *ngIf="mainUser.live.status" [title]="mainUser.live.title"></app-player>
       </div>
       <div class="desc col-12 col-sm-6 pt-2 pb-2">
         <h2>{{mainUser.live.title}}</h2>
