@@ -2,7 +2,7 @@
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Poster votre code">
     <mat-form-field class="col-12 mt-3">
-        <mat-label i18n="chat | editor">Language</mat-label>
+        <mat-label i18n="chat | editor">Langage</mat-label>
         <mat-select [(value)]="mode" (valueChange)="languageChange($event)">
           <mat-option *ngFor="let i of languages | keyvalue" [value]="i.key">{{i.key}}</mat-option>
         </mat-select>
