@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/rallypointtech/server/main.js",
     "build:ssr": "ng build --prod --aot=true --optimization=true --outputHashing=all && ng run rallypointtech:server:production",
     "prerender": "ng run rallypointtech:prerender",
-    "analyze": "ng build --prod --aot=true --optimization=true --statsJson=true  && webpack-bundle-analyzer dist/rallypointtech/browser/stats.json"
+    "analyze": "ng build --statsJson=true --namedChunks=false  && webpack-bundle-analyzer dist/rallypointtech/browser/stats.json"
   },
   "private": true,
   "dependencies": {

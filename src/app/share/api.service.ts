@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import * as axios from "axios";
+import axios from "axios";
 import { AxiosInstance } from "axios";
 import {environment} from "../../environments/environment";
 @Injectable({
@@ -10,7 +10,7 @@ export class ApiService {
 
   public axios: AxiosInstance;
   constructor() {
-    this.axios = axios.default.create({baseURL:environment.apiUrl});
+    this.axios = axios.create({baseURL:environment.apiUrl});
   }
 
   public setToken(token: string){

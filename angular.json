@@ -39,8 +39,7 @@
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
-              "node_modules/clappr/dist/clappr.js",
-              "node_modules/mux.js/dist/mux.min.js",
+              "node_modules/clappr/dist/clappr.min.js",
               "node_modules/@c3voc/clappr-level-selector/dist/level-selector.min.js",
               "node_modules/clappr-ga-events-plugin/dist/clappr-ga-events-plugin.min.js",
               "node_modules/p2p-media-loader-core/build/p2p-media-loader-core.min.js",
