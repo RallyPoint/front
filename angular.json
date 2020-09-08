@@ -21,12 +21,8 @@
             "allowedCommonJsDependencies": [
               "p2p-media-loader-shaka",
               "axios",
-              "brace/mode/php",
-              "brace/mode/java",
-              "brace/mode/html",
-              "brace/mode/javascript",
-              "socket.io-client",
-              "socket.io-parser"
+              "showdown",
+              "socket.io-client"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -70,7 +66,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "3mb",
                   "maximumError": "5mb"
                 },
                 {
