@@ -48,7 +48,6 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   ngOnInit(): void {
     this.connection();
-    console.log(this.authenticationService.user,this.channel);
     this.isAdmin = this.authenticationService.user.pseudo === this.channel;
   }
   ngOnDestroy() {
@@ -80,7 +79,6 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.messages.push({txt: 'Utilisateur ' + msg.forPseudo + ' banni', by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo});
   }
   public onSysteme(msg: {uuid: string, by: string, forPseudo: string, pseudo: string, for: string, action: string}): void{
-    console.log("systeme",msg);
     this.banned = true;
   }
   public onMessage(msg: {uuid: string, by: string, pseudo: string, txt: string}): void{

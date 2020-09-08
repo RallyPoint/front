@@ -12,7 +12,6 @@ export class IfFormErrorDirective {
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef
   ) {
-    console.log("hahaha");
   }
 
   @Input()

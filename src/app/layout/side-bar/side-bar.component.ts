@@ -30,7 +30,6 @@ export class SideBarComponent implements OnInit {
             viwer : resStats ? resStats.data.find((stats) => stats.name === user.pseudo).viwer : null
           });
         });
-        console.log(this.follows);
       }).catch(() => {
         this.follows = users;
       });

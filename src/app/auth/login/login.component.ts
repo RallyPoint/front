@@ -83,7 +83,6 @@ export class LoginComponent implements OnInit {
 
   completSSOSubmit(){
     this.authenticationService.githubLogin(this.completSSOForm).then((data) => {
-      console.log('success', data);
     });
   }
 

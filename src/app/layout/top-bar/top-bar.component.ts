@@ -27,7 +27,6 @@ export class TopBarComponent implements OnInit {
     this.router.navigate(['/search'], {
       queryParams: { 'title': this.searchForm.get('search').value}
     });
-    console.log(this.searchForm.getRawValue());
   }
 
   ngOnInit(): void {

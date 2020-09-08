@@ -22,7 +22,6 @@ export class LiveComponent implements OnInit {
   constructor(private readonly activatedRoute: ActivatedRoute,
               private readonly router: Router,
               private readonly apiService: ApiService) {
-    console.log('Called Constructor');
     this.activatedRoute.queryParams.subscribe(params => {
       this.title = params['title'];
       this.searchForm.get('search').setValue(params.title);

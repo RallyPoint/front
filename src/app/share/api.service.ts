@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 import axios from "axios";
 import { AxiosInstance } from "axios";
 import {environment} from "../../environments/environment";
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class ApiService {
 
   public axios: AxiosInstance;

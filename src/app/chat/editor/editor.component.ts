@@ -20,7 +20,7 @@ export class EditorComponent implements AfterViewInit {
 
   @ViewChild('codeEditor')
   public codeEditor: ElementRef;
-  public value = 'console.log("azez")';
+  public value = '// Code pour rallypoint.tech';
   public message = '';
   public mode = 'text';
   public sendCode: (code: string, language: string, message: string) => void;
@@ -65,7 +65,6 @@ export class EditorComponent implements AfterViewInit {
   if (this.isBrowser) {
     console.log(mode);
     this.CodeFlaskInstance = new CodeFlask(this.codeEditor.nativeElement, {language: this.mode});
-    console.log(Prism.languages,Prism.languages[this.mode]);
     this.CodeFlaskInstance.addLanguage(this.mode, Prism.languages[this.mode]);
     this.CodeFlaskInstance.updateCode(this.value);
     this.CodeFlaskInstance.onUpdate((code) => {

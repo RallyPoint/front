@@ -13,8 +13,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
 import {MatIconModule} from '@angular/material/icon';
-import {MAT_DATE_LOCALE} from "@angular/material/core";
-import {NgScrollbarModule} from "ngx-scrollbar";
+import {MAT_DATE_LOCALE} from '@angular/material/core';
+import {NgScrollbarModule} from 'ngx-scrollbar';
+import {ShareModule} from '../share/share.module';
+import {AuthModule} from "../auth/auth.module";
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     MatButtonModule,
     MatSelectModule,
     MatDatepickerModule,
+    ShareModule,
+    AuthModule,
     MatIconModule,
     NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgScrollbarModule
   ],

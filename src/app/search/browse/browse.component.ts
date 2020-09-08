@@ -68,7 +68,6 @@ export class BrowseComponent implements OnInit, OnDestroy {
     this.browseFormSubscribe = this.browseForm.valueChanges
       .pipe(debounce(() => timer(500)))
       .subscribe((values) => {
-        console.log("CHANGE");
         this.loadLive(values.title, values.language, values.technology);
     });
   }

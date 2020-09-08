@@ -49,6 +49,8 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   private statsInterval: any;
   private statsUid: number;
 
+  private player: any;
+
   constructor(private readonly apiService: ApiService,
               @Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId)){
@@ -57,15 +59,14 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   onBytesDownloaded(method, size) {
-    console.log(method);
   }
   onBytesUploaded(method, size) {
-    console.log(method);
   }
   ngOnDestroy(): void {
     if (this.statsInterval) {
       clearInterval(this.statsInterval);
     }
+    this.player.stop();
   }
 
   ngAfterViewInit(): void {
@@ -120,15 +121,15 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
       outer.appendChild(video);
       this.playerEl.nativeElement.appendChild(outer);
 
-      const player = new Clappr.Player(setup);
+      this.player = new Clappr.Player(setup);
       if (this.channel) {
-        player.listenTo(player, Clappr.Events.PLAYER_PLAY, () => {
+        this.player.listenTo(this.player, Clappr.Events.PLAYER_PLAY, () => {
           this.startStats();
         });
-        player.listenTo(player, Clappr.Events.PLAYER_STOP, () => {
+        this.player.listenTo(this.player, Clappr.Events.PLAYER_STOP, () => {
           this.stopStats();
         });
-        player.listenTo(player, Clappr.Events.PLAYER_PAUSE, () => {
+        this.player.listenTo(this.player, Clappr.Events.PLAYER_PAUSE, () => {
           this.stopStats();
         });
       }

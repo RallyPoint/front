@@ -28,6 +28,13 @@
         padding: 5px 10px;
         background-color: $normal-background;
       }
+
+      a:hover {
+        color: inherit!important;
+      }
+      a {
+        color: inherit!important;
+      }
     }
   }
   a:hover {

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainComponent} from "./main/main.component";
 import {UserComponent} from "./user/user.component";
 import {LiveComponent} from "./live/live.component";
+import {IsConnectedGuard} from "../auth/IsConnected.guard";
 
 const routes: Routes = [
   { path: '', component: MainComponent ,children: [
@@ -15,8 +16,12 @@ const routes: Routes = [
       {
         path: '', redirectTo: 'user', pathMatch: 'full'
       }
-    ]}
-    ];
+    ],
+    canActivate: [
+      IsConnectedGuard
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
