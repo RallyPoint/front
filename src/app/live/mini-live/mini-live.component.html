@@ -12,7 +12,7 @@
           {{pseudo}}
         </h5>
         <img class="avatar" [src]="'/media/avatar/'+ avatar | thumbor : [40,40]" *ngIf="avatar">
-        <img class="avatar" [src]="'../../../assets/images/avatar-placeholder.jpg' | thumbor : [40,40]" *ngIf="!avatar">
+        <img class="avatar" [src]="'/assets/images/avatar-placeholder.jpg' | thumbor : [40,40]" *ngIf="!avatar">
       </div>
     </div>
     <div class="title pt-2 col-12 pb-2">
