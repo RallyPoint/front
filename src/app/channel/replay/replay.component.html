@@ -1,6 +1,7 @@
 <div class="d-flex h-100" *ngIf="replay && replay.user">
   <div class="replay">
     <ng-scrollbar visibility="hover">
+      <app-player [file]="replay.user.pseudo+'/'+replay.file" [title]="replay.title"></app-player>
       <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
         <div class="avatar m-3" [routerLink]="'/channel/'+replay.user.pseudo" >
@@ -21,14 +22,17 @@
           <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed">Suivre</button>
         </div>
       </div>
-      <app-player [file]="replay.user.pseudo+'/'+replay.file" [title]="replay.title"></app-player>
 
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="description">
-          <div class="replay-desc col-12 pt-4 pb-4">
-            {{replay.desc}}
-          </div>
-          <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="replay.user.descHtml">
+          <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+              <div class="replay-desc col-12 pt-4 pb-4">
+                {{replay.desc}}
+              </div>
+              <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="replay.user.descHtml">
+              </div>
+            </div>
           </div>
         </mat-tab>
         <mat-tab label="replay">

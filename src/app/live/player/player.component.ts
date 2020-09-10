@@ -66,6 +66,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   onBytesUploaded(method, size) {
   }
   ngOnDestroy(): void {
+    if(isPlatformBrowser(this.platformId)) { return; }
     if (this.statsInterval) {
       clearInterval(this.statsInterval);
     }
@@ -73,6 +74,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if(isPlatformBrowser(this.platformId)) { return; }
     if (p2pml.hlsjs.Engine.isSupported()) {
       const engine = new p2pml.hlsjs.Engine({
         loader: {

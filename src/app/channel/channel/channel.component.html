@@ -2,6 +2,13 @@
   <div class="live">
 
     <ng-scrollbar visibility="hover" class="scrollbar">
+      <div *ngIf="!userChannel.live.status" class="offline">
+        <img [src]="'/media/live/'+userChannel.live.thumb | thumbor : [1200,720]" *ngIf="userChannel.live.thumb" class="w-100">
+        <div class="wording p-4 w-100" i18n="live | channel">Chaine hors ligne.</div>
+        <div class="wording p-4 w-100" *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
+      </div>
+      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip" [title]="userChannel.live.title"></app-player>
+
       <div class="title d-flex align-content-between align-items-center">
         <!--userChannel.avatar-->
         <div class="avatar m-2 m-sm-3"  [routerLink]="'/channel/'+userChannel.pseudo" [queryParams]="{displayTabMobile: displayTabMobile?0:1}" >
@@ -22,18 +29,16 @@
           <button mat-stroked-button color="primary" class="mr-2" (click)="follow()" *ngIf="!followed" i18n="live | channel">Suivre</button>
         </div>
       </div>
-      <div *ngIf="!userChannel.live.status" class="offline">
-        <img [src]="'/media/live/'+userChannel.live.thumb | thumbor : [1200,720]" *ngIf="userChannel.live.thumb" class="w-100">
-        <div class="wording p-4 w-100" i18n="live | channel">Chaine hors ligne.</div>
-        <div class="wording p-4 w-100" *ngIf="userChannel.live.date.getTime() > now.getTime()"  i18n="live | channel">Prochain live le {{userChannel.live.date | date : 'short'}}</div>
-      </div>
-      <app-player *ngIf="userChannel.live.status" [channel]="userChannel.pseudo" [server]="userChannel.live.ip" [title]="userChannel.live.title"></app-player>
       <mat-tab-group mat-align-tabs="center" class="tab" [ngClass]="{'display-tab-mobile' : displayTabMobile}">
         <mat-tab label="description">
-          <div class="live-desc col-12 pt-4 pb-4">
-          {{userChannel.live.desc}}
-          </div>
-          <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="userChannel.descHtml">
+          <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+              <div class="live-desc col-12 pt-4 pb-4">
+                {{userChannel.live.desc}}
+              </div>
+              <div class="live-desc col-12 pt-4 pb-4" [innerHTML]="userChannel.descHtml">
+              </div>
+            </div>
           </div>
         </mat-tab>
         <mat-tab label="Rediffusions">
