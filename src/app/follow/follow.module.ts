@@ -8,6 +8,7 @@ import {FollowService} from './follow.service';
 @NgModule({
   declarations: [],
   exports: [
+
   ],
   providers : [FollowService],
   imports: [

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {ChatModule} from '../chat/chat.module';
 import {AuthModule} from '../auth/auth.module';
 import {ShareModule} from '../share/share.module';
-import {FollowModule} from '../follow/follow.module';
 import { PlayerComponent } from './player/player.component';
 import {MatButtonModule} from '@angular/material/button';
 import {NgScrollbarModule} from 'ngx-scrollbar';
@@ -20,7 +19,6 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    FollowModule,
     ChatModule,
     ShareModule,
     AuthModule,
