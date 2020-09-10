@@ -11,8 +11,8 @@
         <h5 class="name__views m-0">
           {{pseudo}}
         </h5>
-        <img class="mr-3" [src]="'/media/avatar/'+ avatar | thumbor : [40,40]" *ngIf="avatar">
-        <img class="mr-3" src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!avatar">
+        <img class="avatar" [src]="'/media/avatar/'+ avatar | thumbor : [40,40]" *ngIf="avatar">
+        <img class="avatar" [src]="'../../../assets/images/avatar-placeholder.jpg' | thumbor : [40,40]" *ngIf="!avatar">
       </div>
     </div>
     <div class="title pt-2 col-12 pb-2">
