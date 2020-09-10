@@ -66,29 +66,8 @@
     overflow: hidden;
   }
   .admin{
-    li{
-      position: relative;
-      &:hover{
-        .actions {
-          display: flex;
-        }
-      }
-      .actions{
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(255,255,255,0.5);
-        button{
-          line-height: 24px;
-          font-size: 12px;
-        }
-        &:hover{
-          display: flex;
-        }
-      }
+    .item.admin {
+      display: block !important;
     }
   }
   ul{
@@ -101,23 +80,29 @@
       font-size: 12px;
       line-height: 22px;
       position: relative;
-      .vote-count{
-        display: inline;
-      }
-      .vote-btn{
-        font-size: 12px;
-        line-height: 18px;
-        width: auto;
-        height: auto;
-        display: none;
-        cursor: pointer;
-      }
       &:hover{
-        .vote-count{
+        .actions {
+          display: flex !important;
+        }
+      }
+      .actions{
+        top: -4px;
+        right: 10px;
+        display: none;
+        position: absolute;
+        .item{
+          cursor: pointer;
+          text-align: center;
+          background-color: white;
+          color: $dark-background;
+          border-radius: 0 0 5px 5px;
+          &.admin{
           display: none;
         }
-        .vote-btn{
-          display: inline-block;
+          mat-icon{
+            font-size: 12px;
+            line-height: 26px;
+          }
         }
       }
       .pseudo{
@@ -130,23 +115,11 @@
         margin: 0 5px;
         min-width: 22px;
         display: inline-block;
-      }
-      .actions{
-        position: absolute;
-        display: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.85);
-        font-size: 20px;
-        font-weight: bold;
-        .action{
-          border-left: 1px solid rgba(255,255,255,0.1);
-          height: 100%;
-          text-align: center;
+        .vote-count{
+          display: inline;
         }
       }
+
     }
   }
 }

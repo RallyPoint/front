@@ -4,8 +4,8 @@
     <form [formGroup]="browseForm" class="col-12 col-lg-8 pt-4 filter">
 
       <mat-form-field appearance="outline" class="col-12 col-sm-4">
-        <mat-label i18n="search | browse">Titre</mat-label>
-        <input matInput type="text" formControlName="title">
+        <mat-label i18n="search | browse">Pseudo</mat-label>
+        <input matInput type="text" formControlName="pseudo">
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="col-6 col-sm-4">
@@ -29,13 +29,14 @@
     </form>
     <div class="col-12 d-flex flex-column min-h-100">
       <div class="row mt-3 pr-3" *ngIf="data && data.items">
-        <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of data.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
+        <app-mini-live  [routerLink]="'/channel/'+userLive.pseudo" *ngFor="let userLive of data.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.live.viwer" [pseudo]="userLive.pseudo" [title]="userLive.live.title" [live]="userLive.live.status"></app-mini-live>
       </div>
     </div>
 
     <mat-paginator class="mt-auto row"
                    [length]="data.count"
                    [pageSize]="20"
+                   #paginator
                    (page)="pageUpdate($event)"
                    [pageSizeOptions]="[5, 10, 20, 50]">
     </mat-paginator>

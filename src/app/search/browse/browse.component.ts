@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ApiService} from '../../share/api.service';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Subscription, timer} from 'rxjs';
 import {debounce} from 'rxjs/operators';
-import {PageEvent} from '@angular/material/paginator';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-browse',
@@ -13,10 +13,8 @@ import {PageEvent} from '@angular/material/paginator';
 })
 export class BrowseComponent implements OnInit, OnDestroy {
 
-  public foods = [{
-    value : 'aze',
-    viewValue: 'aez'
-  }];
+  @ViewChild('paginator')
+  paginator: MatPaginator;
   public title = '';
   public data: any;
   public languages: any[];
@@ -24,7 +22,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
   public loading = true;
   public browseFormSubscribe: Subscription = Subscription.EMPTY;
   public browseForm = new FormGroup({
-    title: new FormControl('', []),
+    pseudo: new FormControl('', []),
     language: new FormControl('', []),
     technology: new FormControl('', []),
   });
@@ -40,25 +38,33 @@ export class BrowseComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadLive(title?: string, language?: string, level?: string) {
-    return this.apiService.axios.get('search/lives', {params: {
-      title,
+  loadLive(pseudo?: string, language?: string, level?: string, pageIndex?: number, pageSize?: number) {
+    return this.apiService.axios.get('search/users', {params: {
+        pseudo,
         language,
-        level
-    }}).then((res) => {
+        level,
+        pageIndex,
+        pageSize
+      }}).then((res) => {
       this.data = res.data;
     });
   }
 
   pageUpdate(event: PageEvent){
-    this.apiService.axios.get('search/lives', { params: {
-        name: this.browseForm.get('title').value,
-        pageIndex: event.pageIndex,
-        pageSize: event.pageSize
-      }}).then((res) => {
-      this.data = res.data;
-      this.loading = false;
-    });
+    console.log(
+      this.browseForm.get('pseudo').value,
+      this.browseForm.get('language').value,
+      this.browseForm.get('technology').value,
+      event.pageIndex,
+      event.pageSize
+    );
+    this.loadLive(
+      this.browseForm.get('pseudo').value,
+      this.browseForm.get('language').value,
+      this.browseForm.get('technology').value,
+      event.pageIndex,
+      event.pageSize
+    );
 }
   ngOnDestroy() {
     this.browseFormSubscribe.unsubscribe();
@@ -68,8 +74,9 @@ export class BrowseComponent implements OnInit, OnDestroy {
     this.browseFormSubscribe = this.browseForm.valueChanges
       .pipe(debounce(() => timer(500)))
       .subscribe((values) => {
-        this.loadLive(values.title, values.language, values.technology);
-    });
+        this.paginator.pageIndex = 0;
+        this.loadLive(values.pseudo, values.language, values.technology);
+      });
   }
 
 }

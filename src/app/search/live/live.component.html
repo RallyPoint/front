@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row mt-3 pr-3" *ngIf="lives && lives.count">
-    <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of lives.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
+    <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of lives.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="userLive.status"></app-mini-live>
   </div>
 
   <mat-paginator class="mt-auto row"

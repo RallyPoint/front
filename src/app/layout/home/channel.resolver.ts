@@ -13,24 +13,28 @@ export class HomeLivesResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
-      this.apiService.axios.get('search/lives').then((res) => {
+      this.apiService.axios.get('search/lives',{params: {pageSize:4}}).then((res) => {
         if (!res.data.count){
           observer.next([]);
           observer.complete();
           return;
         }
+        res.data.items = res.data.items.map((live) => {
+          return Object.assign(live, {
+            thumbnail: '/media/hls/' + live.user.pseudo + '-thumbnail.jpg'
+          });
+        });
         this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
           params : { channels : res.data.items.map((live) => live.user.pseudo) }
         }).then((resStats) => {
           observer.next(res.data.items.map((live) => {
             return Object.assign(live, {
-              thumbnail: '/media/hls/' + live.user.pseudo + '-thumbnail.jpg',
               viwer : resStats ? resStats.data.find((stats) => stats.name === live.user.pseudo).viwer : null
             });
           }));
           observer.complete();
         }).catch(()=>{
-          observer.next([]);
+          observer.next(res.data.items);
           observer.complete();
         });
       });

@@ -3,13 +3,21 @@
 <ng-scrollbar #scrollbarRef (updated)="autoScroll ? scrollbarRef.scrollTo({bottom:0}):null;" visibility="hover">
 <ul class="admin" [ngClass]="{admin:isAdmin}">
   <li *ngFor="let message of messages" class="col-12">
-    <span class="pseudo">{{message.pseudo}}</span>
-    <span class="vote text-center cursor-pointer" ><mat-icon class="vote-btn" (click)="vote(true,message.uuid)">thumb_up</mat-icon><span class="vote-count">{{message.voteCount}}</span></span>
+    <span class="pseudo" [ngStyle]="{color:'#'+message.color}">{{message.pseudo}}</span>
+    <span class="vote text-center" >
+      <span class="vote-count">{{message.voteCount}}</span>
+    </span>
+
+    <div class="actions">
+      <span class="item cursor-pointer ml-2" (click)="vote(true,message.uuid)" >
+        <mat-icon>thumb_up</mat-icon>
+      </span>
+      <span class="item admin ursor-pointer ml-2" (click)="ban(message.by,message.pseudo)" >
+        <mat-icon>remove_circle_outline</mat-icon>
+      </span>
+    </div>
     {{message.txt}}
     {{message.gist}}
-    <div class="actions justify-content-center align-items-center ">
-      <button mat-flat-button color="second" (click)="ban(message.by,message.pseudo)" i18n="chat">Bannir {{message.pseudo}}</button>
-    </div>
   </li>
 </ul>
 </ng-scrollbar>
@@ -23,6 +31,6 @@
   </div>
   <div class="col-3 col-sm-12 d-flex action justify-content-between">
     <button  mat-stroked-button color="primary" class="d-none d-sm-block" type="button" (click)="openCodeEditor()" i18n="chat"> &lt;code&gt;</button>
-    <button  mat-stroked-button color="second" i18n="chat">Envoyer</button>
+    <button  mat-stroked-button color="second" i18n="chat">Envoyé</button>
   </div>
 </form>

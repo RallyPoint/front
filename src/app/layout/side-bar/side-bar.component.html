@@ -29,7 +29,7 @@
         </h2>
       </div>
       <div class="item">
-        <div class="media col-12"  *ngFor="let follow of follows" [ngClass]="{'offline' : !follow.live.status}">
+        <div class="media col-12 cursor-pointer"  *ngFor="let follow of follows" [routerLink]="'/channel/'+follow.pseudo" [ngClass]="{'offline' : !follow.live.status}">
           <img class="mr-3" [src]="'/media/avatar/'+follow.avatar | thumbor : [60,60]" *ngIf="follow.avatar">
           <img class="mr-3" src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!follow.avatar">
           <div class="media-body">

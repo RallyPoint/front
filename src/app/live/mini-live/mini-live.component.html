@@ -1,20 +1,22 @@
-  <div class="full__item-video mb-3">
-    <div class="item__video">
-      <div class="img__img-video">
-        <img *ngIf="live" [src]="'/media/hls/'+pseudo+'.png' | thumbor : [480,270]" alt="">
-        <img *ngIf="!live" [src]="img | thumbor : [480,270]" alt="">
-        <span *ngIf="live" class="live__button ml-2 mr-2"  i18n="live | mini-live">LIVE</span>
-        <div class="viewer d-flex align-middle align-items-center" *ngIf="spec > 0"><mat-icon>visibility</mat-icon>{{spec}}</div>
-        <!--    <span class="play"></span> -->
-        <div class="content__video pl-2 pr-2">
-          <h5 class="name__views m-0">
-            {{pseudo}}
-          </h5>
-        </div>
+<div class="full__item-video mb-3">
+  <div class="item__video">
+    <div class="img__img-video">
+      <img *ngIf="live" [src]="'/media/hls/'+pseudo+'.png' | thumbor : [480,270]" alt="">
+      <img *ngIf="!live && img" [src]="img | thumbor : [480,270]" alt="">
+      <img *ngIf="!live && !img" [src]="'/assets/images2/placeholder-stream.jpg' | thumbor : [480,270]" alt="">
+      <span *ngIf="live" class="live__button ml-2 mr-2"  i18n="live | mini-live">LIVE</span>
+      <div class="viewer d-flex align-middle align-items-center" *ngIf="spec > 0"><mat-icon>visibility</mat-icon>{{spec}}</div>
+      <!--    <span class="play"></span> -->
+      <div class="content__video pl-2 pr-2">
+        <h5 class="name__views m-0">
+          {{pseudo}}
+        </h5>
+        <img class="avatar" src="https://image.rallypoint.tech/unsafe/60x60/https://rallypoint.tech/media/avatar/68510eb1eaee7f3df8a17ae10f106d65919.png">
       </div>
-      <div class="title pt-3 col-12 pb-2">
-        {{title}}
-      </div>
-      </div>
-
+    </div>
+    <div class="title pt-2 col-12 pb-2">
+      {{title}}
+    </div>
   </div>
+
+</div>

@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 })
 export class ThumborPipe implements PipeTransform {
   transform(url: string, resize?: number[], smartCrop?: boolean ): string {
+    if(!environment.production){ return url;}
     const thumbor  = new Thumbor(environment.thumbor.url);
     thumbor.setImagePath(url);
     if (resize){

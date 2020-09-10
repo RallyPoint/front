@@ -4,6 +4,7 @@
       <div class="preview p-0 col-12 col-sm-6 align-items-center d-flex">
         <div *ngIf="!mainUser.live.status" class="offline col-12 h-100">
           <img [src]="'/media/live/'+mainUser.live.thumb | thumbor : [1200,720]" *ngIf="mainUser.live.thumb" class="w-100">
+          <img [src]="'/assets/images2/placeholder-stream.jpg' | thumbor : [1200,720]" *ngIf="!mainUser.live.thumb" class="w-100">
           <div *ngIf="mainUser.live.date.getTime() > now.getTime()" class="w-100 text-center wording p-4" i18n="home">Prochain live : {{mainUser.live.date | date : 'short'  }}</div>
           <div *ngIf="mainUser.live.date.getTime() < now.getTime()" class="w-100 text-center wording p-4" i18n="home">Direct terminé</div>
         </div>
@@ -34,7 +35,7 @@
         <div class="col-12 text-center" i18n="home">Pas de live en cours.</div>
       </div>
       <div class="row mt-3 pr-3" *ngIf="userLives.length">
-        <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="true"></app-mini-live>
+        <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" *ngFor="let userLive of userLives"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="userLive.status"></app-mini-live>
       </div>
       <h4 class="pt-3" i18n="home">Rediffusions</h4>
       <div class="row mt-3 pr-3">

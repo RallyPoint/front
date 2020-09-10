@@ -25,7 +25,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public isAdmin: boolean = false;
 
   public io: Socket;
-  public messages: {uuid: string, by: string, pseudo: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
+  public messages: {uuid: string,  by: string, pseudo: string,color?:string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
+    {pseudo: 'Maxence', color: "c4296d", by: 'azeaze', uuid: 'azeaze', txt: '@lesang2tmort parcequ\'il fais sont metier de streamer a perfection comme', voteCount: 0, votes: {}, voted: 0},
   ];
   public message: string;
   public autoScroll: boolean = true;
@@ -72,8 +73,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.message = '';
   }
 
-  public onCode(msg: {uuid: string, pseudo: string, txt: string, url: string, by: string}): void{
-    this.messages.push({txt: msg.txt, by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo , gist: msg.url});
+  public onCode(msg: {uuid: string, pseudo: string, color: string, txt: string, url: string, by: string}): void{
+    this.messages.push({txt: msg.txt, color: msg.color, by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo , gist: msg.url});
   }
   public onAdmin(msg: {uuid: string, by: string, forPseudo: string, pseudo: string, for: string, action: string}): void{
     this.messages.push({txt: 'Utilisateur ' + msg.forPseudo + ' banni', by: msg.by, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid, pseudo: msg.pseudo});
@@ -81,8 +82,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public onSysteme(msg: {uuid: string, by: string, forPseudo: string, pseudo: string, for: string, action: string}): void{
     this.banned = true;
   }
-  public onMessage(msg: {uuid: string, by: string, pseudo: string, txt: string}): void{
-    this.messages.push({txt: msg.txt, by: msg.by, pseudo: msg.pseudo, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
+  public onMessage(msg: {uuid: string, color: string,  by: string, pseudo: string, txt: string}): void{
+    this.messages.push({txt: msg.txt, color: msg.color, by: msg.by, pseudo: msg.pseudo, voteCount: 0, votes: {}, voted : 0, uuid: msg.uuid});
   }
 
   public onVote(msg: {uuid: string, vote: boolean, by: string}): void{
