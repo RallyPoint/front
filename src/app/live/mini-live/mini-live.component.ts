@@ -12,6 +12,8 @@ export class MiniLiveComponent implements OnInit {
   @Input()
   public spec: number;
   @Input()
+  public avatar: string;
+  @Input()
   public pseudo: string;
   @Input()
   public title: string;

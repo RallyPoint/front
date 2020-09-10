@@ -11,7 +11,8 @@
         <h5 class="name__views m-0">
           {{pseudo}}
         </h5>
-        <img class="avatar" src="https://image.rallypoint.tech/unsafe/60x60/https://rallypoint.tech/media/avatar/68510eb1eaee7f3df8a17ae10f106d65919.png">
+        <img class="mr-3" [src]="'/media/avatar/'+ avatar | thumbor : [40,40]" *ngIf="avatar">
+        <img class="mr-3" src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!avatar">
       </div>
     </div>
     <div class="title pt-2 col-12 pb-2">
