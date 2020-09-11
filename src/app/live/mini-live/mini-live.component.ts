@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Utils} from "../../share/utils";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-mini-live',
@@ -20,12 +22,18 @@ export class MiniLiveComponent implements OnInit {
   @Input()
   public img?: string;
   @Input()
+  public file?: string;
+  @Input()
   public live: boolean;
   @Input()
   public tag: string[];
 
 
   ngOnInit(): void {
+    if (!this.img && this.file){
+      const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
+      this.img = baseUrlThumb + '/thumb/' + this.pseudo + '/' + this.file + '/thumb-1000.jpg';
+    }
   }
 
 }

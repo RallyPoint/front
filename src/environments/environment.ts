@@ -1,12 +1,12 @@
 export const environment = {
-  production: false,
-  siteUrl: 'http://localhost:4200',
-  apiUrl: 'http://127.0.0.1:9090',
-  vodUrl: ['http://127.0.0.1:8081'],
-  liveUrl: ['http://127.0.0.1:8080'],
-  statsLiveUrl: ['http://127.0.0.1:3001'],
-  chatUrl: 'http://127.0.0.1:3000',
-  name: 'local',
+  production: true,
+  name: 'prod',
+  siteUrl: 'https://rallypoint.tech',
+  apiUrl: 'https://api.rallypoint.tech',
+  liveUrl: ['https://live01.rallypoint.tech/server', 'https://live02.rallypoint.tech/server'],
+  chatUrl: 'https://chat.rallypoint.tech',
+  vodUrl: ['https://vod01.rallypoint.tech', 'https://vod02.rallypoint.tech'],
+  statsLiveUrl: ['https://stats.rallypoint.tech'],
   thumbor : {url : 'https://image.rallypoint.tech'},
-  githubKey : '941edbebbc817c7684fc'
+  githubKey : '4ba2522ac3257f9dfac3'
 };

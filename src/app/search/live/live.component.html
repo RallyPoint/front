@@ -1,28 +1,30 @@
-<div *ngIf="loading" class="col-12 text-center" i18n="search | live">Recherche en cours...</div>
+<ng-scrollbar #scrollbarRef visibility="hover">
+  <div *ngIf="loading" class="col-12 text-center" i18n="search | live">Recherche en cours...</div>
 
-<div class="col-12 d-flex flex-column min-h-100" *ngIf="!loading">
-  <div class="d-flex align-items-center pt-3">
-    <div>
-      <h2 class="pt-2 pb-2 pr-3" i18n="search | live"> Rechercher un live </h2>
+  <div class="col-12 d-flex flex-column min-h-100" *ngIf="!loading">
+    <div class="d-flex align-items-center pt-3">
+      <div>
+        <h2 class="pt-2 pb-2 pr-3" i18n="search | live"> Rechercher un live </h2>
+      </div>
+      <div>
+        <form class="form-inline form-search" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
+
+          <input class="form-control" type="text" placeholder="Search a Streaming …" aria-label="Search" formControlName="search">
+          <button class="btn btn-outline-success" type="submit">
+            <img src="../../../assets/images/search.png" alt="">
+          </button>
+        </form>
+      </div>
     </div>
-    <div>
-      <form class="form-inline form-search" [formGroup]="searchForm" (ngSubmit)="searchSubmit()">
-
-        <input class="form-control" type="text" placeholder="Search a Streaming …" aria-label="Search" formControlName="search">
-        <button class="btn btn-outline-success" type="submit">
-          <img src="../../../assets/images/search.png" alt="">
-        </button>
-      </form>
+    <div class="row mt-3 pr-3" *ngIf="lives && lives.count">
+      <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" [avatar]="userLive.user.avatar" *ngFor="let userLive of lives.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [live]="userLive.status"></app-mini-live>
     </div>
-  </div>
-  <div class="row mt-3 pr-3" *ngIf="lives && lives.count">
-    <app-mini-live  [routerLink]="'/channel/'+userLive.user.pseudo" [avatar]="userLive.user.avatar" *ngFor="let userLive of lives.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [spec]="userLive.viwer" [pseudo]="userLive.user.pseudo" [title]="userLive.title" [tag]="['PHP']"  [live]="userLive.status"></app-mini-live>
-  </div>
 
-  <mat-paginator class="mt-auto row"
-                 [length]="lives.count"
-                 [pageSize]="10"
-                 (page)="pageUpdate($event)"
-                 [pageSizeOptions]="[5, 10, 25, 50]">
-  </mat-paginator>
-</div>
+    <mat-paginator class="mt-auto row"
+                   [length]="lives.count"
+                   [pageSize]="10"
+                   (page)="pageUpdate($event)"
+                   [pageSizeOptions]="[5, 10, 25, 50]">
+    </mat-paginator>
+  </div>
+</ng-scrollbar>
