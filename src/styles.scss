@@ -3,6 +3,8 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+@import "assets/vendor/fonts.css";
 @import 'assets/helpers/variabls';
 
 @import "~codemirror/lib/codemirror.css";
@@ -11,24 +13,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "assets/custome/custome";
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('assets/fonts/Montserrat-Bold.woff2') format('woff2'),
-  url('assets/fonts/Montserrat-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('assets/fonts/Montserrat-Regular.woff2') format('woff2'),
-  url('assets/fonts/Montserrat-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
+//@import 'pages/globalpage.scss';
+//@import 'layouts/grid.scss';
 .r-mb-30 {
   @media #{$maxSmall} {
     margin-bottom: 30px;
