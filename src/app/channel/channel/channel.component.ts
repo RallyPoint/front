@@ -54,7 +54,7 @@ export class ChannelComponent implements OnInit {
         { name: 'description', content: this.userChannel.live.desc }
       ], true);
       this.route.params.subscribe(params => {
-        this.apiService.axios.get('replay', {params: {user: data.userChannel.id}}).then((res) => {
+        this.apiService.axios.get('replay', {params: {userId: data.userChannel.id}}).then((res) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
           this.userReplays = res.data.map((replay) => {
             return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.userChannel.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
