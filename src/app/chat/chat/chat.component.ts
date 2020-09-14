@@ -10,6 +10,7 @@ import {NgScrollbar} from 'ngx-scrollbar';
 import {tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {isPlatformBrowser} from "@angular/common";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-chat',
@@ -34,9 +35,13 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   private _scrollSubscription = Subscription.EMPTY;
   // public socket: Socket;
   constructor(public matDialog: MatDialog,
+              private activatedRoute: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId: any,
               private readonly loginService: LoginService,
               private readonly authenticationService: AuthenticationService) {
+    this.activatedRoute.params.subscribe((data)=>{
+      this.channel = data.channel;
+    })
   }
 
   ngAfterViewInit() {

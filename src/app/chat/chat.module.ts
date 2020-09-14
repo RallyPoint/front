@@ -11,6 +11,7 @@ import {NgScrollbarModule} from 'ngx-scrollbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {EditorComponent} from './editor/editor.component';
+import {ChatRoutingModule} from "./chat-routing.module";
 
 
 
@@ -21,6 +22,7 @@ import {EditorComponent} from './editor/editor.component';
   ],
   imports: [
     CommonModule,
+    ChatRoutingModule,
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,

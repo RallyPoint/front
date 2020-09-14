@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from "./main/main.component";
-import {UserComponent} from "./user/user.component";
-import {LiveComponent} from "./live/live.component";
-import {IsConnectedGuard} from "../auth/IsConnected.guard";
+import {MainComponent} from './main/main.component';
+import {UserComponent} from './user/user.component';
+import {LiveComponent} from './live/live.component';
+import {IsConnectedGuard} from '../auth/IsConnected.guard';
 
 const routes: Routes = [
-  { path: '', component: MainComponent ,children: [
+  { path: '', component: MainComponent , children: [
       {
         path: 'user', component: UserComponent
       },
