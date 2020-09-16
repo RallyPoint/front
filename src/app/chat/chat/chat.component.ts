@@ -28,6 +28,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public io: Socket;
   public messages: {uuid: string,  by: string, pseudo: string,color?:string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
   ];
+  public showMessageOnly: boolean = false;
   public message: string;
   public autoScroll: boolean = true;
   @ViewChild(NgScrollbar, { static: true }) scrollbarRef: NgScrollbar;
@@ -39,9 +40,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
               @Inject(PLATFORM_ID) private platformId: any,
               private readonly loginService: LoginService,
               private readonly authenticationService: AuthenticationService) {
+    this.showMessageOnly = !this.channel;
     this.activatedRoute.params.subscribe((data)=>{
       this.channel = data.channel;
-    })
+    });
   }
 
   ngAfterViewInit() {

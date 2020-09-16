@@ -16,11 +16,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import {NgScrollbarModule} from 'ngx-scrollbar';
 import {ShareModule} from '../share/share.module';
-import {AuthModule} from "../auth/auth.module";
+import {AuthModule} from '../auth/auth.module';
+import { ReplaysComponent } from './replays/replays.component';
+import {LiveModule} from '../live/live.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ReplayComponent } from './replay/replay.component';
 
 
 @NgModule({
-  declarations: [UserComponent, LiveComponent, SideBarComponent, MainComponent],
+  declarations: [UserComponent, LiveComponent, SideBarComponent, MainComponent, ReplaysComponent, ReplayComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -34,7 +38,7 @@ import {AuthModule} from "../auth/auth.module";
     ShareModule,
     AuthModule,
     MatIconModule,
-    NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgScrollbarModule
+    NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule, NgScrollbarModule, LiveModule, MatPaginatorModule
   ],
   providers : [
     { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }

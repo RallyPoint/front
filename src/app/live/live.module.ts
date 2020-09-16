@@ -10,6 +10,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MiniLiveComponent} from './mini-live/mini-live.component';
 import {MatIconModule} from '@angular/material/icon';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [ PlayerComponent,  MiniLiveComponent],
@@ -27,7 +28,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ]
 })
 export class LiveModule { }

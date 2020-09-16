@@ -1,0 +1,81 @@
+
+<ng-scrollbar #scrollbarRef visibility="hover" *ngIf="replay">
+  <h2 class="pt-4"> <span  i18n="account | replays" [routerLink]="'account/replays'">Redifusions</span>/ {{replay.title}} </h2>
+
+  <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()" class="col-12">
+    <h5 i18n="auth | live">Informations sur le direct</h5>
+    <br>
+    <p class="row">
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label i18n="auth | live">Titre</mat-label>
+        <input matInput type="text" formControlName="title" required>
+      </mat-form-field>
+    </p>
+    <p class="row">
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label i18n="auth | live">Catégorie</mat-label>
+        <mat-select matNativeControl  formControlName="category" required>
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p class="row">
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label i18n="auth | live">Langage</mat-label>
+        <mat-select matNativeControl  formControlName="language" required>
+          <mat-option *ngFor="let language of languages" [value]="language.id">
+            {{language.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <textarea>===>{{this.previewImage}}<===</textarea>
+    <div class="row">
+      <div class="col-12">
+        <mat-label i18n="auth | live">Prévisualisation pour le direct</mat-label>
+        <div class="pt-4 pb-4 row d-flex">
+          <div class="col-6">
+            <div class="thumb-container w-100">
+              <img class="thumb w-100" [src]="this.previewImage">
+            </div>
+          </div>
+          <div class="col-6 d-flex align-items-center">
+            <div>
+              <input type="file" hidden="true" (change)="onFileChange($event)" #fileInput>
+              <button mat-stroked-button type="button" (click)="fileInput.click()">choisir un fichier</button>
+              <br>
+              <small class="pt-3 d-block" i18n="auth | live">
+                Votre fichier doit être une image de maximum 1Mo
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill" class="col-12">
+        <mat-label i18n="auth | live">Description du direct</mat-label>
+        <textarea matInput
+                  formControlName="desc"
+                  cdkTextareaAutosize
+                  cdkAutosizeMinRows="3"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n="auth | live">Les mots de passes ne sont pas identiques</small></mat-error>
+      <div class="col-12 mb-4">
+        <div class="alert alert-primary row" role="alert" *ngIf="succes === true" i18n="auth | live">
+          Modification effectué
+        </div>
+        <div class="alert alert-danger row" role="alert" *ngIf="succes === false" i18n="auth | live">
+          Erreur de modification des information personnel
+        </div>
+        <button mat-stroked-button color="primary" class="w-100 row mb-4" i18n="auth | live">Changer</button>
+      </div>
+    </div>
+  </form>
+</ng-scrollbar>

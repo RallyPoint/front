@@ -14,16 +14,8 @@ export class LiveComponent implements OnInit {
   public minDate: Date = new Date();
   @ViewChild('picker') picker: any;
 
-  categories: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-  languages: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  public categories: any[] = [];
+  public languages: any[] = [];
   public previewImage;
   public changeInformationdForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
@@ -87,7 +79,6 @@ export class LiveComponent implements OnInit {
     formData.append('title', this.changeInformationdForm.get('title').value);
     formData.append('category', this.changeInformationdForm.get('category').value);
     formData.append('language', this.changeInformationdForm.get('language').value);
-    formData.append('date', this.changeInformationdForm.get('date').value);
     formData.append('desc', this.changeInformationdForm.get('desc').value);
     if (this.changeInformationdForm.get('thumb').value){
       formData.append('thumb', this.changeInformationdForm.get('thumb').value);

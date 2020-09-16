@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="row mt-3 pr-3" *ngIf="replays && replays.count">
-    <app-mini-live  [file]="userReplay.file" [routerLink]="'/channel/'+userReplay.user.pseudo" [avatar]="userReplay.user.avatar" *ngFor="let userReplay of replays.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title"  ></app-mini-live>
+    <app-mini-live  [file]="userReplay.file" [route]="'/channel/'+userReplay.user.pseudo" [avatar]="userReplay.user.avatar" *ngFor="let userReplay of replays.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title"  ></app-mini-live>
   </div>
 
   <mat-paginator class="mt-auto row"

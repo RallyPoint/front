@@ -1,14 +1,17 @@
 <ul class="col-12 pt-sm-4">
-  <li routerLink="/account/user" routerLinkActive="active-route" i18n="auth | side-bar" (click)="showMenu = !showMenu" [ngClass]="{'show-menu':showMenu}">
-    <div>Mon compte</div><mat-icon>list</mat-icon>
+  <li routerLink="/account/user" routerLinkActive="active-route" (click)="showMenu = !showMenu" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Mon compte</div><mat-icon>list</mat-icon>
   </li>
-  <li routerLink="/account/stream" routerLinkActive="active-route" (click)="showMenu = !showMenu" i18n="auth | side-bar" [ngClass]="{'show-menu':showMenu}">
-    <div>Stream</div><mat-icon>list</mat-icon>
+  <li routerLink="/account/stream" routerLinkActive="active-route" (click)="showMenu = !showMenu" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Stream</div><mat-icon>list</mat-icon>
   </li>
-  <li class="disabled" i18n="auth | side-bar" [ngClass]="{'show-menu':showMenu}">
-    <div>Stats</div><mat-icon>list</mat-icon>
+  <li class="disabled" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Stats</div><mat-icon>list</mat-icon>
   </li>
-  <li (click)="logOut()" i18n="auth | side-bar" [ngClass]="{'show-menu':showMenu}">
-    <div>Déconnexion</div><mat-icon>list</mat-icon>
+  <li routerLink="/account/replays" [ngClass]="{'show-menu':showMenu}">
+    <div>Redifusions</div><mat-icon>list</mat-icon>
+  </li>
+  <li (click)="logOut()" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Déconnexion</div><mat-icon>list</mat-icon>
   </li>
 </ul>

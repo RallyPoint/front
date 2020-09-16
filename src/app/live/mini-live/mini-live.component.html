@@ -1,5 +1,6 @@
 <div class="full__item-video mb-3">
-  <div class="item__video">
+  <ng-content></ng-content>
+  <div class="item__video" [routerLink]="route" [queryParams]="queryParams">
     <div class="img__img-video">
       <img *ngIf="live" [src]="'/media/hls/'+pseudo+'.png' | thumbor : [480,270]" alt="">
       <img *ngIf="!live && img" [src]="img | thumbor : [480,270]" alt="">
@@ -8,11 +9,11 @@
       <div class="viewer d-flex align-middle align-items-center" *ngIf="spec > 0"><mat-icon>visibility</mat-icon>{{spec}}</div>
       <!--    <span class="play"></span> -->
       <div class="content__video pl-2 pr-2">
-        <h5 class="name__views m-0">
+        <h5 class="name__views m-0" *ngIf="pseudo">
           {{pseudo}}
         </h5>
         <img class="avatar" [src]="'/media/avatar/'+ avatar | thumbor : [40,40]" *ngIf="avatar">
-        <img class="avatar" [src]="'/assets/images/avatar-placeholder.jpg' | thumbor : [40,40]" *ngIf="!avatar">
+        <img class="avatar" [src]="'/assets/images/avatar-placeholder.jpg' | thumbor : [40,40]" *ngIf="!avatar && !noAvatar">
       </div>
     </div>
     <div class="title pt-2 col-12 pb-2">
