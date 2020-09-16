@@ -3,12 +3,12 @@
   <h2 i18n="account | replays" class="pt-4"> Redifusions </h2>
 
   <div class="row mt-3 pr-3">
-    <app-mini-live [noAvatar]="true" [file]="replay.file" [route]="'/account/replays/'+replay.id" *ngFor="let replay of replays.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [title]="replay.title">
+    <app-mini-live [noAvatar]="true" [pseudo]="replay.user.pseudo"  [file]="replay.file" [route]="'/replay/'+replay.id" *ngFor="let replay of replays.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [title]="replay.title">
       <div class="actions d-flex pb-2 pt-2 ">
         <button (click)="delete(replay.id)" mat-stroked-button color="primary"  class="mr-2 d-none d-sm-block" i18n="account | replays">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
-        <button mat-stroked-button color="primary" class="mr-2 d-none d-sm-block" i18n="account | replays">
+        <button [routerLink]="'/account/replays/'+replay.id"  mat-stroked-button color="primary" class="mr-2 d-none d-sm-block" i18n="account | replays">
           <mat-icon>edit</mat-icon>
         </button>
       </div>
