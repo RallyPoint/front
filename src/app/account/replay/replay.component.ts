@@ -33,7 +33,6 @@ export class ReplayComponent implements OnInit {
       this.apiService.axios.get(`/replay/${data.replayId}`)
         .then((res) => {
           this.replay = res.data;
-          console.log(res.data);
           this.previewImage = '/media/hls/replay/' + this.replay.user.pseudo + '/'  + this.replay.thumb;
           this.changeInformationdForm.patchValue({
             title: this.replay.title,

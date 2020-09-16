@@ -36,7 +36,6 @@ export class LiveComponent implements OnInit {
     this.router.navigate(['/lives'], {
       queryParams: { 'title': this.searchForm.get('search').value}
     });
-    console.log(this.searchForm.getRawValue());
   }
 
   pageUpdate(event: PageEvent){

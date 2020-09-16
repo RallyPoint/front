@@ -1,6 +1,6 @@
 
 <ng-scrollbar #scrollbarRef visibility="hover" *ngIf="replay">
-  <h2 class="pt-4"> <span  i18n="account | replays" [routerLink]="'account/replays'">Redifusions</span>/ {{replay.title}} </h2>
+  <h2 class="pt-4"> <span  i18n="account | replays" [routerLink]="'account/replays'" class="cursor-pointer">Redifusions</span> > {{replay.title}} </h2>
 
   <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()" class="col-12">
     <h5 i18n="auth | live">Informations sur le direct</h5>
@@ -31,7 +31,6 @@
         </mat-select>
       </mat-form-field>
     </p>
-    <textarea>===>{{this.previewImage}}<===</textarea>
     <div class="row">
       <div class="col-12">
         <mat-label i18n="auth | live">Prévisualisation pour le direct</mat-label>

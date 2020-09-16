@@ -63,7 +63,6 @@ export class EditorComponent implements AfterViewInit {
 
   private initCodeFlask(mode: string){
   if (this.isBrowser) {
-    console.log(mode);
     this.CodeFlaskInstance = new CodeFlask(this.codeEditor.nativeElement, {language: this.mode});
     this.CodeFlaskInstance.addLanguage(this.mode, Prism.languages[this.mode]);
     this.CodeFlaskInstance.updateCode(this.value);

@@ -9,14 +9,12 @@ export class FollowService {
 
   constructor(private readonly apiService: ApiService,
               private readonly authenticationService: AuthenticationService) {
-    console.log("INIT");
   }
 
   public get(): Promise<any[]>{
     if (!this.authenticationService.isLogged()){return Promise.resolve([]); }
     if (this.myFollow){return this.myFollow; }
     this.myFollow = this.apiService.axios.get(`user/${this.authenticationService.user.id}/follow`).then((res) => {
-      console.log(this.authenticationService.user.id,res.data);
       return res.data as any;
     });
     return this.myFollow;

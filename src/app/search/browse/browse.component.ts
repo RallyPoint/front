@@ -51,13 +51,6 @@ export class BrowseComponent implements OnInit, OnDestroy {
   }
 
   pageUpdate(event: PageEvent){
-    console.log(
-      this.browseForm.get('pseudo').value,
-      this.browseForm.get('language').value,
-      this.browseForm.get('technology').value,
-      event.pageIndex,
-      event.pageSize
-    );
     this.loadLive(
       this.browseForm.get('pseudo').value,
       this.browseForm.get('language').value,
