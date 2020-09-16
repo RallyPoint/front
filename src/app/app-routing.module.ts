@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './layout/home/home.component';
 import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from "./layout/home/channel.resolver";
 import {DefaultComponent} from './default.component';
+import {NotFoundComponent} from './not-found.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
       { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }
     ]},
-  { path: 'full', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule) }
+  { path: 'full', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule) },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

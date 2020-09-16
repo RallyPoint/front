@@ -13,11 +13,13 @@ import {registerLocaleData} from '@angular/common';
 import {LiveModule} from './live/live.module';
 import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from './layout/home/channel.resolver';
 import {DefaultComponent} from './default.component';
+import {NotFoundComponent} from './not-found.component';
 
 registerLocaleData(localeFr);
 @NgModule({
   declarations: [
     DefaultComponent,
+    NotFoundComponent,
     AppComponent
   ],
   imports: [
