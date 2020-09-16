@@ -40,7 +40,6 @@ export class MiniLiveComponent implements OnInit {
     if (!this.img && this.file){
       const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
       this.img = baseUrlThumb + '/thumb/' + this.pseudo + '/' + this.file + '/thumb-1000.jpg';
-      //this.img = "https://image.rallypoint.tech/unsafe/480x270/https://rallypoint.tech/media/hls/Maxence.png";
     }
   }
 

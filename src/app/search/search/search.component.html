@@ -15,7 +15,7 @@
       <button  mat-button color="primary" class="" [routerLink]="'/search/replays'" [queryParams]="{title: this.title}" i18n="search">Plus de resultas</button>
     </div>
     <div class="row mt-3 pr-3" *ngIf="data && data.replay">
-      <app-mini-live  [file]="userReplay.file" [route]="'/replay/'+userReplay.id" [avatar]="userReplay.user.avatar" [queryParams]="{title: this.title}" *ngFor="let userReplay of data.replay"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title"></app-mini-live>
+      <app-mini-live  [img]="userReplay.thumb" [file]="userReplay.file" [route]="'/replay/'+userReplay.id" [avatar]="userReplay.user.avatar" [queryParams]="{title: this.title}" *ngFor="let userReplay of data.replay"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [pseudo]="userReplay.user.pseudo" [title]="userReplay.title"></app-mini-live>
     </div>
   </div>
 </ng-scrollbar>
