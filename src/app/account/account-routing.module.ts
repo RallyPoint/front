@@ -6,6 +6,7 @@ import {LiveComponent} from './live/live.component';
 import {IsConnectedGuard} from '../auth/IsConnected.guard';
 import {ReplaysComponent} from './replays/replays.component';
 import {ReplayComponent} from './replay/replay.component';
+import {CalendarComponent} from "./calendar/calendar.component";
 
 const routes: Routes = [
   { path: '', component: MainComponent , children: [
@@ -14,6 +15,9 @@ const routes: Routes = [
       },
       {
         path: 'stream', component: LiveComponent
+      },
+      {
+        path: 'calendar', component: CalendarComponent
       },
       {
         path: 'replays', component: ReplaysComponent

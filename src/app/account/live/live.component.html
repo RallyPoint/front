@@ -1,14 +1,14 @@
-<div class="row pb-4 pt-0 pt-sm-3">
+<div class="row col-12 pb-4 pt-0 pt-sm-3">
   <form class="col-12">
     <h5 i18n="auth | live">Clé de stream</h5>
     <div class="d-flex row">
-      <mat-form-field appearance="standard" class="col-12 col-sm-6">
+      <mat-form-field appearance="standard" class="col-12 col-md-6">
         <input matInput type="password" disabled #liveKey [value]="user ? user.pseudo+'?'+user.live.key : ''">
       </mat-form-field>
-      <div class="col-6 col-sm-3">
+      <div class="col-6 col-md-3">
         <button mat-stroked-button color="basic" type="button" (click)="renewLiveKey()" class="col-12" i18n="auth | live">Nouvelle clé</button>
       </div>
-      <div class="col-6 col-sm-3">
+      <div class="col-6 col-md-3">
         <button mat-stroked-button color="primary" type="button" (click)="liveKey.type='text'" class="col-12" i18n="auth | live">Afficher</button>
       </div>
     </div>

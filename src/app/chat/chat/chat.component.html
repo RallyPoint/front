@@ -1,4 +1,4 @@
-<h3 i18n="chat" *ngIf="!showMessageOnly">CHAT DU STREAM</h3>
+<h3 i18n="chat" *ngIf="showMessageOnly">CHAT DU STREAM</h3>
 <div class="messages">
 <ng-scrollbar #scrollbarRef (updated)="autoScroll ? scrollbarRef.scrollTo({bottom:0}):null;" visibility="hover">
 <ul class="admin" [ngClass]="{admin:isAdmin}">
@@ -25,7 +25,7 @@
 <div class="form p-4 text-center" *ngIf="banned" i18n="chat">
   Vous êtes banni
 </div>
-<form (ngSubmit)="send()" class="form mb-1 mb-sm-0" *ngIf="!banned && !showMessageOnly">
+<form (ngSubmit)="send()" class="form mb-1 mb-sm-0" *ngIf="!banned && showMessageOnly">
   <div class="col-9 col-sm-12 d-flex">
     <textarea type="text" [(ngModel)]="message" name="message" class="message" (keydown.enter)="send();false;"></textarea>
   </div>

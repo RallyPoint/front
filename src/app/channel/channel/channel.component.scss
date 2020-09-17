@@ -10,14 +10,14 @@
 /**************************
 * Main Style
 ***************************/
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .content {
     flex-direction: column;
     .tab{
       display: none;
     }
     .display-tab-mobile{
-      display: block;
+      display: flex;
     }
   }
 
@@ -46,6 +46,26 @@
        background-color: transparent !important;
        font-size: 12px;
      }
+  }
+  .calendar{
+    font-size: 12px;
+    border-right: 1px solid white;
+    h4{
+      font-size: 16px;
+    }
+    .date{
+      background-color: white;
+      color: $dark-background;
+      display: inline-block;
+      padding: 3px 5px;
+    }
+    .hour{
+      border-right: 1px solid white;
+    }
+    h5{
+      color: #E3AA26;
+      font-size: 14px;
+    }
   }
   .live-desc{
     font-size: 12px;

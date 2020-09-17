@@ -21,10 +21,18 @@ import { ReplaysComponent } from './replays/replays.component';
 import {LiveModule} from '../live/live.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ReplayComponent } from './replay/replay.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
-  declarations: [UserComponent, LiveComponent, SideBarComponent, MainComponent, ReplaysComponent, ReplayComponent],
+  declarations: [
+    UserComponent,
+    LiveComponent,
+    SideBarComponent,
+    MainComponent,
+    ReplaysComponent,
+    ReplayComponent,
+    CalendarComponent],
   imports: [
     CommonModule,
     RouterModule,

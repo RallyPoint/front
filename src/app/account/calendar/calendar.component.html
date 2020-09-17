@@ -1,0 +1,134 @@
+<div class="col-12">
+  <h5 i18n="account | replays" class="mt-4 mb-4"> Planning </h5>
+
+  <div class="item w-100 h-100 mb-4 d-flex">
+    <div class="col-md-2 d-md-flex d-none date">
+      &nbsp;
+    </div>
+    <div class="col-12 col-md-9 content">
+      <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()">
+        <h5 i18n=" account | calendar">Ajouter une date de stream</h5>
+        <br>
+        <p class="row">
+          <mat-form-field appearance="fill" class="col-12">
+            <mat-label i18n=" account | calendar">Titre</mat-label>
+            <input matInput type="text" formControlName="title" required>
+          </mat-form-field>
+        </p>
+        <div class="row d-flex">
+          <div class="col-6">
+            <p class="row">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label i18n=" account | calendar">Catégorie</mat-label>
+                <mat-select matNativeControl  formControlName="category" required>
+                  <mat-option *ngFor="let category of categories" [value]="category.id">
+                    {{category.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            <p class="row">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label i18n=" account | calendar">Langage</mat-label>
+                <mat-select matNativeControl  formControlName="language" required>
+                  <mat-option *ngFor="let language of languages" [value]="language.id">
+                    {{language.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="col-6">
+            <p class="row">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label i18n="account | calendar">Début du stream</mat-label>
+                <input matInput [ngxMatDatetimePicker]="pickerStart"
+                       placeholder="Choose a date"
+                       formControlName="start"
+                       [min]="minDate"
+                       [(ngModel)]="startDate">
+                <mat-datepicker-toggle matSuffix [for]="pickerStart">
+                </mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #pickerStart>
+                </ngx-mat-datetime-picker>
+              </mat-form-field>
+            </p>
+            <p class="row">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label i18n="account | calendar">Fin du stream</mat-label>
+                <input matInput [ngxMatDatetimePicker]="pickerEnd"
+                       placeholder="Choose a date"
+                       [min]="startDate"
+                       formControlName="end">
+                <mat-datepicker-toggle matSuffix [for]="pickerEnd">
+                </mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #pickerEnd>
+                </ngx-mat-datetime-picker>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="fill" class="col-12">
+            <mat-label i18n=" account | calendar">Description du direct</mat-label>
+            <textarea matInput
+                      formControlName="desc"
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="3"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n=" account | calendar">Les mots de passes ne sont pas identiques</small></mat-error>
+          <div class="col-12">
+            <div class="alert alert-primary w-100" role="alert" *ngIf="succes === true" i18n=" account | calendar">
+              L'ajout est effectué
+            </div>
+            <div class="alert alert-danger w-100" role="alert" *ngIf="succes === false" i18n=" account | calendar">
+              Erreur de modification des information personnel
+            </div>
+            <button mat-stroked-button color="primary" class="w-100 row mb-4" i18n=" account | calendar">Ajouter</button>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+  <div class="item w-100 h-100 mb-4 d-flex" *ngFor="let date of calendarDate">
+    <div class="col-4 col-md-2 date text-right d-flex flex-column justify-content-between">
+      <div class="start">
+        <span class="date-str pl-2 pr-2 p-1 mb-2 d-inline-block">{{date.start | date: 'EEEE d MMMM'}}</span><br>
+        {{date.start | date: 'hh'}}H{{date.start | date: 'mm'}}
+      </div>
+      <div class="end">
+        {{date.end | date: 'hh'}}H{{date.end | date: 'mm'}}
+      </div>
+    </div>
+    <div class="col-8 col-md-9 content">
+      <h2>{{date.title}}</h2>
+      <p>
+        {{date.desc}}
+      </p>
+      <div class="w-100 cat">
+        <span i18n="home">Langage: </span><b>{{date.catLanguage.name}}</b> |
+        <span i18n="home">Techno</span>: <b>{{date.catLevel.name}}</b>
+      </div>
+      <button mat-stroked-button color="primary" (click)="delete(date.id)"  class="mr-2 mt-3 " i18n="account | replays">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="row item w-100 h-100 mb-4"  *ngIf="calendarDate.length === 0">
+    <div class="col-2 date text-right d-flex flex-column justify-content-between">
+
+    </div>
+    <div class="col-9 content text-center">
+      <p i18n="account | calendar">Votre agenda ne comporte aucune date à venir.</p>
+      <p i18n="account | calendar">Ajouter des rendez-vous pour vos specteur.</p>
+    </div>
+  </div>
+</div>

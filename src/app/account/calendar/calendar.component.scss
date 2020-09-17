@@ -1,0 +1,46 @@
+/**************************
+* Import style
+***************************/
+
+@import '../../../assets/helpers/variabls';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+:host {
+
+  h5{
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px 7px;
+    margin: 20px 0;
+    background-color: #FFF;
+    color: $normal-background;
+  }
+  height: 100%;
+  display: block;
+  .item {
+    font-size: 14px;
+
+    .date {
+      border-right: 1px solid #FFF;
+      .date-str{
+        background-color: white;
+        color: $dark-background;
+      }
+    }
+  }
+  .content{
+    h2{
+      font-size: 16px;
+      color: #E3AA26;
+    }
+    p{
+      font-size: 14px;
+    }
+    .cat{
+      font-style: italic;
+    }
+  }
+}
+//color: #E3AA26;

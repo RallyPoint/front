@@ -45,6 +45,7 @@
     "clappr-ga-events-plugin": "^2.2.0",
     "codeflask": "^1.4.1",
     "codemirror": "^5.57.0",
+    "datebook": "^4.1.6",
     "domino": "^2.1.6",
     "escape-html": "^1.0.3",
     "express": "^4.15.2",

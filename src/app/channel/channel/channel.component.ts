@@ -7,6 +7,7 @@ import {FollowService} from '../../follow/follow.service';
 import {LoginService} from '../../auth/login.service';
 import {Utils} from '../../share/utils';
 import {environment} from '../../../environments/environment';
+import { ICalendar } from 'datebook'
 
 @Component({
   selector: 'app-channel',
@@ -18,8 +19,10 @@ export class ChannelComponent implements OnInit {
   public userReplays: any;
   public userChannel: any;
   public isAuth = false;
+  public calendar: any[] = [];
   public followed: boolean;
   public displayTabMobile = false;
+  public mediumQueryMoreInfo: boolean = false;
   public now: Date = new Date();
 
   constructor(private readonly authService: AuthenticationService,
@@ -35,6 +38,9 @@ export class ChannelComponent implements OnInit {
       this.displayTabMobile = !!parseFloat(query.displayTabMobile);
     });
     this.route.data.subscribe( data => {
+      this.apiService.axios.get('search/calendar',{params:{
+          userId: data.userChannel.id
+        }}).then((res) => this.calendar = res.data);
       this.userChannel = data.userChannel;
       this.meta.addTags([
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -42,14 +48,11 @@ export class ChannelComponent implements OnInit {
         { name: 'twitter:title', content: this.userChannel.live.title },
         { name: 'twitter:description', content: this.userChannel.live.desc },
         { name: 'twitter:image', content: this.userChannel.live.thumb ? this.userChannel.live.thumb : environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
-
         { name: 'og:type', content: 'website' },
         { name: 'og:url', content: environment.siteUrl + '/channel/' + this.userChannel.pseudo },
         { name: 'og:title', content: this.userChannel.live.title },
         { name: 'og:description', content: this.userChannel.live.desc },
         { name: 'og:image', content: this.userChannel.live.thumb ? this.userChannel.live.thumb : environment.siteUrl + '/media/avatar/' + this.userChannel.avatar},
-
-
         { name: 'title', content: this.userChannel.live.title },
         { name: 'description', content: this.userChannel.live.desc }
       ], true);
@@ -86,5 +89,13 @@ export class ChannelComponent implements OnInit {
 
   subscribe(){
 
+  }
+  public addToCalendar(date): void{
+    new ICalendar({
+      title: date.title,
+      description: date.desc,
+      start: date.start,
+      end: date.end
+    }).download();
   }
 }

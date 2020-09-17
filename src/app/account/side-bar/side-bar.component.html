@@ -8,8 +8,11 @@
   <li class="disabled" [ngClass]="{'show-menu':showMenu}">
     <div i18n="auth | side-bar">Stats</div><mat-icon>list</mat-icon>
   </li>
-  <li routerLink="/account/replays" [ngClass]="{'show-menu':showMenu}">
-    <div>Redifusions</div><mat-icon>list</mat-icon>
+  <li routerLink="/account/replays" routerLinkActive="active-route"  (click)="showMenu = !showMenu" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Redifusions</div><mat-icon>list</mat-icon>
+  </li>
+  <li routerLink="/account/calendar" routerLinkActive="active-route"  (click)="showMenu = !showMenu" [ngClass]="{'show-menu':showMenu}">
+    <div i18n="auth | side-bar">Planning</div><mat-icon>list</mat-icon>
   </li>
   <li (click)="logOut()" [ngClass]="{'show-menu':showMenu}">
     <div i18n="auth | side-bar">Déconnexion</div><mat-icon>list</mat-icon>
