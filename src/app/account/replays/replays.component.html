@@ -1,6 +1,6 @@
 
-<div class="col-12" *ngIf="replays && replays.items">
-  <h5 i18n="account | replays" class="pt-4"> Redifusions </h5>
+<div class="col-12 pt-4" *ngIf="replays && replays.items">
+  <h5 i18n="account | replays"> Redifusions </h5>
 
   <div class="row mt-3 pr-3">
     <app-mini-live [noAvatar]="true" [pseudo]="replay.user.pseudo" [img]="replay.thumb"  [file]="replay.file" [route]="'/replay/'+replay.id" *ngFor="let replay of replays.items"  class="item pr-0 col-md-6 col-lg-4 col-xl-3" [title]="replay.title">
