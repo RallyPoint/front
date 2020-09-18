@@ -13,7 +13,7 @@ export class HomeLivesResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
-      this.apiService.axios.get('search/lives',{params: {pageSize:4}}).then((res) => {
+      this.apiService.axios.get('search/lives',{params: {pageSize:10}}).then((res) => {
         if (!res.data.count){
           observer.next([]);
           observer.complete();
@@ -51,9 +51,9 @@ export class HomeReplaysResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
-      this.apiService.axios.get('replay').then((res) => {
+      this.apiService.axios.get('search/replays',{params: {pageSize:10}}).then((res) => {
         const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
-        observer.next(res.data.map((replay) => {
+        observer.next(res.data.items.map((replay) => {
           return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + replay.user.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
         }));
         observer.complete();

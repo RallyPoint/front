@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './layout/home/home.component';
-import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from "./layout/home/channel.resolver";
+import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from './layout/home/home.resolver';
 import {DefaultComponent} from './default.component';
 import {NotFoundComponent} from './not-found.component';
 

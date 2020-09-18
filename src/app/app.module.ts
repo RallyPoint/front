@@ -11,7 +11,7 @@ import { AccountModule } from './account/account.module';
 import localeFr from '@angular/common/locales/fr';
 import {registerLocaleData} from '@angular/common';
 import {LiveModule} from './live/live.module';
-import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from './layout/home/channel.resolver';
+import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from './layout/home/home.resolver';
 import {DefaultComponent} from './default.component';
 import {NotFoundComponent} from './not-found.component';
 

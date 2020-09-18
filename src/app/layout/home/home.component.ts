@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe( data => {
+      console.log(data);
       this.mainUser = data.mainLive;
       this.userReplays = data.replays;
       this.userLives = data.lives;
