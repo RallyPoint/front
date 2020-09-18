@@ -14,11 +14,13 @@ import {ChannelComponent} from './channel/channel.component';
 import {ReplayComponent} from './replay/replay.component';
 import {ChannelResolver} from "./channel/channel.resolver";
 import {LiveModule} from "../live/live.module";
+import {MatMenuModule} from "@angular/material/menu";
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
 @NgModule({
-  declarations: [ChannelComponent, ReplayComponent],
+  declarations: [ChannelComponent, ReplayComponent, CalendarComponent],
   providers: [ChannelResolver],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import {LiveModule} from "../live/live.module";
     ReactiveFormsModule,
     FormsModule,
     MatIconModule,
-    LiveModule
+    LiveModule,
+    MatMenuModule
   ]
 })
 export class ChannelModule { }

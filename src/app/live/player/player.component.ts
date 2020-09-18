@@ -106,7 +106,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
         autoPlay: true,
         playback: {
           playInline: true,
-          liveSyncDurationCount: 7,
+          liveSyncDurationCount: 1,
           loader: engine.createLoaderClass()
         },
         plugins: {

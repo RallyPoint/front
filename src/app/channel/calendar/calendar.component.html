@@ -1,0 +1,32 @@
+<div class="item w-100 mt-3">
+  <div class="date">
+    {{date.start | date: 'EEEE d MMMM'}}
+  </div>
+  <div class="w-100 d-flex">
+    <div class="d-flex flex-column hour pr-2 justify-content-between pt-2 ">
+      <div>
+        {{date.start | date: 'hh'}}H{{date.start | date: 'mm'}}
+      </div>
+      <div>
+        {{date.end | date: 'hh'}}H{{date.end | date: 'mm'}}
+      </div>
+      <div class="text-center">
+        <mat-menu #menu>
+          <button mat-menu-item (click)="outlook(date)">Outlook</button>
+          <button mat-menu-item (click)="google(date)">google</button>
+        </mat-menu>
+        <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu">insert_invitation</mat-icon>
+
+      </div>
+    </div>
+    <div class="pl-2 pt-2 pb-2">
+      <h5>{{date.title}}</h5>
+      <p>
+        {{date.desc}}
+      </p>
+      <div class="w-100 cat">
+        <b>{{date.catLanguage.name}}</b> / <b>{{date.catLevel.name}}</b>
+      </div>
+    </div>
+  </div>
+</div>

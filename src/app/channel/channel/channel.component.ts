@@ -7,7 +7,6 @@ import {FollowService} from '../../follow/follow.service';
 import {LoginService} from '../../auth/login.service';
 import {Utils} from '../../share/utils';
 import {environment} from '../../../environments/environment';
-import { ICalendar } from 'datebook'
 
 @Component({
   selector: 'app-channel',
@@ -89,13 +88,5 @@ export class ChannelComponent implements OnInit {
 
   subscribe(){
 
-  }
-  public addToCalendar(date): void{
-    new ICalendar({
-      title: date.title,
-      description: date.desc,
-      start: date.start,
-      end: date.end
-    }).download();
   }
 }

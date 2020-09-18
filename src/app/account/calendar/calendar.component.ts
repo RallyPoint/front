@@ -50,6 +50,7 @@ export class CalendarComponent implements OnInit {
   public changeInformationdSubmit(): void{
     this.apiService.axios.post('calendar',this.changeInformationdForm.getRawValue()).then((res) => {
       this.succes = true;
+      this.loadCalendar();
     }, () => {
       this.succes = false;
     });
@@ -58,7 +59,6 @@ export class CalendarComponent implements OnInit {
   public delete(calendarId: string): void{
     this.apiService.axios.delete('calendar/' + calendarId).then(() => {
       this.loadCalendar();
-    })
-    //@todo: add error message for user in catch
+    });
   }
 }

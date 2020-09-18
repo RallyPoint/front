@@ -80,7 +80,6 @@
         </div>
 
         <div class="row">
-          <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n=" account | calendar">Les mots de passes ne sont pas identiques</small></mat-error>
           <div class="col-12">
             <div class="alert alert-primary w-100" role="alert" *ngIf="succes === true" i18n=" account | calendar">
               L'ajout est effectué
@@ -121,9 +120,8 @@
       </button>
     </div>
   </div>
-
-  <div class="row item w-100 h-100 mb-4"  *ngIf="calendarDate.length === 0">
-    <div class="col-2 date text-right d-flex flex-column justify-content-between">
+  <div class="item w-100 h-100 mb-4 d-flex" *ngIf="calendarDate.length === 0">
+    <div class="col-4 col-md-2 date text-right d-flex flex-column justify-content-between">
 
     </div>
     <div class="col-9 content text-center">
