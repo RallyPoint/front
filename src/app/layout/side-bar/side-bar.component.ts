@@ -11,12 +11,16 @@ import {ApiService} from "../../share/api.service";
 export class SideBarComponent implements OnInit {
 
   public full = true;
+  public calendar: any[];
   public follows: IUser[] = [];
   constructor(private readonly followService: FollowService,
               private readonly apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.followService.get().then((users) => {
+    this.apiService.axios.get('search/calendar',{params: {withUser: 1}}).then((res) => {
+      this.calendar = res.data;
+    });
+      this.followService.get().then((users) => {
       const followOnline = users.filter((user) => user.live.status);
       if (followOnline.length === 0){
         this.follows = users;

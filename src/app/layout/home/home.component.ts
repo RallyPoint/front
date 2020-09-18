@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../share/api.service';
-import { environment } from '../../../environments/environment';
-import {Utils} from '../../share/utils';
-import {query} from '@angular/animations';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

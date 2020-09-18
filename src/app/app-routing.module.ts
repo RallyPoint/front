@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './layout/home/home.component';
-import {HomeLivesResolver, HomeMainLiveResolver, HomeReplaysResolver} from './layout/home/home.resolver';
+import {
+  HomeLivesResolver,
+  HomeMainLiveResolver,
+  HomeReplaysResolver
+} from './layout/home/home.resolver';
 import {DefaultComponent} from './default.component';
 import {NotFoundComponent} from './not-found.component';
 
@@ -11,7 +15,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent, resolve : {
           lives : HomeLivesResolver,
           replays: HomeReplaysResolver,
-          mainLive: HomeMainLiveResolver,
+          mainLive: HomeMainLiveResolver
         }
       },
       { path: '', loadChildren: () => import('./channel/channel.module').then(m => m.ChannelModule) },

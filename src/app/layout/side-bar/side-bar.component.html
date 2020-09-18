@@ -9,14 +9,14 @@
         <mat-icon (click)="full = !full" class="cursor-pointer">skip_previous</mat-icon>
       </div>
       <div class="text-center action row w-100 cursor-pointer" (click)="full = !full" ><mat-icon>skip_next</mat-icon></div>
-      <div class="item">
+      <div class="item" *ngFor="let date of calendar">
         <div class="media col-12">
-
-          <img class="mr-3" src="https://image.rallypoint.tech/unsafe/60x60/https://rallypoint.tech/media/avatar/68510eb1eaee7f3df8a17ae10f106d65919.png" alt="recommandees">
+          <img [src]="'/media/avatar/'+date.user.avatar | thumbor : [60,60]" *ngIf="date.user.avatar">
+          <img src="../../../assets/images/avatar-placeholder.jpg" *ngIf="!date.user.avatar">
           <div class="media-body">
-            <h5 class="mt-0">Kubernetes Intro</h5>
-            <div class="date">17/09/2020 21:00</div>
-            <div class="name">Maxence</div>
+            <h5 class="mt-0">{{date.title}}</h5>
+            <div class="date">{{date.start | date : 'short'}}</div>
+            <div class="name">{{date.user.pseudo}}</div>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
           <div class="media-body">
             <h5 class="mt-0">{{follow.pseudo}}</h5>
             <span class="followers" *ngIf="!follow.live.status" i18n="side-bar">Offline</span>
-            <span class="followers" *ngIf="follow.live.status"  i18n="side-bar">1200 Followers</span>
+            <span class="followers" *ngIf="follow.live.status"  i18n="side-bar">En direct</span>
           </div>
         </div>
       </div>
