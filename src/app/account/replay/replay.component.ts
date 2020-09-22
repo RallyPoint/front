@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../../share/api.service";
-import {ActivatedRoute} from "@angular/router";
-import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {ActivatedRoute} from '@angular/router';
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-replay',
@@ -27,12 +28,13 @@ export class ReplayComponent implements OnInit {
     return null;
   }]);
 
-  constructor( private apiService: ApiService,
+  constructor( private httpClient: HttpClient,
                private route: ActivatedRoute) {
     this.route.params.subscribe((data) => {
-      this.apiService.axios.get(`/replay/${data.replayId}`)
-        .then((res) => {
-          this.replay = res.data;
+      this.httpClient.get(`${environment.apiUrl}/replay/${data.replayId}`)
+        .toPromise()
+        .then((data) => {
+          this.replay = data;
           this.previewImage = this.replay.thumb;
           this.changeInformationdForm.patchValue({
             title: this.replay.title,
@@ -41,9 +43,9 @@ export class ReplayComponent implements OnInit {
             desc:  this.replay.desc
           });
         });
-      this.apiService.axios.get('categorie').then((res) => {
-        this.languages = res.data.languages;
-        this.categories = res.data.levels;
+      this.httpClient.get(`${environment.apiUrl}/categorie`).toPromise().then((data: any) => {
+        this.languages = data.languages;
+        this.categories = data.levels;
       });
 
     });
@@ -78,8 +80,9 @@ export class ReplayComponent implements OnInit {
       formData.append('thumb', this.changeInformationdForm.get('thumb').value);
     }
 
-    this.apiService.axios.put('replay/' + this.replay.id, formData).then((res) => {
-      this.replay = res.data;
+    this.httpClient.put(`${environment.apiUrl}/replay/${this.replay.id}`, formData)
+      .toPromise().then((data) => {
+      this.replay = data;
       this.succes = true;
     }, () => {
       this.succes = false;

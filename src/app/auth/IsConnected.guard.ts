@@ -1,7 +1,7 @@
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
-import {LoginService} from "./login.service";
+import {LoginService} from './login.service';
 
 @Injectable()
 export class IsConnectedGuard implements CanActivate {
@@ -13,7 +13,7 @@ export class IsConnectedGuard implements CanActivate {
 
   canActivate(activatedRouteSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const status: boolean = this.auth.isLogged();
-    if(!status){
+    if (!status){
       this.loginService.openAuthModal(true);
       this.router.navigate(['/']);
     }

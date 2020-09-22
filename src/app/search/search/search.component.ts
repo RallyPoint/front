@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ApiService} from '../../share/api.service';
-import {Utils} from "../../share/utils";
-import {environment} from "../../../environments/environment";
+import {Utils} from '../../share/utils';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -11,17 +11,20 @@ import {environment} from "../../../environments/environment";
 })
 export class SearchComponent implements OnInit {
 
-  public title: string = "";
+  public title: string = '';
   public data: any;
   public loading: boolean = true;
 
   constructor(private readonly activatedRoute: ActivatedRoute,
-              private readonly apiService: ApiService) {
+              private readonly httpClient: HttpClient) {
     const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
     this.activatedRoute.queryParams.subscribe(params => {
-      this.title = params['title'];
-      this.apiService.axios.get('search',{params:{title: this.title}}).then((res)=>{
-        this.data = res.data;
+      this.title = params.title;
+      this.httpClient.get(`${environment.apiUrl}/search`, {
+        params: {
+          title: this.title
+        }}).toPromise().then((data) => {
+        this.data = data;
         this.loading = false;
       });
     });

@@ -9,8 +9,8 @@ import { environment } from '../../../environments/environment';
 import {NgScrollbar} from 'ngx-scrollbar';
 import {tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
-import {isPlatformBrowser} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
+import {isPlatformBrowser} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -26,7 +26,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public isAdmin: boolean = false;
 
   public io: Socket;
-  public messages: {uuid: string,  by: string, pseudo: string,color?:string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
+  public messages: {uuid: string,  by: string, pseudo: string, color?: string, txt: string, voteCount: number, votes: {[index: string]: number}, voted: number, gist?: string}[] = [
   ];
   public showMessageOnly: boolean = false;
   public message: string;
@@ -41,7 +41,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
               private readonly loginService: LoginService,
               private readonly authenticationService: AuthenticationService) {
     this.showMessageOnly = !this.channel;
-    this.activatedRoute.params.subscribe((data)=>{
+    this.activatedRoute.params.subscribe((data) => {
       this.channel = data.channel;
     });
   }
@@ -55,15 +55,15 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   ngOnInit(): void {
     this.connection();
-    this.isAdmin = this.authenticationService.user.pseudo === this.channel;
+    this.isAdmin = this.authenticationService.dataValue.user.pseudo === this.channel;
   }
   ngOnDestroy() {
     this._scrollSubscription.unsubscribe();
   }
 
   public connection(){
-    if(!isPlatformBrowser(this.platformId)){ return ; }
-    this.io = io(environment.chatUrl, {query: 'channel=' + this.channel + '&auth_token=' + this.authenticationService.token});
+    if (!isPlatformBrowser(this.platformId)){ return ; }
+    this.io = io(environment.chatUrl, {query: 'channel=' + this.channel + '&auth_token=' + this.authenticationService.dataValue.accessToken});
     this.io.on('message', this.onMessage.bind(this));
     this.io.on('vote', this.onVote.bind(this));
     this.io.on('code', this.onCode.bind(this));
@@ -130,8 +130,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     dialogConfig.data = {
       sendCode : this.sendData.bind(this)
     };
-    dialogConfig.width = "90%";
-    dialogConfig.maxWidth = "500px";
+    dialogConfig.width = '90%';
+    dialogConfig.maxWidth = '500px';
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
   }

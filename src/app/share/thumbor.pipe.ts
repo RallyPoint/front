@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 })
 export class ThumborPipe implements PipeTransform {
   transform(url: string, resize?: number[], smartCrop?: boolean ): string {
-    if(!environment.production){ return url;}
+    if (!environment.production){ return url; }
     const thumbor  = new Thumbor(environment.thumbor.url);
     thumbor.setImagePath(url);
     if (resize){
@@ -62,7 +62,7 @@ Thumbor.prototype = {
   setImagePath(imagePath) {
     this.imagePath = (imagePath.charAt(0) === '/') ?
       imagePath.substring(1, imagePath.length) : imagePath;
-    if(this.imagePath.indexOf('http') != 0){
+    if (this.imagePath.indexOf('http') != 0){
       this.imagePath = environment.siteUrl + '/' + this.imagePath;
     }
     return this;

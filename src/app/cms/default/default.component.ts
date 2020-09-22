@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../share/api.service';
 import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-default',
@@ -9,15 +10,15 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class DefaultComponent implements OnInit {
 
-  content: string = "";
+  content: string = '';
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.apiService.axios.get("cms/"+params.slug).then((res)=>{
-        this.content = res.data.content;
+      this.httpClient.get(`${environment.apiUrl}/cms/${params.slug}`).toPromise().then((data: any) => {
+        this.content = data.content;
       });
     });
   }

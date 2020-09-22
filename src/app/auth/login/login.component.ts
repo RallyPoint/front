@@ -91,9 +91,9 @@ export class LoginComponent implements OnInit {
       this.signInForm.getRawValue().pseudo,
       this.signInForm.getRawValue().password,
       this.signInForm.getRawValue().email
-    ).then(()=>{
+    ).then(() => {
       this.inscriptionSucces = true;
-    }).catch(()=>{
+    }).catch(() => {
       this.inscriptionFail = true;
     });
   }

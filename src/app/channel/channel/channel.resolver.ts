@@ -1,19 +1,20 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {ApiService} from '../../share/api.service';
+import {Injectable} from '@angular/core';
 import {ActivatedRoute, ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {map, mergeMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class ChannelResolver implements Resolve<any> {
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly route: ActivatedRoute) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return new Observable(observer => {
-      this.apiService.axios.get('lives/' + route.params.liveName).then((res) => {
-        const userChannel = res.data;
+      this.httpClient.get(`${environment.apiUrl}/lives/${route.params.liveName}`)
+        .toPromise().then((data: any) => {
+        const userChannel = data;
         userChannel.live.date = new Date(userChannel.live.date);
         observer.next(userChannel);
         observer.complete();

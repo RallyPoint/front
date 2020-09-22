@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {ApiService} from "../../share/api.service";
-import {ActivatedRoute} from "@angular/router";
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-change-password',
@@ -15,17 +16,17 @@ export class ChangePasswordComponent implements OnInit {
   public resetPasswordNotFound: boolean;
   public resetPasswordPending: boolean;
   public resetPasswordForm = new FormGroup({
-    password: new FormControl('',[
+    password: new FormControl('', [
       Validators.required,
       Validators.pattern(/^(?=.*[A-z])(?=.*[0-9])\S{6,99}$/)
     ]),
-    passwordConfirm: new FormControl('',[Validators.required])
-  },[(control: FormGroup): ValidationErrors | null => {
-    return control.get('password').value != control.get('passwordConfirm').value ? { 'samePassword': true } : null;
+    passwordConfirm: new FormControl('', [Validators.required])
+  }, [(control: FormGroup): ValidationErrors | null => {
+    return control.get('password').value != control.get('passwordConfirm').value ? { samePassword: true } : null;
   }]);
   private code: string;
   private userId: string;
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -37,13 +38,13 @@ export class ChangePasswordComponent implements OnInit {
 
   public resetPasswordSubmit(): void{
     this.resetPasswordPending = true;
-    this.apiService.axios.put('user/'+this.userId+"/change-password",{
+    this.httpClient.put(`${environment.apiUrl}/user/${this.userId}/change-password`, {
       code: this.code,
       password: this.resetPasswordForm.get('password').value
-    }).then((res)=>{
+    }).toPromise().then((data) => {
       this.resetPasswordPending = false;
       this.resetPasswordSuccess = true;
-    }).catch((res)=>{
+    }).catch((res) => {
       this.resetPasswordError = true;
     });
   }

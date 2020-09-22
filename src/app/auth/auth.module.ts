@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from './login.service';
 import {AuthenticationService} from './authentication.service';
 import {IsConnectedGuard} from './IsConnected.guard';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JwtInterceptor} from './jwt.interceptor';
 
 
 
@@ -25,8 +27,10 @@ import {IsConnectedGuard} from './IsConnected.guard';
     MatTabsModule,
     FormsModule,
     ShareModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService, LoginService, IsConnectedGuard]
+  providers: [AuthenticationService, LoginService, IsConnectedGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }]
 })
 export class AuthModule { }

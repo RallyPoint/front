@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Utils} from "../../share/utils";
-import {environment} from "../../../environments/environment";
+import {Utils} from '../../share/utils';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-mini-live',
@@ -17,7 +17,7 @@ export class MiniLiveComponent implements OnInit {
   @Input()
   public queryParams: string;
   @Input()
-  public noAvatar:boolean;
+  public noAvatar: boolean;
   @Input()
   public spec: number;
   @Input()

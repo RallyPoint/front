@@ -11,8 +11,8 @@ import {
 } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Utils} from '../../share/utils';
-import {ApiService} from '../../share/api.service';
-import {isPlatformBrowser} from "@angular/common";
+import {isPlatformBrowser} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
 declare var p2pml: any;
 declare var Clappr: any;
 declare var ClapprGaEventsPlugin: any;
@@ -44,7 +44,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
 
   public showShare: boolean = false;
 
-  public currentUrl : string;
+  public currentUrl: string;
 
   @Input('title')
   public title: string;
@@ -54,7 +54,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
 
   private player: any;
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               @Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId)){
       this.currentUrl = window.location.href;
@@ -66,7 +66,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   onBytesUploaded(method, size) {
   }
   ngOnDestroy(): void {
-    if(!isPlatformBrowser(this.platformId)) { return; }
+    if (!isPlatformBrowser(this.platformId)) { return; }
     if (this.statsInterval) {
       clearInterval(this.statsInterval);
     }
@@ -74,7 +74,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    if(!isPlatformBrowser(this.platformId)) { return; }
+    if (!isPlatformBrowser(this.platformId)) { return; }
     if (p2pml.hlsjs.Engine.isSupported()) {
       const engine = new p2pml.hlsjs.Engine({
         loader: {
@@ -151,9 +151,10 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   private startStats(): void {
     this.stopStats();
     this.statsInterval = setInterval(() => {
-      this.apiService.axios.post(`${environment.statsLiveUrl}/${this.channel}/stats`,{uid:this.statsUid}).then((res) => {
-        this.statsUid = res.data.uid;
-        this.nbViwer = res.data.viwer;
+      this.httpClient.post(`${environment.statsLiveUrl}/${this.channel}/stats`, {uid: this.statsUid })
+        .toPromise().then((data: any) => {
+        this.statsUid = data.uid;
+        this.nbViwer = data.viwer;
       });
     }, PlayerComponent.STATS_INTERVAL_DELAY);
 

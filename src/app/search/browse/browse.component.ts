@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ApiService} from '../../share/api.service';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Subscription, timer} from 'rxjs';
 import {debounce} from 'rxjs/operators';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-browse',
@@ -28,25 +29,26 @@ export class BrowseComponent implements OnInit, OnDestroy {
   });
 
   constructor(private readonly activatedRoute: ActivatedRoute,
-              private readonly apiService: ApiService) {
-    Promise.all([this.apiService.axios.get('categorie').then((res) => {
-      this.languages = res.data.languages;
-      this.technologies = res.data.levels;
+              private readonly httpClient: HttpClient) {
+    Promise.all([this.httpClient.get(`${environment.apiUrl}/categorie`)
+      .toPromise().then((data: any) => {
+      this.languages = data.languages;
+      this.technologies = data.levels;
     }),
-    this.loadLive()]).then(()=>{
+    this.loadLive()]).then(() => {
       this.loading = false;
     });
   }
 
   loadLive(pseudo?: string, language?: string, level?: string, pageIndex?: number, pageSize?: number) {
-    return this.apiService.axios.get('search/users', {params: {
+    return this.httpClient.get(`${environment.apiUrl}/search/users`, {params: {
         pseudo,
         language,
         level,
-        pageIndex,
-        pageSize
-      }}).then((res) => {
-      this.data = res.data;
+        pageIndex : pageIndex.toString(),
+        pageSize: pageSize.toString()
+      }}).toPromise().then((data: any) => {
+      this.data = data;
     });
   }
 

@@ -12,9 +12,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {ChannelComponent} from './channel/channel.component';
 import {ReplayComponent} from './replay/replay.component';
-import {ChannelResolver} from "./channel/channel.resolver";
-import {LiveModule} from "../live/live.module";
-import {MatMenuModule} from "@angular/material/menu";
+import {ChannelResolver} from './channel/channel.resolver';
+import {LiveModule} from '../live/live.module';
+import {MatMenuModule} from '@angular/material/menu';
 import { CalendarComponent } from './calendar/calendar.component';
 
 

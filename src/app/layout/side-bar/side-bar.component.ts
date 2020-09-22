@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FollowService} from '../../follow/follow.service';
-import {environment} from "../../../environments/environment";
-import {ApiService} from "../../share/api.service";
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-side-bar',
@@ -14,24 +14,25 @@ export class SideBarComponent implements OnInit {
   public calendar: any[];
   public follows: IUser[] = [];
   constructor(private readonly followService: FollowService,
-              private readonly apiService: ApiService) { }
+              private readonly httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.apiService.axios.get('search/calendar',{params: {withUser: 1}}).then((res) => {
-      this.calendar = res.data;
+    this.httpClient.get(`${environment.apiUrl}/search/calendar`, {params: { withUser : '1'}})
+      .toPromise().then((data: any) => {
+      this.calendar = data;
     });
-      this.followService.get().then((users) => {
+    this.followService.get().then((users) => {
       const followOnline = users.filter((user) => user.live.status);
       if (followOnline.length === 0){
         this.follows = users;
         return;
       }
-      this.apiService.axios.get(`${environment.statsLiveUrl}/stats`, {
+      this.httpClient.get(`${environment.statsLiveUrl}/stats`, {
         params : { channels : users.map((user) => user.pseudo) }
-      }).then((resStats) => {
+      }).toPromise().then((dataStats: any) => {
         this.follows = users.map((user) => {
-          return Object.assign(user,{
-            viwer : resStats ? resStats.data.find((stats) => stats.name === user.pseudo).viwer : null
+          return Object.assign(user, {
+            viwer : dataStats ? dataStats.find((stats) => stats.name === user.pseudo).viwer : null
           });
         });
       }).catch(() => {

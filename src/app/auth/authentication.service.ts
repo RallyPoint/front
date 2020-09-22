@@ -2,31 +2,65 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { isPlatformBrowser } from '@angular/common';
 import {DOCUMENT} from '@angular/common';
-import {ApiService} from '../share/api.service';
 import {AxiosError} from 'axios';
 import {AuthenticationConstant} from './authentication.constant';
 import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {AuthentificationModel} from './authentification.model';
+import * as jwt_decode from "jwt-decode";
 
 @Injectable()
 export class AuthenticationService {
 
-  constructor(public matDialog: MatDialog,  @Inject(DOCUMENT) private document: Document,
-              protected readonly apiService: ApiService,
-              @Inject(PLATFORM_ID) private platformId: any
-  ) {
-    this.loadAuth();
-  }
 
   private static readonly STORAGE_KEY_STATE: string = 'github_state';
 
-  public user: any;
-  public token: string;
+  private dataSubject: BehaviorSubject<AuthentificationModel>;
+  public data: Observable<AuthentificationModel>;
+  private initialized: boolean = false;
+  private connected: boolean = false;
 
-
-  public isLogged(): boolean{
-    return !!this.token;
+  constructor(public matDialog: MatDialog,  @Inject(DOCUMENT) private document: Document,
+              protected readonly httpClient: HttpClient,
+              @Inject(PLATFORM_ID) private platformId: any
+  ) {
+    this.dataSubject = new BehaviorSubject<AuthentificationModel>(this.loadAuth());
+    this.data = this.dataSubject.asObservable();
+    this.data.subscribe(this.onDataChange.bind(this));
   }
 
+  public onDataChange(data: AuthentificationModel): void {
+    if (data) {
+      const tokenData: { exp: number } = jwt_decode(data.accessToken);
+      setTimeout(this.refreshToken.bind(this), tokenData.exp * 1000 - Date.now());
+    }
+    if (!this.initialized){
+      this.connected = !!data;
+      this.initialized = true;
+      return;
+    }
+    this.saveAuth(data);
+    if(this.connected !== !!data){
+      this.refreshPage();
+    }
+  }
+
+  private refreshToken(){
+    this.httpClient.post(`${environment.apiUrl}/auth/refresh`,
+      { refreshToken : this.dataValue.refreshToken}).toPromise()
+      .then((data: AuthentificationModel) => {
+        this.dataSubject.next(data);
+      });
+  }
+
+  public get dataValue(): AuthentificationModel {
+    return this.dataSubject.value;
+  }
+
+  public isLogged(): boolean{
+    return !!this.dataValue && !!!!this.dataValue.user;
+  }
   private refreshPage(){
     window.location.reload();
   }
@@ -44,11 +78,11 @@ export class AuthenticationService {
       this.document.open(this.getGithubAuthorizeUrl(state), 'Ratting', 'width=550,height=700,0,status=0,');
       if (window){
         window['cbSSO'] = (urlParams: URLSearchParams) => {
-          this.apiService.axios.post('auth/github-login', {
+          this.httpClient.get(`${environment.apiUrl}/auth/github-login`, {
             code : urlParams.get('code'),
             ...data
-          }).then((res) => {
-            resolve(res.data);
+          }).toPromise().then((dataRep: any) => {
+            resolve(dataRep);
           }, (e: AxiosError) => {
             reject({
               miss: e.response.data.miss
@@ -56,59 +90,50 @@ export class AuthenticationService {
           });
         };
       }
-    }).then((data: any) => {
-      this.saveAuth(data.user, data.access_token);
-      this.apiService.setToken(this.token);
-      this.refreshPage();
-      return data;
+    }).then((dataRep: AuthentificationModel) => {
+      this.dataSubject.next(dataRep);
+      return dataRep;
     });
   }
 
-  loadAuth(): void{
-    if(!isPlatformBrowser(this.platformId)){ return ; }
-    this.token = localStorage.getItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
-    this.user = JSON.parse(localStorage.getItem(AuthenticationConstant.STORAGE_KEY.USER));
-    this.apiService.setToken(this.token);
+  loadAuth(): AuthentificationModel{
+    if (!isPlatformBrowser(this.platformId)){ return ; }
+    const data: AuthentificationModel = JSON.parse(localStorage.getItem(AuthenticationConstant.STORAGE_KEY.AUTHENTIFICATION));
+    return (jwt_decode(data.accessToken) as {exp: number}).exp * 1000 < Date.now() ? null : data;
   }
 
-  saveAuth(user: any, token: string): void{
-    this.user = user;
-    this.token = token;
-    if(!isPlatformBrowser(this.platformId)){ return ; }
-    localStorage.setItem(AuthenticationConstant.STORAGE_KEY.USER, JSON.stringify(user));
-    localStorage.setItem(AuthenticationConstant.STORAGE_KEY.TOKEN, token);
+  saveAuth(data: AuthentificationModel): void{
+    if (!isPlatformBrowser(this.platformId)){ return ; }
+    localStorage.setItem(AuthenticationConstant.STORAGE_KEY.AUTHENTIFICATION, JSON.stringify(data));
   }
 
   logOut(){
-    if(!isPlatformBrowser(this.platformId)){ return ; }
-    localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.USER);
-    localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.TOKEN);
+    if (!isPlatformBrowser(this.platformId)){ return ; }
+    localStorage.removeItem(AuthenticationConstant.STORAGE_KEY.AUTHENTIFICATION);
     window.location.href = '/';
   }
 
   login(email: string, password: string): Promise<void>{
-    return this.apiService.axios.post('auth/login', {
+    return this.httpClient.post<AuthentificationModel>(`${environment.apiUrl}/auth/login`, {
       email,
       password
-    }).then((res) => {
-      this.saveAuth(res.data.user, res.data.access_token);
-    }).then(() => {
-      this.refreshPage();
+    }).toPromise().then((data: AuthentificationModel) => {
+      this.dataSubject.next(data);
     });
   }
 
   register(pseudo: string, password: string, email: string): Promise<boolean>{
-    return this.apiService.axios.post('auth/register', {
+    return this.httpClient.post(`${environment.apiUrl}/auth/register`, {
       pseudo,
       password,
       email
-    }).then(() => true);
+    }).toPromise().then(() => true);
   }
 
   resetPassword(email: string): Promise<boolean>{
-    return this.apiService.axios.post('auth/resetPassword', {
+    return this.httpClient.post(`${environment.apiUrl}/auth/resetPassword`, {
       email
-    }).then(() => true);
+    }).toPromise().then(() => true);
   }
 
 }

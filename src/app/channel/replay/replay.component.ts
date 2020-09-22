@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../auth/authentication.service';
 import {LoginService} from '../../auth/login.service';
-import {ApiService} from '../../share/api.service';
 import {FollowService} from '../../follow/follow.service';
 import {ActivatedRoute} from '@angular/router';
 import {Utils} from '../../share/utils';
 import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-replay',
@@ -22,18 +22,20 @@ export class ReplayComponent implements OnInit {
 
   constructor(private readonly authService: AuthenticationService,
               private readonly loginService: LoginService,
-              private readonly apiService: ApiService,
+              private readonly httpClient: HttpClient,
               private readonly followService: FollowService,
               private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.isAuth = this.authService.isLogged();
     this.route.params.subscribe(params => {
-      this.apiService.axios.get('replay/' + params.replayId).then((res) => {
-        this.replay = res.data;
-        this.apiService.axios.get('replay', {params: {user: res.data.user.id}}).then((res) => {
+      this.httpClient.get(`${environment.apiUrl}/replay/${params.replayId}`).toPromise()
+        .then((data: any) => {
+        this.replay = data;
+        this.httpClient.get(`${environment.apiUrl}/replay`, {params: {user: data.user.id}})
+          .toPromise().then((dataReplay: any) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
-          this.userReplays = res.data.map((replay) => {
+          this.userReplays = dataReplay.map((replay) => {
             return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.replay.user.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });

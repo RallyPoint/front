@@ -1,6 +1,6 @@
-const domino = require("domino");
-const fs = require("fs");
-const path = require("path");
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
 const templateA = fs.readFileSync(path.join(__dirname, '..', 'browser', 'index.html')).toString();
 const win = domino.createWindow(templateA);
 

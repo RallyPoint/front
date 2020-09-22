@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {ApiService} from "../../share/api.service";
-import {AuthenticationService} from "../../auth/authentication.service";
-import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AuthenticationService} from '../../auth/authentication.service';
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-calendar',
@@ -29,26 +29,29 @@ export class CalendarComponent implements OnInit {
     return null;
   }]);
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly authentificationService: AuthenticationService) { }
 
   public ngOnInit(): void {
-    this.apiService.axios.get('categorie').then((res) => {
-      this.languages = res.data.languages;
-      this.categories = res.data.levels;
+    this.httpClient.get(`${environment.apiUrl}/categorie`).toPromise().then((data: any) => {
+      this.languages = data.languages;
+      this.categories = data.levels;
     });
     this.loadCalendar();
   }
 
-  public loadCalendar():void{
-    this.apiService.axios.get('search/calendar',{params:{userId:this.authentificationService.user.id}})
-      .then((res)=>{
-        this.calendarDate = res.data;
-      })
+  public loadCalendar(): void{
+    this.httpClient.get(`${environment.apiUrl}/search/calendar`,
+      {params:
+          { userId: this.authentificationService.dataValue.user.id}})
+      .toPromise().then((data: any) => {
+        this.calendarDate = data;
+      });
   }
 
   public changeInformationdSubmit(): void{
-    this.apiService.axios.post('calendar',this.changeInformationdForm.getRawValue()).then((res) => {
+    this.httpClient.post(`${environment.apiUrl}/calendar`, this.changeInformationdForm.getRawValue())
+      .toPromise().then((res) => {
       this.succes = true;
       this.loadCalendar();
     }, () => {
@@ -57,7 +60,8 @@ export class CalendarComponent implements OnInit {
   }
 
   public delete(calendarId: string): void{
-    this.apiService.axios.delete('calendar/' + calendarId).then(() => {
+    this.httpClient.delete(`${environment.apiUrl}/calendar/${calendarId}`)
+      .toPromise().then(() => {
       this.loadCalendar();
     });
   }

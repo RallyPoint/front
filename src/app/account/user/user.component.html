@@ -43,13 +43,14 @@
     </p>
     <p>
       <mat-form-field appearance="fill" class="col-12">
-        <mat-label i18n="auth | live">Description de la chaine</mat-label>
+        <mat-label i18n="auth | user">Description de la chaine</mat-label>
         <textarea matInput
                   formControlName="desc"
                   cdkTextareaAutosize
                   (ngModelChange)="updateMarkDown($event)"
                   cdkAutosizeMinRows="3"
                   cdkAutosizeMaxRows="5"></textarea>
+        <mat-hint i18n="auth | user">Pour la mise en forme utiliser le <a href="https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax">Markdown</a></mat-hint>
       </mat-form-field>
     </p>
     <div class="col-12" [innerHTML]="previewMarkDown" >

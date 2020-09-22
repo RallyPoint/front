@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import {AuthenticationService} from '../../auth/authentication.service';
-import {ApiService} from '../../share/api.service';
 import {ActivatedRoute} from '@angular/router';
 import {FollowService} from '../../follow/follow.service';
 import {LoginService} from '../../auth/login.service';
 import {Utils} from '../../share/utils';
 import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-channel',
@@ -26,7 +26,7 @@ export class ChannelComponent implements OnInit {
 
   constructor(private readonly authService: AuthenticationService,
               private readonly loginService: LoginService,
-              private readonly apiService: ApiService,
+              private readonly httpClient: HttpClient,
               private readonly followService: FollowService,
               private readonly route: ActivatedRoute,
               private readonly meta: Meta) { }
@@ -37,9 +37,9 @@ export class ChannelComponent implements OnInit {
       this.displayTabMobile = !!parseFloat(query.displayTabMobile);
     });
     this.route.data.subscribe( data => {
-      this.apiService.axios.get('search/calendar',{params:{
+      this.httpClient.get(`${environment.apiUrl}/search/calendar`, { params: {
           userId: data.userChannel.id
-        }}).then((res) => this.calendar = res.data);
+        }}).toPromise().then((dataCalendar: any) => this.calendar = dataCalendar);
       this.userChannel = data.userChannel;
       this.meta.addTags([
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -56,9 +56,10 @@ export class ChannelComponent implements OnInit {
         { name: 'description', content: this.userChannel.live.desc }
       ], true);
       this.route.params.subscribe(params => {
-        this.apiService.axios.get('replay', {params: {userId: data.userChannel.id}}).then((res) => {
+        this.httpClient.get(`${environment.apiUrl}/replay`, {params: {userId: data.userChannel.id}})
+          .toPromise().then((dataReplay: any) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
-          this.userReplays = res.data.map((replay) => {
+          this.userReplays = dataReplay.map((replay) => {
             return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.userChannel.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });

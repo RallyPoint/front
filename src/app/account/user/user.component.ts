@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
-import {ApiService} from '../../share/api.service';
 import {AuthenticationService} from '../../auth/authentication.service';
 import * as showdown from 'showdown';
 import * as escapeHTML from 'escape-html';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,7 @@ export class UserComponent implements OnInit {
 
   public previewImage;
   public succes: boolean = null;
-  public previewMarkDown: string = "";
+  public previewMarkDown: string = '';
   public markDownRender: showdown.Converter = new showdown.Converter();
 
   public changeInformationdForm = new FormGroup({
@@ -28,17 +29,18 @@ export class UserComponent implements OnInit {
     return control.get('password').value != control.get('passwordConf').value ? { samePassword: true } : null;
   }]);
 
-  constructor(private readonly apiService: ApiService, private authenticationService: AuthenticationService) {
+  constructor(private readonly httpClient: HttpClient, private authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
-    if(!this.authenticationService.user){ return; }
-    this.apiService.axios.get('user/' + this.authenticationService.user.id).then((res) => {
-      this.previewImage = '/media/avatar/' + res.data.avatar;
+    if (!this.authenticationService.dataValue){ return; }
+    this.httpClient.get(`${environment.apiUrl}/user/${this.authenticationService.dataValue.user.id}`)
+      .toPromise().then((data: any) => {
+      this.previewImage = '/media/avatar/' + data.avatar;
       this.changeInformationdForm.patchValue({
-        email: res.data.email,
-        pseudo: res.data.pseudo,
-        desc: res.data.desc
+        email: data.email,
+        pseudo: data.pseudo,
+        desc: data.desc
       });
     });
   }
@@ -72,7 +74,8 @@ export class UserComponent implements OnInit {
       formData.append('passwordConf', this.changeInformationdForm.get('passwordConf').value);
       formData.append('password', this.changeInformationdForm.get('password').value);
     }
-    this.apiService.axios.put('user/' + this.authenticationService.user.id, formData).then(() => {
+    this.httpClient.put(`${environment.apiUrl}/user/${this.authenticationService.dataValue.user.id}`, formData)
+      .toPromise().then(() => {
       this.succes = true;
     }, () => {
       this.succes = false;

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../../auth/login.service";
-import {AuthenticationService} from "../../auth/authentication.service";
-import {FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {NavigationExtras, Router} from "@angular/router";
+import {LoginService} from '../../auth/login.service';
+import {AuthenticationService} from '../../auth/authentication.service';
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -25,7 +25,7 @@ export class TopBarComponent implements OnInit {
 
   searchSubmit(): void{
     this.router.navigate(['/search'], {
-      queryParams: { 'title': this.searchForm.get('search').value}
+      queryParams: { title: this.searchForm.get('search').value}
     });
   }
 

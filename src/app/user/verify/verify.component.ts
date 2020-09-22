@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../../share/api.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-verify',
@@ -13,18 +14,18 @@ export class VerifyComponent implements OnInit {
   public verified: boolean;
   public error: boolean;
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.pending = true;
     this.route.queryParams.subscribe(params => {
-      this.apiService.axios.put('user/'+params['userId']+"/verify",{
+      this.httpClient.put(`${environment.apiUrl}/user/${params['userId']}/verify`, {
         code: params['code']
-      }).then((res)=>{
+      }).toPromise().then((data) => {
         this.pending = false;
         this.verified = true;
-      }).catch((res)=>{
+      }).catch((res) => {
         this.error = true;
       });
     });

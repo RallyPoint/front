@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
-import {ApiService} from '../../share/api.service';
 import {AuthenticationService} from '../../auth/authentication.service';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-live',
@@ -30,13 +31,14 @@ export class LiveComponent implements OnInit {
   public user;
   public mode = 'preview';
 
-  constructor(private readonly apiService: ApiService,
+  constructor(private readonly httpClient: HttpClient,
               private readonly authentificationService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.apiService.axios.get('user/' + this.authentificationService.user.id).then((res) => {
-      this.user = res.data;
-      this.previewImage = '/media/live/'+res.data.live.thumb;
+    this.httpClient.get(`${environment.apiUrl}/user/${this.authentificationService.dataValue.user.id}`)
+      .toPromise().then((data: any) => {
+      this.user = data;
+      this.previewImage = '/media/live/' + data.live.thumb;
       this.user.live.date = new Date(this.user.live.date);
       this.changeInformationdForm.patchValue({
         title: this.user.live.title,
@@ -46,9 +48,10 @@ export class LiveComponent implements OnInit {
         desc:  this.user.live.desc
       });
     });
-    this.apiService.axios.get('categorie').then((res) => {
-      this.languages = res.data.languages;
-      this.categories = res.data.levels;
+    this.httpClient.get(`${environment.apiUrl}/categorie`)
+      .toPromise().then((data: any) => {
+      this.languages = data.languages;
+      this.categories = data.levels;
     });
   }
 
@@ -67,8 +70,9 @@ export class LiveComponent implements OnInit {
   }
 
   renewLiveKey(){
-    this.apiService.axios.put('lives/' + this.user.pseudo + '/new-key').then((res) => {
-      this.user = res.data;
+    this.httpClient.put(`${environment.apiUrl}/lives/${this.user.pseudo}/new-key`, {})
+      .toPromise().then((data: any) => {
+      this.user = data;
     });
   }
 
@@ -84,8 +88,9 @@ export class LiveComponent implements OnInit {
       formData.append('thumb', this.changeInformationdForm.get('thumb').value);
     }
 
-    this.apiService.axios.put('lives/' + this.user.pseudo, formData).then((res) => {
-      this.user = res.data;
+    this.httpClient.put(`${environment.apiUrl}/lives/${this.user.pseudo}`, formData)
+      .toPromise().then((data: any) => {
+      this.user = data;
       this.succes = true;
     }, () => {
       this.succes = false;

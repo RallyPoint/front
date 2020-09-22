@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ApiService} from '../../share/api.service';
 import {PageEvent} from '@angular/material/paginator';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-replay',
@@ -22,29 +23,32 @@ export class ReplayComponent implements OnInit {
 
   constructor(private readonly activatedRoute: ActivatedRoute,
               private readonly router: Router,
-              private readonly apiService: ApiService) {
+              private readonly httpClient: HttpClient) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.title = params.title;
       this.searchForm.get('search').setValue(params.title);
-      this.apiService.axios.get('search/replays', {params: {title: this.title}}).then((res) => {
-        this.replays = res.data;
+      this.httpClient.get(`${environment.apiUrl}/search/replays`, {
+        params: {
+          title: this.title
+        }}).toPromise().then((data) => {
+        this.replays = data;
         this.loading = false;
       });
     });
   }
 
   pageUpdate(event: PageEvent){
-    this.apiService.axios.get('search/replays',
-      { params: { name: this.title, pageIndex: event.pageIndex, pageSize: event.pageSize}}
-    ).then((res) => {
-      this.replays = res.data;
+    this.httpClient.get('search/replays',
+      { params: { name: this.title, pageIndex: event.pageIndex.toString(), pageSize: event.pageSize.toString()}}
+    ).toPromise().then((data) => {
+      this.replays = data;
       this.loading = false;
     });
   }
 
   searchSubmit(): void{
     this.router.navigate(['/replays'], {
-      queryParams: { 'title': this.searchForm.get('search').value}
+      queryParams: { title: this.searchForm.get('search').value}
     });
   }
 
