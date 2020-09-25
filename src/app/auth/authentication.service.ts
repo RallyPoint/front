@@ -2,7 +2,6 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { isPlatformBrowser } from '@angular/common';
 import {DOCUMENT} from '@angular/common';
-import {AxiosError} from 'axios';
 import {AuthenticationConstant} from './authentication.constant';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -78,14 +77,14 @@ export class AuthenticationService {
       this.document.open(this.getGithubAuthorizeUrl(state), 'Ratting', 'width=550,height=700,0,status=0,');
       if (window){
         window['cbSSO'] = (urlParams: URLSearchParams) => {
-          this.httpClient.get(`${environment.apiUrl}/auth/github-login`, {
+          this.httpClient.post(`${environment.apiUrl}/auth/github-login`, {
             code : urlParams.get('code'),
             ...data
           }).toPromise().then((dataRep: any) => {
             resolve(dataRep);
-          }, (e: AxiosError) => {
+          }, (e) => {
             reject({
-              miss: e.response.data.miss
+              miss: e.error.miss
             });
           });
         };
@@ -99,7 +98,7 @@ export class AuthenticationService {
   loadAuth(): AuthentificationModel{
     if (!isPlatformBrowser(this.platformId)){ return ; }
     const data: AuthentificationModel = JSON.parse(localStorage.getItem(AuthenticationConstant.STORAGE_KEY.AUTHENTIFICATION));
-    return (jwt_decode(data.accessToken) as {exp: number}).exp * 1000 < Date.now() ? null : data;
+    return !data || (jwt_decode(data.accessToken) as {exp: number}).exp * 1000 < Date.now() ? null : data;
   }
 
   saveAuth(data: AuthentificationModel): void{
