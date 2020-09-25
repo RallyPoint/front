@@ -16,6 +16,8 @@ export class BrowseComponent implements OnInit, OnDestroy {
 
   @ViewChild('paginator')
   paginator: MatPaginator;
+
+  public defaultPageSize: number = 20;
   public title = '';
   public data: any;
   public languages: any[];
@@ -40,7 +42,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadLive(pseudo?: string, language?: string, level?: string, pageIndex?: number, pageSize?: number) {
+  loadLive(pseudo: string= '', language: string = '', level: string = '', pageIndex: number = 0, pageSize: number = this.defaultPageSize) {
     return this.httpClient.get(`${environment.apiUrl}/search/users`, {params: {
         pseudo,
         language,

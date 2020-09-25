@@ -35,7 +35,7 @@
 
     <mat-paginator class="mt-auto row"
                    [length]="data.count"
-                   [pageSize]="20"
+                   [pageSize]="defaultPageSize"
                    #paginator
                    (page)="pageUpdate($event)"
                    [pageSizeOptions]="[5, 10, 20, 50]">

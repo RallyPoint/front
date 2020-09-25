@@ -12,6 +12,7 @@ import {environment} from '../../../environments/environment';
 })
 export class LiveComponent implements OnInit {
 
+  public defaultPageSize: number = 20;
   public title: string = '';
   public lives: any;
   public loading: boolean = true;
@@ -26,30 +27,34 @@ export class LiveComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.title = params['title'];
       this.searchForm.get('search').setValue(params.title);
-      this.httpClient.get(`${environment.apiUrl}/search/lives`, {params: {title: this.title}})
-        .toPromise().then((data) => {
-        this.lives = data;
-        this.loading = false;
-      });
+      this.loadLive(this.title);
     });
   }
 
   searchSubmit(): void{
-    this.router.navigate(['/lives'], {
+    this.router.navigate(['search/lives'], {
       queryParams: { title: this.searchForm.get('search').value}
     });
   }
 
-  pageUpdate(event: PageEvent){
-    this.httpClient.get(`${environment.apiUrl}/search/lives`, {
+
+  loadLive(title: string = '', pageIndex: number = 0, pageSize: number = this.defaultPageSize) {
+    this.loading = true;
+    return this.httpClient.get(`${environment.apiUrl}/search/lives`, {
       params: {
-        name: this.title,
-        pageIndex: event.pageIndex.toString(),
-        pageSize: event.pageSize.toString()
-      }}).toPromise().then((data) => {
+        title: this.title,
+        pageIndex: pageIndex.toString(),
+        pageSize: pageSize.toString()
+      }}).toPromise().then((data: any) => {
       this.lives = data;
       this.loading = false;
+    }).catch(() => {
+      this.loading = false;
     });
+  }
+
+  pageUpdate(event: PageEvent){
+    this.loadLive(this.title, event.pageIndex, event.pageSize);
   }
 
   ngOnInit(): void {

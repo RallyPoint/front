@@ -13,6 +13,7 @@ import {environment} from '../../../environments/environment';
 export class ReplayComponent implements OnInit {
 
 
+  public defaultPageSize: number = 20;
   public title = '';
   public replays: any;
   public loading = true;
@@ -27,19 +28,23 @@ export class ReplayComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.title = params.title;
       this.searchForm.get('search').setValue(params.title);
-      this.httpClient.get(`${environment.apiUrl}/search/replays`, {
-        params: {
-          title: this.title
-        }}).toPromise().then((data) => {
-        this.replays = data;
-        this.loading = false;
-      });
+      this.loadLive(this.title);
     });
   }
 
   pageUpdate(event: PageEvent){
-    this.httpClient.get('search/replays',
-      { params: { name: this.title, pageIndex: event.pageIndex.toString(), pageSize: event.pageSize.toString()}}
+    this.loadLive(this.title, event.pageIndex, event.pageSize);
+  }
+
+  loadLive(title: string= '', pageIndex: number = 0, pageSize: number = this.defaultPageSize) {
+    this.loading = true;
+    this.httpClient.get(`${environment.apiUrl}/search/replays`,
+      { params: {
+          title: this.title,
+          pageIndex : pageIndex.toString(),
+          pageSize: pageSize.toString()
+        }
+      }
     ).toPromise().then((data) => {
       this.replays = data;
       this.loading = false;
