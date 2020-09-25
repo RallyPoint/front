@@ -92,14 +92,14 @@
 
     <div class="row">
       <mat-error *ngIf="changeInformationdForm.errors && changeInformationdForm.errors.samePassword && changeInformationdForm.get('passwordConf').touched && changeInformationdForm.get('password').touched" class="col-12 mb-4"><small i18n="auth | live">Les mots de passes ne sont pas identiques</small></mat-error>
-      <div class="col-12 mb-4">
-        <div class="alert alert-primary row" role="alert" *ngIf="succes === true" i18n="auth | live">
+      <div class="col-12">
+        <div class="alert alert-primary" role="alert" *ngIf="succes === true" i18n="auth | live">
           Modification effectué
         </div>
-        <div class="alert alert-danger row" role="alert" *ngIf="succes === false" i18n="auth | live">
-          Erreur de modification des information personnel
+        <div class="alert alert-danger" role="alert" *ngIf="succes === false" i18n="auth | live">
+          Erreur de modification des information.
         </div>
-        <button mat-stroked-button color="primary" class="w-100 row mb-4" i18n="auth | live">Changer</button>
+        <button mat-stroked-button color="primary" class="col-12 mb-4" i18n="auth | live">Changer</button>
       </div>
     </div>
   </form>

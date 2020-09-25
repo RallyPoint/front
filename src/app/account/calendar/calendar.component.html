@@ -1,11 +1,6 @@
 <div class="col-12">
   <h5 i18n="account | replays" class="mt-4 mb-4"> Planning </h5>
 
-  <div class="item w-100 h-100 mb-4 d-flex">
-    <div class="col-md-2 d-md-flex d-none date">
-      &nbsp;
-    </div>
-    <div class="col-12 col-md-9 content">
       <form [formGroup]="changeInformationdForm" (ngSubmit)="changeInformationdSubmit()">
         <h5 i18n=" account | calendar">Ajouter une date de stream</h5>
         <br>
@@ -93,11 +88,9 @@
       </form>
 
 
-    </div>
-  </div>
 
   <div class="item w-100 h-100 mb-4 d-flex" *ngFor="let date of calendarDate">
-    <div class="col-4 col-md-2 date text-right d-flex flex-column justify-content-between">
+    <div class="pr-3 date text-right d-flex flex-column justify-content-between">
       <div class="start">
         <span class="date-str pl-2 pr-2 p-1 mb-2 d-inline-block">{{date.start | date: 'EEEE d MMMM'}}</span><br>
         {{date.start | date: 'hh'}}H{{date.start | date: 'mm'}}
@@ -106,7 +99,7 @@
         {{date.end | date: 'hh'}}H{{date.end | date: 'mm'}}
       </div>
     </div>
-    <div class="col-8 col-md-9 content">
+    <div class="p-3 flex-grow-1 content">
       <h2>{{date.title}}</h2>
       <p>
         {{date.desc}}
