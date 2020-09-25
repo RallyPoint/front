@@ -56,10 +56,10 @@ export class ChannelComponent implements OnInit {
         { name: 'description', content: this.userChannel.live.desc }
       ], true);
       this.route.params.subscribe(params => {
-        this.httpClient.get(`${environment.apiUrl}/replay`, {params: {userId: data.userChannel.id}})
+        this.httpClient.get(`${environment.apiUrl}/search/replays`, {params: {user: this.userChannel.pseudo}})
           .toPromise().then((dataReplay: any) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
-          this.userReplays = dataReplay.map((replay) => {
+          this.userReplays = dataReplay.items.map((replay) => {
             return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.userChannel.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });

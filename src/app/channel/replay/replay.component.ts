@@ -32,10 +32,10 @@ export class ReplayComponent implements OnInit {
       this.httpClient.get(`${environment.apiUrl}/replay/${params.replayId}`).toPromise()
         .then((data: any) => {
         this.replay = data;
-        this.httpClient.get(`${environment.apiUrl}/replay`, {params: {user: data.user.id}})
+        this.httpClient.get(`${environment.apiUrl}/search/replays`, {params: {user: this.replay.user.pseudo}})
           .toPromise().then((dataReplay: any) => {
           const baseUrlThumb = Utils.GetRandomOfArray(environment.vodUrl);
-          this.userReplays = dataReplay.map((replay) => {
+          this.userReplays = dataReplay.items.map((replay) => {
             return Object.assign(replay, {thumbnail: baseUrlThumb + '/thumb/' + this.replay.user.pseudo + '/' + replay.file + '/thumb-1000.jpg'});
           });
         });
