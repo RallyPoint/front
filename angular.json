@@ -19,7 +19,6 @@
           "options": {
             "outputPath": "dist/rallypointtech/browser",
             "allowedCommonJsDependencies": [
-              "p2p-media-loader-shaka",
               "axios",
               "showdown",
               "socket.io-client"
@@ -39,11 +38,9 @@
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
-              "node_modules/clappr/dist/clappr.min.js",
+              "node_modules/clappr/dist/clappr.js",
               "node_modules/@c3voc/clappr-level-selector/dist/level-selector.min.js",
-              "node_modules/clappr-ga-events-plugin/dist/clappr-ga-events-plugin.min.js",
-              "node_modules/p2p-media-loader-core/build/p2p-media-loader-core.min.js",
-              "node_modules/p2p-media-loader-hlsjs/build/p2p-media-loader-hlsjs.min.js"
+              "node_modules/clappr-ga-events-plugin/dist/clappr-ga-events-plugin.min.js"
             ]
           },
           "configurations": {
@@ -110,12 +107,10 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/clappr/dist/clappr.js",
-              "node_modules/mux.js/dist/mux.min.js",
+              "node_modules/clappr/dist/clappr.min.js",
               "node_modules/@c3voc/clappr-level-selector/dist/level-selector.min.js",
               "node_modules/clappr-ga-events-plugin/dist/clappr-ga-events-plugin.min.js",
-              "node_modules/p2p-media-loader-core/build/p2p-media-loader-core.min.js",
-              "node_modules/p2p-media-loader-hlsjs/build/p2p-media-loader-hlsjs.min.js"
+              "node_modules/@clappr/hlsjs-playback/dist/hlsjs-playback.min.js"
             ]
           }
         },

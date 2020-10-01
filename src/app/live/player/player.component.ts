@@ -13,7 +13,7 @@ import {environment} from '../../../environments/environment';
 import {Utils} from '../../share/utils';
 import {isPlatformBrowser} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
-declare var p2pml: any;
+import set = Reflect.set;
 declare var Clappr: any;
 declare var ClapprGaEventsPlugin: any;
 
@@ -75,69 +75,54 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) { return; }
-    if (p2pml.hlsjs.Engine.isSupported()) {
-      const engine = new p2pml.hlsjs.Engine({
-        loader: {
-          trackerAnnounce: ['wss://tracker.openwebtorrent.com']
-        }
-      });
-      engine.on(p2pml.core.Events.PieceBytesDownloaded, this.onBytesDownloaded.bind(this));
-      engine.on(p2pml.core.Events.PieceBytesUploaded, this.onBytesUploaded.bind(this));
-
-      let url = '';
-      if (this.channel) {
-        if (environment.name !== 'local') {
-          url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/' + this.channel + '/index.m3u8';
-        } else {
-          url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.channel + '.m3u8';
-        }
-      } else if (this.file) {
-        url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
+    let url = '';
+    if (this.channel) {
+      if (environment.name !== 'local') {
+        url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/' + this.channel + '/index.m3u8';
+      } else {
+        url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.channel + '.m3u8';
       }
-
-      const setup = {
-        parentId: '#video',
+    } else if (this.file) {
+      url = Utils.GetRandomOfArray(environment.vodUrl) + '/hls/' + this.file + '/master.m3u8';
+    }
+    this.player = new Clappr.Player(
+      {
         source: url,
         width: '100%',
         height: '100%',
         maxHeight: '500px',
-        muted: true,
-        mute: this.muted,
         autoPlay: true,
         playback: {
-          playInline: true,
-          liveSyncDurationCount: 1,
-          loader: engine.createLoaderClass()
+          hlsjsConfig: {
+            liveSyncDurationCount: 1
+          }
         },
-        plugins: {
-          core: [ClapprGaEventsPlugin],
-        },
+        plugins:[ClapprGaEventsPlugin],
         gaEventsPlugin: {
           trackingId: 'UA-174160792-1',
           eventValueAuto: true,
           eventValueAsLive: true,
         }
-      };
-      const outer = document.createElement('div');
-      outer.className = 'embed-responsive embed-responsive-16by9';
-      const video = document.createElement('div');
-      video.id = 'video';
-      video.className = 'embed-responsive-item';
-      outer.appendChild(video);
-      this.playerEl.nativeElement.appendChild(outer);
+      });
 
-      this.player = new Clappr.Player(setup);
-      if (this.channel) {
-        this.player.listenTo(this.player, Clappr.Events.PLAYER_PLAY, () => {
-          this.startStats();
-        });
-        this.player.listenTo(this.player, Clappr.Events.PLAYER_STOP, () => {
-          this.stopStats();
-        });
-        this.player.listenTo(this.player, Clappr.Events.PLAYER_PAUSE, () => {
-          this.stopStats();
-        });
-      }
+    const outer = document.createElement('div');
+    outer.className = 'embed-responsive embed-responsive-16by9';
+    const video = document.createElement('div');
+    video.id = 'video';
+    video.className = 'embed-responsive-item';
+    outer.appendChild(video);
+    this.playerEl.nativeElement.appendChild(outer);
+    this.player.attachTo(video);
+    if (this.channel) {
+      this.player.listenTo(this.player, Clappr.Events.PLAYER_PLAY, () => {
+        this.startStats();
+      });
+      this.player.listenTo(this.player, Clappr.Events.PLAYER_STOP, () => {
+        this.stopStats();
+      });
+      this.player.listenTo(this.player, Clappr.Events.PLAYER_PAUSE, () => {
+        this.stopStats();
+      });
     }
   }
 
