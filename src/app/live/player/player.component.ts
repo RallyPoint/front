@@ -87,7 +87,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
       let url = '';
       if (this.channel) {
         if (environment.name !== 'local') {
-          url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/' + this.channel + '.m3u8';
+          url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.server + '/' + this.channel + '/index.m3u8';
         } else {
           url = Utils.GetRandomOfArray(environment.liveUrl) + '/' + this.channel + '.m3u8';
         }

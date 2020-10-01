@@ -38,7 +38,7 @@ export class ReplaysComponent implements OnInit {
 
   private loadReplays(pageIndex: number, pageSize: number){
     this.loading = true;
-    this.httpClient.get(`${environment.apiUrl}search/replays`,
+    this.httpClient.get(`${environment.apiUrl}/search/replays`,
       {params: {
           user: this.authentificationService.dataValue.user.pseudo,
           pageIndex: pageIndex.toString(),

@@ -2,7 +2,7 @@
   <ng-content></ng-content>
   <div class="item__video" [routerLink]="route" [queryParams]="queryParams">
     <div class="img__img-video">
-      <img *ngIf="live" [src]="'/media/hls/'+pseudo+'.png' | thumbor : [480,270]" alt="">
+      <img *ngIf="live" [src]="'/media/hls/thumbnail/'+pseudo+'/thumbnail.jpg' | thumbor : [480,270]" alt="">
       <img *ngIf="!live && img" [src]="img | thumbor : [480,270]" alt="">
       <img *ngIf="!live && !img" [src]="'/assets/images2/placeholder-stream.jpg' | thumbor : [480,270]" alt="">
       <span *ngIf="live" class="live__button ml-2 mr-2"  i18n="live | mini-live">LIVE</span>

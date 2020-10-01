@@ -11,8 +11,6 @@ RUN apk add --update nodejs nodejs-npm
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install && npm run build:ssr
-RUN ls
-RUN pwd
 RUN cp -rf /usr/src/app/dist/rallypointtech/browser/ /usr/share/nginx/html/
 
 EXPOSE 80
