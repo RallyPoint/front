@@ -48,7 +48,7 @@
     "datebook": "^4.1.11",
     "domino": "^2.1.6",
     "escape-html": "^1.0.3",
-    "express": "^4.15.2",
+    "express": "^4.18.2",
     "font-awesome": "^4.7.0",
     "jwt-decode": "2.2.0",
     "moment": "^2.29.0",
